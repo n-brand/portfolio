@@ -2,9 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio & Blog</title>
+    <!-- FontAwesome Local -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 
+<!-- --- Navigation --- -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">Portfolio</a>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- --- Main Content --- -->
+<main class="main-content">
+
+    <!-- --- About Section --- -->
+    <section id="about" class="section about-section">
+        <div class="profile-container">
+            <div class="profile-image-wrapper">
+                <img src="assets/images/profile.jpg" alt="Profile Picture" class="profile-img" id="profileImg">
+            </div>
+            <div class="profile-info">
+                <h1>Your Name</h1>
+                <p class="profile-headline">Software Developer / Student</p>
+
+                <!-- --- Social Links --- -->
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="social-icon">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="social-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- Timeline --- -->
+        <div class="timeline-container">
+            <h2>Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Current Role / Project</h3>
+                        <h4>Company / Institution</h4>
+                        <p>Short description of your tasks, responsibilities, and achievements in this position.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022 - 2025</div>
+                    <div class="timeline-content">
+                        <h3>Education / Degree</h3>
+                        <h4>School / University</h4>
+                        <p>Details about your field of study, major projects, or specific focus areas during school.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Projects Section --- -->
+    <section id="projects" class="section projects-section">
+        <h2>Projects</h2>
+
+        <!-- --- Filter Buttons --- -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="current">Current</button>
+            <button class="filter-btn" data-filter="school">School</button>
+            <button class="filter-btn" data-filter="official">Official</button>
+        </div>
+
+        <!-- --- Projects Grid --- -->
+        <div class="projects-grid">
+            <div class="project-card" data-category="current">
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <p class="project-desc">A modern, responsive personal website featuring a LinkedIn-style profile layout and integrated project filtering.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="school">
+                <div class="project-content">
+                    <h3>Database Management Assignment</h3>
+                    <p class="project-desc">A school project designing and implementing a robust SQL database scheme for an e-commerce platform simulator.</p>
+                    <div class="project-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">Database</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="official">
+                <div class="project-content">
+                    <h3>Corporate Dashboard</h3>
+                    <p class="project-desc">An official application built for data analysis visualization, integrating complex charting and responsive metrics data reporting.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Contact Section --- -->
+    <section id="contact" class="section contact-section">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <form action="https://formsubmit.co/deine-email@domain.com" method="POST" class="contact-form">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<!-- --- Lightbox --- -->
+<div id="lightbox" class="profile-lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Profile Pic">
+</div>
+
+<script src="./javascript/main.js"></script>
 </body>
 </html>
