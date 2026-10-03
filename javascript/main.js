@@ -1,19 +1,34 @@
-// --- Mobile Navigation ---
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+// --- Active Navigation ---
 const navLinks = document.querySelectorAll('.nav-link');
+const sections = [...navLinks].map(link => document.getElementById(link.dataset.section));
 
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+const setActiveLink = () => {
+    const isStacked = window.matchMedia('(max-width: 900px)').matches;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const isScrollable = scrollHeight > window.innerHeight + 4;
+    const nearBottom = isScrollable && window.innerHeight + window.scrollY >= scrollHeight - 4;
+    let current = sections[0];
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+    if (nearBottom) {
+        current = sections[sections.length - 1];
+    } else {
+        sections.forEach(section => {
+            if (isStacked || section.id !== 'about') {
+                if (section.getBoundingClientRect().top <= 120) {
+                    current = section;
+                }
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === current.id);
     });
-});
+};
+
+window.addEventListener('scroll', setActiveLink, { passive: true });
+window.addEventListener('resize', setActiveLink);
+setActiveLink();
 
 // --- Projects Filter ---
 const filterButtons = document.querySelectorAll('.filter-btn');
