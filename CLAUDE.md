@@ -25,7 +25,7 @@ Stand: 2026-10-03
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt.
-- Projekte: Swan Calisthenics (offiziell, hervorgehoben, https://swancalisthenics.ch/), Minecraft Skin Merger und JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule).
+- Projekte: Swan Calisthenics (offiziell, hervorgehoben, https://swancalisthenics.ch/, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger und JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule).
 - Profilbild durch „NB“-Initialen ersetzt; FontAwesome entfernt (GitHub-Icon als Inline-SVG), da `assets/` nie im Repo war.
 - Kontaktformular entfernt, stattdessen GitHub-Link.
 - Layout desktop-first umgebaut: fixierte Sidebar links, Projekte füllen die volle Breite (getestet 2857px: 6 Spalten, 1920px: 3, 800px: 2, 375px: 1); auf ≤900px Tab-Leiste unten wie bei swancalisthenics.ch. Hamburger-Menü entfernt.
