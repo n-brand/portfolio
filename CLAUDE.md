@@ -42,6 +42,7 @@ Erledigt:
 - Über-mich-Seite angelegt (Platzhalter für persönliche Infos, Skills aus den Projekten abgeleitet).
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
+- Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 

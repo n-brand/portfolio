@@ -380,9 +380,11 @@ ${art(p.slug, 8)}
         <div class="project-tags">
 ${indent(tags(p.tech), 12)}
         </div>
-        <div class="project-links">
+        <div class="card-footer">
+            <div class="card-buttons">
+${indent(links(p), 16)}
+            </div>
             <a href="projekte/${p.slug}.html" class="arrow-link">Mehr lesen ${ARROW}</a>
-${indent(links(p), 12)}
         </div>
     </div>
 </div>`;
