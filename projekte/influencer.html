@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer – Nicolas Brand</title>
+    <meta name="description" content="Eine Übersichtsseite mit bekannten deutschen und amerikanischen Influencern, als Karten mit Filter und Detailansicht.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- --- Sidebar --- -->
+    <aside class="sidebar">
+        <div class="profile">
+            <div class="profile-initials" aria-hidden="true">NB</div>
+            <div class="profile-info">
+                <h1 class="profile-name"><a href="../index.html">Nicolas Brand</a></h1>
+                <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
+            </div>
+        </div>
+
+        <p class="profile-bio">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
+
+        <!-- --- Navigation --- -->
+        <nav class="nav-menu" aria-label="Hauptnavigation">
+            <a href="../ueber-mich.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+                <span>Über mich</span>
+            </a>
+            <a href="../index.html#projects" class="nav-link active" data-section="projects">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <span>Projekte</span>
+            </a>
+            <a href="../index.html#contact" class="nav-link" data-section="contact">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Kontakt</span>
+            </a>
+        </nav>
+
+        <!-- --- Social Links --- -->
+        <div class="social-links">
+            <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                <span>github.com/n-brand</span>
+            </a>
+        </div>
+
+        <!-- --- Footer --- -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Nicolas Brand</p>
+        </footer>
+    </aside>
+
+    <!-- --- Main Content --- -->
+    <main class="main-content">
+        <article class="detail">
+            <a href="../index.html#projects" class="back-link">← Alle Projekte</a>
+
+            <!-- --- Detail Art --- -->
+            <div class="detail-art theme-influencer">
+                <span class="card-badge badge-proto">Prototyp</span>
+                <svg viewBox="0 0 240 140" aria-hidden="true">
+                    <rect x="62" y="24" width="116" height="78" rx="20" fill="#ffffff"/>
+                    <path d="M110 46 L140 63 L110 80 Z" fill="#f03e7e"/>
+                    <path d="M44 66 c0 -8 12 -8 12 0 c0 -8 12 -8 12 0 c0 8 -12 14 -12 18 c0 -4 -12 -10 -12 -18 Z" fill="#f03e7e"/>
+                    <path d="M178 112 c0 -6 9 -6 9 0 c0 -6 9 -6 9 0 c0 6 -9 10 -9 13 c0 -3 -9 -7 -9 -13 Z" fill="#ffffff"/>
+                    <rect x="84" y="112" width="72" height="16" rx="8" fill="#183153"/>
+                    <circle cx="96" cy="120" r="4" fill="#ff8fb1"/>
+                    <rect x="106" y="117" width="40" height="6" rx="3" fill="#ffffff"/>
+                </svg>
+            </div>
+
+            <!-- --- Detail Header --- -->
+            <header class="detail-header">
+                <span class="project-label">Schulprojekt</span>
+                <h1>Influencer</h1>
+                <p class="detail-lead">Eine Übersichtsseite mit bekannten deutschen und amerikanischen Influencern, als Karten mit Filter und Detailansicht.</p>
+                <div class="project-links">
+                    <a href="https://github.com/n-brand/Influencer" target="_blank" rel="noopener" class="project-link">Code</a>
+                </div>
+            </header>
+
+            <!-- --- Detail Meta --- -->
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Zeitraum</span>
+                    Mai – Juni 2026
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    Prototyp
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tech</span>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">JSON</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --- Detail Body --- -->
+            <div class="detail-body">
+                <section>
+                    <h2>Über das Projekt</h2>
+                    <p>Die Seite zeigt 19 Influencer als Karten in einem Grid. Über einen Filter lässt sich zwischen deutschen und amerikanischen Creatorn wechseln, ein Klick öffnet die Detailansicht.</p>
+                    <p>Technisch baut das Projekt auf dem Code des Hofladen-Katalogs auf und überträgt das Prinzip auf ein neues Thema.</p>
+
+                    <h2>Features</h2>
+                    <ul class="feature-list">
+                        <li>19 Einträge aus einer JSON-Datei</li>
+                        <li>Filter nach Kategorie: Deutsch oder Amerikanisch</li>
+                        <li>Detailansicht mit Bild und Beschreibung</li>
+                        <li>Responsives Grid</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Technik</h2>
+                    <ul class="feature-list">
+                        <li>Daten per fetch aus JSON geladen</li>
+                        <li>Karten aus einem HTML-Template geklont</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- --- Pager --- -->
+            <nav class="detail-pager" aria-label="Weitere Projekte">
+                <a href="hofladen-webshop.html" class="pager-link prev"><span class="meta-label">← Vorheriges Projekt</span>Hofladen-Webshop</a>
+                <a href="mediensammlung.html" class="pager-link next"><span class="meta-label">Nächstes Projekt →</span>Mediensammlung</a>
+            </nav>
+        </article>
+    </main>
+</div>
+
+<script src="../javascript/main.js"></script>
+</body>
+</html>

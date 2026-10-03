@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS-Anleitung – Nicolas Brand</title>
+    <meta name="description" content="Eine deutschsprachige Schritt-für-Schritt-Anleitung, mit der man den Open-Source-Sprachassistenten JARVIS unter Windows einrichtet.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- --- Sidebar --- -->
+    <aside class="sidebar">
+        <div class="profile">
+            <div class="profile-initials" aria-hidden="true">NB</div>
+            <div class="profile-info">
+                <h1 class="profile-name"><a href="../index.html">Nicolas Brand</a></h1>
+                <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
+            </div>
+        </div>
+
+        <p class="profile-bio">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
+
+        <!-- --- Navigation --- -->
+        <nav class="nav-menu" aria-label="Hauptnavigation">
+            <a href="../ueber-mich.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+                <span>Über mich</span>
+            </a>
+            <a href="../index.html#projects" class="nav-link active" data-section="projects">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <span>Projekte</span>
+            </a>
+            <a href="../index.html#contact" class="nav-link" data-section="contact">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Kontakt</span>
+            </a>
+        </nav>
+
+        <!-- --- Social Links --- -->
+        <div class="social-links">
+            <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                <span>github.com/n-brand</span>
+            </a>
+        </div>
+
+        <!-- --- Footer --- -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Nicolas Brand</p>
+        </footer>
+    </aside>
+
+    <!-- --- Main Content --- -->
+    <main class="main-content">
+        <article class="detail">
+            <a href="../index.html#projects" class="back-link">← Alle Projekte</a>
+
+            <!-- --- Detail Art --- -->
+            <div class="detail-art theme-jarvis-anleitung">
+                <span class="card-badge badge-live">Live</span>
+                <svg viewBox="0 0 240 140" aria-hidden="true">
+                    <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
+                    <circle cx="120" cy="70" r="66" fill="url(#glow-jarvis)"/>
+                    <circle cx="120" cy="70" r="40" fill="none" stroke="#4dd4ff" stroke-width="4" stroke-dasharray="16 8"/>
+                    <circle cx="120" cy="70" r="26" fill="none" stroke="#a5ecff" stroke-width="3"/>
+                    <circle cx="120" cy="70" r="12" fill="#e9fbff"/>
+                    <g fill="#4dd4ff">
+                        <rect x="22" y="62" width="6" height="16" rx="3"/><rect x="34" y="52" width="6" height="36" rx="3"/><rect x="46" y="58" width="6" height="24" rx="3"/><rect x="58" y="64" width="6" height="12" rx="3"/>
+                        <rect x="176" y="64" width="6" height="12" rx="3"/><rect x="188" y="58" width="6" height="24" rx="3"/><rect x="200" y="52" width="6" height="36" rx="3"/><rect x="212" y="62" width="6" height="16" rx="3"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- --- Detail Header --- -->
+            <header class="detail-header">
+                <span class="project-label">Aktuelles Projekt</span>
+                <h1>JARVIS-Anleitung</h1>
+                <p class="detail-lead">Eine deutschsprachige Schritt-für-Schritt-Anleitung, mit der man den Open-Source-Sprachassistenten JARVIS unter Windows einrichtet.</p>
+                <div class="project-links">
+                    <a href="https://n-brand.github.io/jarvis-Anleitung/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                    <a href="https://github.com/n-brand/jarvis-Anleitung" target="_blank" rel="noopener" class="project-link">Code</a>
+                </div>
+            </header>
+
+            <!-- --- Detail Meta --- -->
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Zeitraum</span>
+                    September 2026
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    Live
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tech</span>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --- Detail Body --- -->
+            <div class="detail-body">
+                <section>
+                    <h2>Über das Projekt</h2>
+                    <p>JARVIS ist ein Open-Source-Sprachassistent im Browser, der Claude Code als „Gehirn“ nutzt. Ich habe dazu eine verständliche Anleitung geschrieben, damit auch Einsteiger ihn zum Laufen bringen.</p>
+                    <p>Die Anleitung führt durch alle Schritte von PowerShell und Node.js bis zum Start im Browser. Das Projekt JARVIS selbst stammt nicht von mir und wird auf der Seite verlinkt.</p>
+
+                    <h2>Features</h2>
+                    <ul class="feature-list">
+                        <li>10 nummerierte Schritte für Windows</li>
+                        <li>Installation von Node.js und Claude Code CLI</li>
+                        <li>Repo klonen, Abhängigkeiten installieren, App starten</li>
+                        <li>Optionaler Schritt für eine ElevenLabs-Stimme</li>
+                        <li>Hell- und Dunkel-Design, responsives Layout</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Technik</h2>
+                    <ul class="feature-list">
+                        <li>Eine einzelne, statische HTML-Seite</li>
+                        <li>Farben über CSS-Variablen</li>
+                        <li>Gehostet auf GitHub Pages</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- --- Pager --- -->
+            <nav class="detail-pager" aria-label="Weitere Projekte">
+                <a href="gamehub.html" class="pager-link prev"><span class="meta-label">← Vorheriges Projekt</span>Gamehub</a>
+                <a href="escape-room.html" class="pager-link next"><span class="meta-label">Nächstes Projekt →</span>Escape Room</a>
+            </nav>
+        </article>
+    </main>
+</div>
+
+<script src="../javascript/main.js"></script>
+</body>
+</html>

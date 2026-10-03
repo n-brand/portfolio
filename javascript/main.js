@@ -1,8 +1,12 @@
 // --- Active Navigation ---
 const navLinks = document.querySelectorAll('.nav-link');
-const sections = [...navLinks].map(link => document.getElementById(link.dataset.section));
+const sections = [...navLinks].map(link => document.getElementById(link.dataset.section)).filter(Boolean);
 
 const setActiveLink = () => {
+    if (sections.length !== navLinks.length) {
+        return;
+    }
+
     const isStacked = window.matchMedia('(max-width: 900px)').matches;
     const scrollHeight = document.documentElement.scrollHeight;
     const isScrollable = scrollHeight > window.innerHeight + 4;

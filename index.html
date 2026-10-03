@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicolas Brand – Portfolio</title>
     <meta name="description" content="Websites und Projekte von Nicolas Brand.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -12,11 +15,11 @@
 <div class="layout">
 
     <!-- --- Sidebar --- -->
-    <aside id="about" class="sidebar">
+    <aside class="sidebar">
         <div class="profile">
             <div class="profile-initials" aria-hidden="true">NB</div>
             <div class="profile-info">
-                <h1>Nicolas Brand</h1>
+                <h1 class="profile-name"><a href="index.html">Nicolas Brand</a></h1>
                 <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
             </div>
         </div>
@@ -25,15 +28,15 @@
 
         <!-- --- Navigation --- -->
         <nav class="nav-menu" aria-label="Hauptnavigation">
-            <a href="#about" class="nav-link active" data-section="about">
+            <a href="ueber-mich.html" class="nav-link">
                 <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
                 <span>Über mich</span>
             </a>
-            <a href="#projects" class="nav-link" data-section="projects">
+            <a href="index.html#projects" class="nav-link active" data-section="projects">
                 <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
                 <span>Projekte</span>
             </a>
-            <a href="#contact" class="nav-link" data-section="contact">
+            <a href="index.html#contact" class="nav-link" data-section="contact">
                 <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
                 <span>Kontakt</span>
             </a>
@@ -72,114 +75,259 @@
 
             <!-- --- Projects Grid --- -->
             <div class="projects-grid">
-                <div class="project-card featured" data-category="official">
+                <div class="project-card theme-swan-calisthenics featured" data-category="official">
+                    <span class="card-badge badge-live">Live</span>
+                    <a href="projekte/swan-calisthenics.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <defs><radialGradient id="glow-swan"><stop offset="0" stop-color="#ff6b6b" stop-opacity=".55"/><stop offset="1" stop-color="#ff6b6b" stop-opacity="0"/></radialGradient></defs>
+                            <circle cx="120" cy="62" r="62" fill="url(#glow-swan)"/>
+                            <rect x="46" y="22" width="10" height="112" rx="5" fill="#8fa4c4"/>
+                            <rect x="184" y="22" width="10" height="112" rx="5" fill="#8fa4c4"/>
+                            <rect x="40" y="20" width="160" height="10" rx="5" fill="#e9eef6"/>
+                            <path d="M104 25 L112 52 M136 25 L128 52" stroke="#ffd43b" stroke-width="9" stroke-linecap="round"/>
+                            <circle cx="120" cy="46" r="11" fill="#ffd43b"/>
+                            <rect x="108" y="56" width="24" height="38" rx="12" fill="#e63946"/>
+                            <path d="M113 92 L108 124 M127 92 L132 124" stroke="#e9eef6" stroke-width="9" stroke-linecap="round"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
                         <span class="project-label">Offizielles Projekt</span>
-                        <h3>Swan Calisthenics</h3>
+                        <h3><a href="projekte/swan-calisthenics.html" class="project-title-link">Swan Calisthenics</a></h3>
                         <p class="project-desc">Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">Web Components</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/swan-calisthenics.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://swancalisthenics.ch/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
                             <a href="https://github.com/swancalisthenics/home" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="current">
+                <div class="project-card theme-minecraft-skin-merger" data-category="current">
+                    <span class="card-badge badge-live">Live</span>
+                    <a href="projekte/minecraft-skin-merger.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true" shape-rendering="crispEdges">
+                            <rect x="68" y="18" width="13" height="13" fill="#4a2f1b"/><rect x="81" y="18" width="13" height="13" fill="#4a2f1b"/><rect x="94" y="18" width="13" height="13" fill="#4a2f1b"/><rect x="107" y="18" width="13" height="13" fill="#4a2f1b"/><rect x="120" y="18" width="13" height="13" fill="#5cbf3a"/><rect x="133" y="18" width="13" height="13" fill="#5cbf3a"/><rect x="146" y="18" width="13" height="13" fill="#5cbf3a"/><rect x="159" y="18" width="13" height="13" fill="#5cbf3a"/><rect x="68" y="31" width="13" height="13" fill="#4a2f1b"/><rect x="81" y="31" width="13" height="13" fill="#4a2f1b"/><rect x="94" y="31" width="13" height="13" fill="#4a2f1b"/><rect x="107" y="31" width="13" height="13" fill="#4a2f1b"/><rect x="120" y="31" width="13" height="13" fill="#5cbf3a"/><rect x="133" y="31" width="13" height="13" fill="#5cbf3a"/><rect x="146" y="31" width="13" height="13" fill="#5cbf3a"/><rect x="159" y="31" width="13" height="13" fill="#5cbf3a"/><rect x="68" y="44" width="13" height="13" fill="#c89a6e"/><rect x="81" y="44" width="13" height="13" fill="#c89a6e"/><rect x="94" y="44" width="13" height="13" fill="#c89a6e"/><rect x="107" y="44" width="13" height="13" fill="#c89a6e"/><rect x="120" y="44" width="13" height="13" fill="#5cbf3a"/><rect x="133" y="44" width="13" height="13" fill="#5cbf3a"/><rect x="146" y="44" width="13" height="13" fill="#5cbf3a"/><rect x="159" y="44" width="13" height="13" fill="#5cbf3a"/><rect x="68" y="57" width="13" height="13" fill="#c89a6e"/><rect x="81" y="57" width="13" height="13" fill="#ffffff"/><rect x="94" y="57" width="13" height="13" fill="#2b1b4f"/><rect x="107" y="57" width="13" height="13" fill="#c89a6e"/><rect x="120" y="57" width="13" height="13" fill="#5cbf3a"/><rect x="133" y="57" width="13" height="13" fill="#2b1b4f"/><rect x="146" y="57" width="13" height="13" fill="#2b1b4f"/><rect x="159" y="57" width="13" height="13" fill="#5cbf3a"/><rect x="68" y="70" width="13" height="13" fill="#c89a6e"/><rect x="81" y="70" width="13" height="13" fill="#c89a6e"/><rect x="94" y="70" width="13" height="13" fill="#c89a6e"/><rect x="107" y="70" width="13" height="13" fill="#c89a6e"/><rect x="120" y="70" width="13" height="13" fill="#3e8f26"/><rect x="133" y="70" width="13" height="13" fill="#5cbf3a"/><rect x="146" y="70" width="13" height="13" fill="#5cbf3a"/><rect x="159" y="70" width="13" height="13" fill="#3e8f26"/><rect x="68" y="83" width="13" height="13" fill="#c89a6e"/><rect x="81" y="83" width="13" height="13" fill="#8a4b2f"/><rect x="94" y="83" width="13" height="13" fill="#8a4b2f"/><rect x="107" y="83" width="13" height="13" fill="#c89a6e"/><rect x="120" y="83" width="13" height="13" fill="#5cbf3a"/><rect x="133" y="83" width="13" height="13" fill="#2b1b4f"/><rect x="146" y="83" width="13" height="13" fill="#2b1b4f"/><rect x="159" y="83" width="13" height="13" fill="#5cbf3a"/><rect x="68" y="96" width="13" height="13" fill="#c89a6e"/><rect x="81" y="96" width="13" height="13" fill="#8a4b2f"/><rect x="94" y="96" width="13" height="13" fill="#8a4b2f"/><rect x="107" y="96" width="13" height="13" fill="#c89a6e"/><rect x="120" y="96" width="13" height="13" fill="#2b1b4f"/><rect x="133" y="96" width="13" height="13" fill="#3e8f26"/><rect x="146" y="96" width="13" height="13" fill="#3e8f26"/><rect x="159" y="96" width="13" height="13" fill="#2b1b4f"/><rect x="68" y="109" width="13" height="13" fill="#c89a6e"/><rect x="81" y="109" width="13" height="13" fill="#c89a6e"/><rect x="94" y="109" width="13" height="13" fill="#c89a6e"/><rect x="107" y="109" width="13" height="13" fill="#c89a6e"/><rect x="120" y="109" width="13" height="13" fill="#3e8f26"/><rect x="133" y="109" width="13" height="13" fill="#2b1b4f"/><rect x="146" y="109" width="13" height="13" fill="#2b1b4f"/><rect x="159" y="109" width="13" height="13" fill="#3e8f26"/>
+                            <rect x="117" y="10" width="6" height="120" fill="#ffd43b"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>Minecraft Skin Merger</h3>
+                        <h3><a href="projekte/minecraft-skin-merger.html" class="project-title-link">Minecraft Skin Merger</a></h3>
                         <p class="project-desc">Browser-Tool, das zwei Minecraft-Java-Skins zusammenführt – Körperteile und Layer lassen sich pro Skin auswählen.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
+                            <span class="tag">Canvas</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/minecraft-skin-merger.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://n-brand.github.io/minecraft-skinmerger/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
                             <a href="https://github.com/n-brand/minecraft-skinmerger" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="current">
+                <div class="project-card theme-gamehub" data-category="current">
+                    <span class="card-badge badge-wip">In Arbeit</span>
+                    <a href="projekte/gamehub.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true" shape-rendering="crispEdges">
+                            <rect x="36" y="32" width="14" height="14" fill="#a9e34b"/><rect x="50" y="32" width="14" height="14" fill="#a9e34b"/><rect x="64" y="32" width="14" height="14" fill="#a9e34b"/><rect x="78" y="32" width="14" height="14" fill="#a9e34b"/><rect x="92" y="32" width="14" height="14" fill="#a9e34b"/><rect x="92" y="46" width="14" height="14" fill="#a9e34b"/><rect x="92" y="60" width="14" height="14" fill="#a9e34b"/><rect x="162" y="60" width="14" height="14" fill="#ff6b6b"/><rect x="92" y="74" width="14" height="14" fill="#a9e34b"/><rect x="106" y="74" width="14" height="14" fill="#a9e34b"/><rect x="120" y="74" width="14" height="14" fill="#a9e34b"/><rect x="134" y="74" width="14" height="14" fill="#a9e34b"/><rect x="148" y="74" width="14" height="14" fill="#a9e34b"/><rect x="162" y="74" width="14" height="14" fill="#a9e34b"/>
+                            <rect x="64" y="96" width="112" height="34" rx="17" fill="#ffffff" opacity=".95"/>
+                            <rect x="84" y="109" width="18" height="6" rx="2" fill="#6c3ce9"/>
+                            <rect x="90" y="103" width="6" height="18" rx="2" fill="#6c3ce9"/>
+                            <circle cx="146" cy="108" r="5" fill="#ff6b6b"/>
+                            <circle cx="158" cy="118" r="5" fill="#ffd43b"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>JARVIS-Anleitung</h3>
-                        <p class="project-desc">Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.</p>
+                        <h3><a href="projekte/gamehub.html" class="project-title-link">Gamehub</a></h3>
+                        <p class="project-desc">Browser-Spieleplattform: Spiele direkt im Browser spielen – mit Kategorien, Suche, Favoriten und Highscores.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
-                            <span class="tag">Doku</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/gamehub.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="https://github.com/n-brand/gamehub" target="_blank" rel="noopener" class="project-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card theme-jarvis-anleitung" data-category="current">
+                    <span class="card-badge badge-live">Live</span>
+                    <a href="projekte/jarvis-anleitung.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
+                            <circle cx="120" cy="70" r="66" fill="url(#glow-jarvis)"/>
+                            <circle cx="120" cy="70" r="40" fill="none" stroke="#4dd4ff" stroke-width="4" stroke-dasharray="16 8"/>
+                            <circle cx="120" cy="70" r="26" fill="none" stroke="#a5ecff" stroke-width="3"/>
+                            <circle cx="120" cy="70" r="12" fill="#e9fbff"/>
+                            <g fill="#4dd4ff">
+                                <rect x="22" y="62" width="6" height="16" rx="3"/><rect x="34" y="52" width="6" height="36" rx="3"/><rect x="46" y="58" width="6" height="24" rx="3"/><rect x="58" y="64" width="6" height="12" rx="3"/>
+                                <rect x="176" y="64" width="6" height="12" rx="3"/><rect x="188" y="58" width="6" height="24" rx="3"/><rect x="200" y="52" width="6" height="36" rx="3"/><rect x="212" y="62" width="6" height="16" rx="3"/>
+                            </g>
+                        </svg>
+                    </a>
+                    <div class="project-content">
+                        <h3><a href="projekte/jarvis-anleitung.html" class="project-title-link">JARVIS-Anleitung</a></h3>
+                        <p class="project-desc">Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projekte/jarvis-anleitung.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://n-brand.github.io/jarvis-Anleitung/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
                             <a href="https://github.com/n-brand/jarvis-Anleitung" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="school">
+                <div class="project-card theme-escape-room" data-category="school">
+                    <span class="card-badge badge-proto">Prototyp</span>
+                    <a href="projekte/escape-room.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <rect x="20" y="126" width="200" height="6" rx="3" fill="#c9a26b"/>
+                            <path d="M86 128 V48 a34 34 0 0 1 68 0 V128 Z" fill="#8b5a2b"/>
+                            <path d="M96 128 V52 a24 24 0 0 1 48 0 V128 Z" fill="#a8703a"/>
+                            <circle cx="132" cy="92" r="5" fill="#ffd43b"/>
+                            <circle cx="120" cy="76" r="7" fill="#3b2412"/>
+                            <path d="M117 80 L114 96 H126 L123 80 Z" fill="#3b2412"/>
+                            <g transform="rotate(-25 186 54)">
+                                <circle cx="172" cy="54" r="12" fill="none" stroke="#ffd43b" stroke-width="7"/>
+                                <rect x="182" y="51" width="38" height="7" rx="3" fill="#ffd43b"/>
+                                <rect x="206" y="57" width="6" height="10" rx="2" fill="#ffd43b"/><rect x="214" y="57" width="6" height="7" rx="2" fill="#ffd43b"/>
+                            </g>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>Escape Room</h3>
-                        <p class="project-desc">Escape-Room-Spiel im Browser.</p>
+                        <h3><a href="projekte/escape-room.html" class="project-title-link">Escape Room</a></h3>
+                        <p class="project-desc">Prototyp eines Point-and-Click-Spiels: ein Haus mit klickbaren Räumen.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/escape-room.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://github.com/n-brand/escape-room" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="school">
+                <div class="project-card theme-textbased-game" data-category="school">
+                    <span class="card-badge badge-done">Fertig</span>
+                    <a href="projekte/textbased-game.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <rect x="20" y="14" width="200" height="112" rx="12" fill="#1c1f1c" stroke="#2f3a2f" stroke-width="3"/>
+                            <circle cx="38" cy="30" r="4" fill="#ff6b6b"/><circle cx="52" cy="30" r="4" fill="#ffd43b"/><circle cx="66" cy="30" r="4" fill="#39ff6a"/>
+                            <g font-family="ui-monospace, Consolas, monospace" font-size="14" font-weight="700" fill="#39ff6a">
+                                <text x="36" y="62">Eine Wache schläft…</text>
+                                <text x="36" y="84" fill="#b9ffc9">&gt; 1) Schleichen</text>
+                                <text x="36" y="104" fill="#b9ffc9">&gt; 2) Kämpfen</text>
+                            </g>
+                            <rect x="144" y="93" width="9" height="14" fill="#39ff6a"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>Textbased Game</h3>
-                        <p class="project-desc">Textbasiertes Abenteuerspiel im Browser.</p>
+                        <h3><a href="projekte/textbased-game.html" class="project-title-link">Textbased Game</a></h3>
+                        <p class="project-desc">Text-Adventure im Browser: In einer Höhle entscheidest du zwischen Schleichen und Kämpfen.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">JavaScript</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/textbased-game.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://github.com/n-brand/textbased-game" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="school">
+                <div class="project-card theme-hofladen-webshop" data-category="school">
+                    <span class="card-badge badge-done">Fertig</span>
+                    <a href="projekte/hofladen-webshop.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <path d="M40 124 h160 l-14 -54 h-132 Z" fill="#c2773a"/>
+                            <path d="M54 70 h132" stroke="#9a5a26" stroke-width="6" stroke-linecap="round"/>
+                            <circle cx="86" cy="58" r="22" fill="#e03131"/>
+                            <path d="M86 38 q4 -12 14 -12" stroke="#5c3a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="100" cy="30" rx="9" ry="5" fill="#5cbf3a" transform="rotate(-20 100 30)"/>
+                            <ellipse cx="134" cy="60" rx="15" ry="19" fill="#fff8ec"/>
+                            <path d="M160 72 l24 -40 l10 6 Z" fill="#fd7e14"/>
+                            <path d="M186 34 l6 -12 M190 36 l12 -6 M184 32 l-2 -14" stroke="#5cbf3a" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>Hofladen-Webshop</h3>
-                        <p class="project-desc">Webshop für einen Hofladen.</p>
+                        <h3><a href="projekte/hofladen-webshop.html" class="project-title-link">Hofladen-Webshop</a></h3>
+                        <p class="project-desc">Produktkatalog für einen Hofladen mit Kategorie-Filter, Detailansicht und Aktionspreisen.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
+                            <span class="tag">JSON</span>
                         </div>
                         <div class="project-links">
+                            <a href="projekte/hofladen-webshop.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://github.com/n-brand/Hofladen-Webshop" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="school">
+                <div class="project-card theme-influencer" data-category="school">
+                    <span class="card-badge badge-proto">Prototyp</span>
+                    <a href="projekte/influencer.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <rect x="62" y="24" width="116" height="78" rx="20" fill="#ffffff"/>
+                            <path d="M110 46 L140 63 L110 80 Z" fill="#f03e7e"/>
+                            <path d="M44 66 c0 -8 12 -8 12 0 c0 -8 12 -8 12 0 c0 8 -12 14 -12 18 c0 -4 -12 -10 -12 -18 Z" fill="#f03e7e"/>
+                            <path d="M178 112 c0 -6 9 -6 9 0 c0 -6 9 -6 9 0 c0 6 -9 10 -9 13 c0 -3 -9 -7 -9 -13 Z" fill="#ffffff"/>
+                            <rect x="84" y="112" width="72" height="16" rx="8" fill="#183153"/>
+                            <circle cx="96" cy="120" r="4" fill="#ff8fb1"/>
+                            <rect x="106" y="117" width="40" height="6" rx="3" fill="#ffffff"/>
+                        </svg>
+                    </a>
                     <div class="project-content">
-                        <h3>Influencer</h3>
-                        <p class="project-desc">Statische Website zum Thema Influencer.</p>
+                        <h3><a href="projekte/influencer.html" class="project-title-link">Influencer</a></h3>
+                        <p class="project-desc">Übersicht bekannter Influencer mit Filter nach Herkunft und Detailansicht.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">JSON</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projekte/influencer.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a href="https://github.com/n-brand/Influencer" target="_blank" rel="noopener" class="project-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card theme-mediensammlung" data-category="school">
+                    <span class="card-badge badge-live">Live</span>
+                    <a href="projekte/mediensammlung.html" class="card-art" tabindex="-1" aria-hidden="true">
+                        <svg viewBox="0 0 240 140" aria-hidden="true">
+                            <g transform="rotate(-8 92 82)">
+                                <rect x="44" y="60" width="96" height="62" rx="8" fill="#183153"/>
+                                <rect x="44" y="40" width="96" height="18" rx="4" fill="#ffffff"/>
+                                <path d="M58 40 l-10 18 M78 40 l-10 18 M98 40 l-10 18 M118 40 l-10 18 M138 40 l-10 18" stroke="#183153" stroke-width="7"/>
+                            </g>
+                            <rect x="150" y="24" width="52" height="104" rx="6" fill="#183153"/>
+                            <g fill="#74c0fc"><rect x="155" y="30" width="7" height="9" rx="2"/><rect x="155" y="48" width="7" height="9" rx="2"/><rect x="155" y="66" width="7" height="9" rx="2"/><rect x="155" y="84" width="7" height="9" rx="2"/><rect x="155" y="102" width="7" height="9" rx="2"/>
+                            <rect x="190" y="30" width="7" height="9" rx="2"/><rect x="190" y="48" width="7" height="9" rx="2"/><rect x="190" y="66" width="7" height="9" rx="2"/><rect x="190" y="84" width="7" height="9" rx="2"/><rect x="190" y="102" width="7" height="9" rx="2"/></g>
+                            <rect x="166" y="34" width="20" height="40" rx="3" fill="#ffd43b"/><rect x="166" y="80" width="20" height="40" rx="3" fill="#ff8787"/>
+                        </svg>
+                    </a>
+                    <div class="project-content">
+                        <h3><a href="projekte/mediensammlung.html" class="project-title-link">Mediensammlung</a></h3>
+                        <p class="project-desc">Meine Lieblingsfilme und -serien als Karten mit Poster, Jahr und IMDb-Link.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/n-brand/Influencer" target="_blank" rel="noopener" class="project-link">Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-category="school">
-                    <div class="project-content">
-                        <h3>Mediensammlung</h3>
-                        <p class="project-desc">Einfache Website für eine Mediensammlung mit meinen Lieblingsfilmen.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                        </div>
-                        <div class="project-links">
+                            <a href="projekte/mediensammlung.html" class="arrow-link">Mehr lesen <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                             <a href="https://n-brand.github.io/Mediensammlung/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
                             <a href="https://github.com/n-brand/Mediensammlung" target="_blank" rel="noopener" class="project-link">Code</a>
                         </div>

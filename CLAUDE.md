@@ -4,18 +4,29 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 ## Struktur
 
-- `index.html` – Sidebar (Profil, Navigation, GitHub, Footer) + Hauptbereich (Projekte mit Filter, Kontakt)
-- `css/styles.css` – Styles, Dark/Light-Mode über `prefers-color-scheme`
-- `javascript/main.js` – aktiver Navigationspunkt beim Scrollen, Projektfilter, Jahreszahl im Footer
-- Lokal testen: Eintrag `portfolio` in `C:\Source\.claude\launch.json` → http://localhost:4176
+- `index.html` – Startseite: Sidebar + Projekte (Karten mit Filter) + Kontakt
+- `ueber-mich.html` – Über-mich-Seite (Steckbrief, Werdegang, Skills, Interessen – noch mit Platzhaltern)
+- `projekte/<slug>.html` – eine Detailseite pro Projekt (Illustration, Lead, Zeitraum/Status/Tech, Über das Projekt, Features, Technik, Vor/Zurück)
+- `css/styles.css` – alle Styles, Dark/Light-Mode über `prefers-color-scheme`
+- `javascript/main.js` – aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
+- `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
+- Lokal testen: Eintrag `portfolio` in `C:Source.claudelaunch.json` → http://localhost:4176
+
+## Seiten bearbeiten
+
+- **Projekte, Sidebar, Über-mich-Seite: immer in `tools/build-pages.js` ändern** und danach `node tools/build-pages.js` ausführen. Nicht direkt in den erzeugten HTML-Dateien ändern – das wird beim nächsten Lauf überschrieben.
+- In `index.html` von Hand gepflegt: `<head>`, Projekte-Überschrift + Filter, Kontakt-Abschnitt. Der Generator ersetzt nur das `.projects-grid` und die `<aside>`.
+- Neues Projekt: Eintrag im Array `projects` (slug, category, title, card, lead, period, status, live, code, about, features, tech, techNotes) + Illustration in `ART[slug]` + Farb-Theme `.theme-<slug>` in `styles.css`.
 
 ## Konventionen
 
+- **Design im Stil der Font-Awesome-Website** (Wunsch von Nicolas): hellgrauer Hintergrund, Navy-Text (#183153), runde Schrift (Nunito über Google Fonts), stark abgerundete Karten mit dickem dunklerem „Schatten-Rand“ unten (`box-shadow: 0 5px 0 …`), Badge oben mittig (LIVE / IN ARBEIT / PROTOTYP / FERTIG), unterstrichener Pfeil-Link „Mehr lesen →“, gelbe Buttons mit Schattenkante. Dark Mode = Navy-Variante.
+- **Jede Projektkarte hat ein eigenes Farb-Theme und eine eigene SVG-Illustration passend zum Inhalt** (z.B. Klimmzugstange bei Swan, Pixel-Kopf bei Minecraft, Terminal beim Text-Adventure). Neue Projekte bekommen ebenfalls eine passende Illustration.
 - **Desktop-first:** Basis-Styles gelten für große Bildschirme, Anpassungen per `max-width`-Media-Queries (1200px Laptop, 900px Tablet/Handy mit Tab-Leiste unten, 680px einspaltig) plus `min-width: 2000px` für sehr breite Monitore. Nicolas nutzt einen sehr breiten Monitor (ca. 2850px CSS-Breite bei 70 % Zoom) – leerer Platz soll vermieden werden, daher keine feste Maximalbreite.
 - Mobile Navigation: Tab-Leiste unten im Stil von swancalisthenics.ch (Icon über Text, aktiver Punkt getönt hinterlegt).
 - Inhalte auf Deutsch, Klassennamen und IDs auf Englisch.
 - Nur strukturierende Kommentare (z.B. `/* --- Navigation --- */`).
-- Neue Projekte als `.project-card` mit `data-category` = `current` | `school` | `official`; `.featured` belegt 2 Spalten.
+- Texte über Projekte nur mit belegten Fakten (aus Code/Repo), nichts erfinden.
 
 ## Aktueller Stand – IMMER AKTUELL HALTEN
 
@@ -24,20 +35,22 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 Stand: 2026-10-03
 
 Erledigt:
-- Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt.
-- Projekte: Swan Calisthenics (offiziell, hervorgehoben, https://swancalisthenics.ch/, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger und JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule).
-- Profilbild durch „NB“-Initialen ersetzt; FontAwesome entfernt (GitHub-Icon als Inline-SVG), da `assets/` nie im Repo war.
-- Kontaktformular entfernt, stattdessen GitHub-Link.
-- Layout desktop-first umgebaut: fixierte Sidebar links, Projekte füllen die volle Breite (getestet 2857px: 6 Spalten, 1920px: 3, 800px: 2, 375px: 1); auf ≤900px Tab-Leiste unten wie bei swancalisthenics.ch. Hamburger-Menü entfernt.
+- Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
+- Layout desktop-first: fixierte Sidebar links, Projekte füllen die volle Breite; auf ≤900px Tab-Leiste unten.
+- 9 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
+- Über-mich-Seite angelegt (Platzhalter für persönliche Infos, Skills aus den Projekten abgeleitet).
+- Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
-- Ideen & Inspiration von n1code.dev (Seite eines Kollegen) im Abschnitt „Ideen & Inspiration“ gesammelt.
+- Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
-- **Force-Push steht noch aus** (wurde durch Berechtigungen blockiert, GitHub hat noch die alte Historie mit Gmail-Adresse). Befehl: `git push --force-with-lease=main:e5d463ba931f3a6501298cd35dbb53598cc68cf3 origin main`
-- Zeitleiste „Erfahrung & Ausbildung“: wartet auf Angaben von Nicolas (Abschnitt aktuell entfernt).
+- **Force-Push steht noch aus** (durch Berechtigungen blockiert; GitHub hat noch die alte Historie mit Gmail-Adresse). Befehl: `git push --force-with-lease=main:e5d463ba931f3a6501298cd35dbb53598cc68cf3 origin main`
+- **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
+- **Gamehub** ist nur lokal (`C:Sourcegamehub`) fertig, das GitHub-Repo ist noch leer → Code-Link zeigt auf leeres Repo, bis dort gepusht wird. Live-Link ergänzen, sobald gehostet.
+- **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
+- **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
 - `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
-- Beschreibungen von Escape Room, Textbased Game, Hofladen-Webshop, Influencer sind aus Repo-Namen abgeleitet – von Nicolas bestätigen lassen.
-- Echtes Profilfoto (optional).
+- Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen); echtes Profilfoto (optional).
 
 ## Ideen & Inspiration
 

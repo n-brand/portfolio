@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich – Nicolas Brand</title>
+    <meta name="description" content="Über Nicolas Brand: Werdegang, Skills und Interessen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- --- Sidebar --- -->
+    <aside class="sidebar">
+        <div class="profile">
+            <div class="profile-initials" aria-hidden="true">NB</div>
+            <div class="profile-info">
+                <h1 class="profile-name"><a href="index.html">Nicolas Brand</a></h1>
+                <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
+            </div>
+        </div>
+
+        <p class="profile-bio">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
+
+        <!-- --- Navigation --- -->
+        <nav class="nav-menu" aria-label="Hauptnavigation">
+            <a href="ueber-mich.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+                <span>Über mich</span>
+            </a>
+            <a href="index.html#projects" class="nav-link" data-section="projects">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <span>Projekte</span>
+            </a>
+            <a href="index.html#contact" class="nav-link" data-section="contact">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Kontakt</span>
+            </a>
+        </nav>
+
+        <!-- --- Social Links --- -->
+        <div class="social-links">
+            <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                <span>github.com/n-brand</span>
+            </a>
+        </div>
+
+        <!-- --- Footer --- -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Nicolas Brand</p>
+        </footer>
+    </aside>
+
+    <!-- --- Main Content --- -->
+    <main class="main-content">
+        <article class="detail">
+
+            <!-- --- About Header --- -->
+            <header class="detail-header">
+                <span class="project-label">Über mich</span>
+                <h1>Hallo, ich bin Nicolas</h1>
+                <p class="detail-lead">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
+                <p class="placeholder">Hier folgt eine kurze Vorstellung: wer ich bin, was ich mache und was mich antreibt.</p>
+            </header>
+
+            <!-- --- Profile Facts --- -->
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Wohnort</span>
+                    <span class="placeholder-inline">folgt</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Ausbildung</span>
+                    <span class="placeholder-inline">folgt</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Schwerpunkt</span>
+                    Webentwicklung
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <!-- --- Timeline --- -->
+                <section>
+                    <h2>Werdegang</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Jahr – heute</div>
+                            <h3>Aktuelle Ausbildung / Stelle</h3>
+                            <p class="placeholder">Folgt: Betrieb oder Schule und eine kurze Beschreibung.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Jahr – Jahr</div>
+                            <h3>Schule</h3>
+                            <p class="placeholder">Folgt: Schule und Schwerpunkte.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- --- Skills --- -->
+                <section>
+                    <h2>Skills</h2>
+                    <div class="skill-groups">
+                        <div class="skill-group">
+                            <h3>Frontend</h3>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Web Components</span>
+                                <span class="tag">Canvas</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h3>Backend &amp; Daten</h3>
+                            <div class="project-tags">
+                                <span class="tag">Supabase</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">JSON</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h3>Tools &amp; Hosting</h3>
+                            <div class="project-tags">
+                                <span class="tag">Git</span>
+                                <span class="tag">GitHub Pages</span>
+                                <span class="tag">Claude Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- --- Interests --- -->
+            <section class="about-block">
+                <h2>Interessen</h2>
+                <p class="placeholder">Folgt: Hobbys und was mich neben dem Programmieren interessiert.</p>
+            </section>
+
+            <!-- --- Call to Action --- -->
+            <nav class="detail-pager" aria-label="Weiter">
+                <a href="index.html#projects" class="pager-link"><span class="meta-label">Weiter zu</span>Meinen Projekten</a>
+                <a href="index.html#contact" class="pager-link next"><span class="meta-label">Lust auf Austausch?</span>Kontakt</a>
+            </nav>
+        </article>
+    </main>
+</div>
+
+<script src="./javascript/main.js"></script>
+</body>
+</html>
