@@ -385,14 +385,16 @@ h2 {
     padding: 34px 28px 4px;
 }
 
-.card-art svg {
+.card-art svg,
+.card-art .art-image {
     width: 100%;
     max-width: 260px;
     height: auto;
     transition: transform 0.3s ease;
 }
 
-.project-card:hover .card-art svg {
+.project-card:hover .card-art svg,
+.project-card:hover .card-art .art-image {
     transform: scale(1.05) rotate(-1.5deg);
 }
 
@@ -400,7 +402,8 @@ h2 {
     padding: 40px;
 }
 
-.project-card.featured .card-art svg {
+.project-card.featured .card-art svg,
+.project-card.featured .card-art .art-image {
     max-width: 360px;
 }
 
@@ -655,7 +658,8 @@ h2 {
     box-shadow: 0 var(--shade-size) 0 var(--card-shade);
 }
 
-.detail-art svg {
+.detail-art svg,
+.detail-art .art-image {
     width: 100%;
     max-width: 420px;
     height: auto;
@@ -1102,4 +1106,19 @@ h2 {
     .pager-link.next {
         grid-column: auto;
     }
+}
+
+/* --- Art Images --- */
+.card-art .art-image {
+    max-width: 210px;
+}
+
+.project-card.featured .card-art .art-image {
+    max-width: 320px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.detail-art .art-image {
+    max-width: 280px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
 }

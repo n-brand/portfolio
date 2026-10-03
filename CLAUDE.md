@@ -10,6 +10,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
 - `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
 - `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
+- `assets/images/` – eigene Projektbilder (PNG mit Transparenz); im Generator per `image: 'assets/images/<datei>.png'` beim Projekt eintragen, dann ersetzt das Bild die SVG-Illustration auf Karte und Detailseite
 - `docs/bild-prompt.md` – Prompt für Bildmodelle, um ein Bild im Art Style der Seite (Flat Design, PNG ohne Hintergrund) zu erzeugen
 - Lokal testen: Eintrag `portfolio` in `C:Source.claudelaunch.json` → http://localhost:4176
 
@@ -45,6 +46,7 @@ Erledigt:
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
 - Bild-Prompt für Illustrationen im Seiten-Stil unter `docs/bild-prompt.md` abgelegt.
+- Swan Calisthenics nutzt jetzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Das Gemini-Original (JPG mit aufgemaltem Schachbrett statt echter Transparenz) wurde kreisförmig ausgeschnitten → `assets/images/swan-calisthenics.png` (600×600, transparent). Originale `Gemini_Generated_Image_*` sind per `.gitignore` ausgeschlossen (eines war in einem früheren Commit versehentlich drin und liegt noch in der Historie).
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
@@ -55,6 +57,7 @@ Offen:
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
 - **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
 - `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
+- Hinweis für neue Gemini-Bilder: Gemini malt die Transparenz oft nur als Schachbrettmuster ins JPG → Hintergrund muss danach entfernt werden (bei runden Motiven per Kreis-Ausschnitt mit PowerShell/System.Drawing).
 - Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen); echtes Profilfoto (optional).
 
 ## Ideen & Inspiration

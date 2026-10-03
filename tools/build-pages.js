@@ -7,7 +7,7 @@ const CATEGORY_LABELS = { official: 'Offizielles Projekt', current: 'Aktuelles P
 
 const projects = [
     {
-        slug: 'swan-calisthenics', category: 'official', featured: true,
+        slug: 'swan-calisthenics', category: 'official', featured: true, image: 'assets/images/swan-calisthenics.png',
         title: 'Swan Calisthenics',
         card: 'Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.',
         lead: 'Die offizielle Website der Swan Calisthenics Community: kostenlose Outdoor-Trainings für alle Niveaus im Street Workout Park in Horgen – mit Mitgliederbereich, Blog und Vereinsseiten.',
@@ -349,6 +349,10 @@ const ART = {
 
 const art = (slug, n) => indent(ART[slug].split('\n').map(l => l.replace(/^ {4}/, '')).join('\n'), n);
 
+const artFor = (p, n, prefix) => (p.image
+    ? indent(`<img src="${prefix}${p.image}" alt="" class="art-image" width="600" height="600">`, n)
+    : art(p.slug, n));
+
 const STATUS_BADGE = { 'Live': 'live', 'In Arbeit': 'wip', 'Prototyp': 'proto', 'Fertig': 'done' };
 
 const tags = list => list.map(t => `<span class="tag">${esc(t)}</span>`).join('\n');
@@ -372,7 +376,7 @@ function card(p) {
     return `<div class="project-card theme-${p.slug}${p.featured ? ' featured' : ''}" data-category="${p.category}">
     ${badge(p)}
     <a href="projekte/${p.slug}.html" class="card-art" tabindex="-1" aria-hidden="true">
-${art(p.slug, 8)}
+${artFor(p, 8, '')}
     </a>
     <div class="project-content">${label}
         <h3><a href="projekte/${p.slug}.html" class="project-title-link">${esc(p.title)}</a></h3>
@@ -471,7 +475,7 @@ ${indent(sidebar('../', 'projects'), 4)}
             <!-- --- Detail Art --- -->
             <div class="detail-art theme-${p.slug}">
                 ${badge(p)}
-${art(p.slug, 16)}
+${artFor(p, 16, '../')}
             </div>
 
             <!-- --- Detail Header --- -->
