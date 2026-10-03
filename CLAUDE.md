@@ -10,6 +10,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
 - `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
 - `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
+- `docs/bild-prompt.md` – Prompt für Bildmodelle, um ein Bild im Art Style der Seite (Flat Design, PNG ohne Hintergrund) zu erzeugen
 - Lokal testen: Eintrag `portfolio` in `C:Source.claudelaunch.json` → http://localhost:4176
 
 ## Seiten bearbeiten
@@ -43,6 +44,7 @@ Erledigt:
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
+- Bild-Prompt für Illustrationen im Seiten-Stil unter `docs/bild-prompt.md` abgelegt.
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
