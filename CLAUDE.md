@@ -7,8 +7,8 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - `index.html` – Startseite: Sidebar + Projekte (Karten mit Filter) + Kontakt
 - `ueber-mich.html` – Über-mich-Seite (Steckbrief, Werdegang, Skills, Interessen – noch mit Platzhaltern)
 - `projekte/<slug>.html` – eine Detailseite pro Projekt (Illustration, Lead, Zeitraum/Status/Tech, Über das Projekt, Features, Technik, Vor/Zurück)
-- `css/styles.css` – alle Styles, Dark/Light-Mode über `prefers-color-scheme`
-- `javascript/main.js` – aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
+- `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
+- `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
 - `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
 - Lokal testen: Eintrag `portfolio` in `C:Source.claudelaunch.json` → http://localhost:4176
 
@@ -20,7 +20,8 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 ## Konventionen
 
-- **Design im Stil der Font-Awesome-Website** (Wunsch von Nicolas): hellgrauer Hintergrund, Navy-Text (#183153), runde Schrift (Nunito über Google Fonts), stark abgerundete Karten mit dickem dunklerem „Schatten-Rand“ unten (`box-shadow: 0 5px 0 …`), Badge oben mittig (LIVE / IN ARBEIT / PROTOTYP / FERTIG), unterstrichener Pfeil-Link „Mehr lesen →“, gelbe Buttons mit Schattenkante. Dark Mode = Navy-Variante.
+- **Design im Stil der Font-Awesome-Website** (Wunsch von Nicolas): hellgrauer Hintergrund, Navy-Text (#183153), runde Schrift (Nunito über Google Fonts), stark abgerundete Karten mit dickem dunklerem „Schatten-Rand“ unten (`box-shadow: 0 5px 0 …`), Badge oben mittig (LIVE / IN ARBEIT / PROTOTYP / FERTIG), unterstrichener Pfeil-Link „Mehr lesen →“, gelbe Buttons mit Schattenkante. Illustrationen im Flat-Design-Stil (flache Vektorgrafik, teils Pixel-Art).
+- **Dark ist Standard**, unabhängig von der Systemeinstellung; Umschalter (Sonne/Mond) oben rechts in der Sidebar. Ein Inline-Skript im `<head>` setzt `data-theme="light"` vor dem Rendern, damit nichts aufblitzt.
 - **Jede Projektkarte hat ein eigenes Farb-Theme und eine eigene SVG-Illustration passend zum Inhalt** (z.B. Klimmzugstange bei Swan, Pixel-Kopf bei Minecraft, Terminal beim Text-Adventure). Neue Projekte bekommen ebenfalls eine passende Illustration.
 - **Desktop-first:** Basis-Styles gelten für große Bildschirme, Anpassungen per `max-width`-Media-Queries (1200px Laptop, 900px Tablet/Handy mit Tab-Leiste unten, 680px einspaltig) plus `min-width: 2000px` für sehr breite Monitore. Nicolas nutzt einen sehr breiten Monitor (ca. 2850px CSS-Breite bei 70 % Zoom) – leerer Platz soll vermieden werden, daher keine feste Maximalbreite.
 - Mobile Navigation: Tab-Leiste unten im Stil von swancalisthenics.ch (Icon über Text, aktiver Punkt getönt hinterlegt).
@@ -40,6 +41,7 @@ Erledigt:
 - 9 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
 - Über-mich-Seite angelegt (Platzhalter für persönliche Infos, Skills aus den Projekten abgeleitet).
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
+- Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 

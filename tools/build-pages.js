@@ -225,7 +225,10 @@ const projects = [
     },
 ];
 
-const FONT_LINKS = `    <link rel="preconnect" href="https://fonts.googleapis.com">
+const THEME_SCRIPT = `    <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>`;
+
+const FONT_LINKS = `${THEME_SCRIPT}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">`;
 
@@ -389,6 +392,10 @@ function sidebar(prefix, active) {
     const on = key => (active === key ? ' active' : '');
     return `<!-- --- Sidebar --- -->
 <aside class="sidebar">
+    <button class="theme-toggle" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false">
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
     <div class="profile">
         <div class="profile-initials" aria-hidden="true">NB</div>
         <div class="profile-info">
@@ -651,6 +658,8 @@ if (asideStart < 0 || asideEnd < 8) throw new Error('aside not found');
 index = index.slice(0, asideStart) + indent(sidebar('', 'projects'), 4) + index.slice(asideEnd);
 if (!index.includes('fonts.googleapis.com')) {
     index = index.replace('    <link rel="stylesheet" href="./css/styles.css">', FONT_LINKS + '\n    <link rel="stylesheet" href="./css/styles.css">');
+} else if (!index.includes(THEME_SCRIPT)) {
+    index = index.replace('    <link rel="preconnect" href="https://fonts.googleapis.com">', THEME_SCRIPT + '\n    <link rel="preconnect" href="https://fonts.googleapis.com">');
 }
 fs.writeFileSync(path.join(ROOT, 'ueber-mich.html'), aboutPage());
 fs.writeFileSync(indexPath, index);

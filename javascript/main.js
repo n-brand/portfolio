@@ -1,3 +1,30 @@
+// --- Theme Toggle ---
+const themeToggle = document.querySelector('.theme-toggle');
+
+const applyTheme = theme => {
+    if (theme === 'light') {
+        document.documentElement.dataset.theme = 'light';
+    } else {
+        delete document.documentElement.dataset.theme;
+    }
+    if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
+        themeToggle.setAttribute('aria-label', theme === 'light' ? 'Dunkles Design aktivieren' : 'Helles Design aktivieren');
+    }
+};
+
+applyTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {}
+    });
+}
+
 // --- Active Navigation ---
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = [...navLinks].map(link => document.getElementById(link.dataset.section)).filter(Boolean);
