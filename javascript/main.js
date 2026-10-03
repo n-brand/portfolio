@@ -15,30 +15,6 @@ navLinks.forEach(link => {
     });
 });
 
-// --- Profile Lightbox ---
-const profileImg = document.getElementById('profileImg');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxClose = document.getElementById('lightboxClose');
-
-profileImg.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    lightboxImg.src = profileImg.src;
-    document.body.style.overflow = 'hidden';
-});
-
-lightboxClose.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
-
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-});
-
 // --- Projects Filter ---
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
@@ -60,3 +36,6 @@ filterButtons.forEach(button => {
         });
     });
 });
+
+// --- Footer Year ---
+document.getElementById('year').textContent = new Date().getFullYear();

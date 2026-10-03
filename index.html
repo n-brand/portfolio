@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio & Blog</title>
-    <!-- FontAwesome Local -->
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <title>Nicolas Brand – Portfolio</title>
+    <meta name="description" content="Websites und Projekte von Nicolas Brand.">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -13,14 +12,14 @@
 <!-- --- Navigation --- -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-logo">Portfolio</a>
-        <button class="nav-toggle" aria-label="toggle navigation">
+        <a href="#" class="nav-logo">Nicolas Brand</a>
+        <button class="nav-toggle" aria-label="Navigation öffnen">
             <span class="hamburger"></span>
         </button>
         <ul class="nav-menu">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#about" class="nav-link">Über mich</a></li>
+            <li><a href="#projects" class="nav-link">Projekte</a></li>
+            <li><a href="#contact" class="nav-link">Kontakt</a></li>
         </ul>
     </div>
 </nav>
@@ -32,45 +31,17 @@
     <section id="about" class="section about-section">
         <div class="profile-container">
             <div class="profile-image-wrapper">
-                <img src="assets/images/profile.jpg" alt="Profile Picture" class="profile-img" id="profileImg">
+                <div class="profile-initials" aria-hidden="true">NB</div>
             </div>
             <div class="profile-info">
-                <h1>Your Name</h1>
-                <p class="profile-headline">Software Developer / Student</p>
+                <h1>Nicolas Brand</h1>
+                <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
 
                 <!-- --- Social Links --- -->
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="social-icon">
-                        <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                        <svg viewBox="0 0 16 16" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                     </a>
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="social-icon">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- --- Timeline --- -->
-        <div class="timeline-container">
-            <h2>Experience & Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Current Role / Project</h3>
-                        <h4>Company / Institution</h4>
-                        <p>Short description of your tasks, responsibilities, and achievements in this position.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022 - 2025</div>
-                    <div class="timeline-content">
-                        <h3>Education / Degree</h3>
-                        <h4>School / University</h4>
-                        <p>Details about your field of study, major projects, or specific focus areas during school.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -78,46 +49,127 @@
 
     <!-- --- Projects Section --- -->
     <section id="projects" class="section projects-section">
-        <h2>Projects</h2>
+        <h2>Projekte</h2>
 
         <!-- --- Filter Buttons --- -->
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="current">Current</button>
-            <button class="filter-btn" data-filter="school">School</button>
-            <button class="filter-btn" data-filter="official">Official</button>
+            <button class="filter-btn active" data-filter="all">Alle</button>
+            <button class="filter-btn" data-filter="current">Aktuell</button>
+            <button class="filter-btn" data-filter="school">Schule</button>
+            <button class="filter-btn" data-filter="official">Offiziell</button>
         </div>
 
         <!-- --- Projects Grid --- -->
         <div class="projects-grid">
+            <div class="project-card featured" data-category="official">
+                <div class="project-content">
+                    <h3>Swan Calisthenics</h3>
+                    <p class="project-desc">Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://swancalisthenics.ch/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                        <a href="https://github.com/n-brand/swancalisthenics" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
             <div class="project-card" data-category="current">
                 <div class="project-content">
-                    <h3>Portfolio Website</h3>
-                    <p class="project-desc">A modern, responsive personal website featuring a LinkedIn-style profile layout and integrated project filtering.</p>
+                    <h3>Minecraft Skin Merger</h3>
+                    <p class="project-desc">Browser-Tool, das zwei Minecraft-Java-Skins zusammenführt – Körperteile und Layer lassen sich pro Skin auswählen.</p>
                     <div class="project-tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
                         <span class="tag">JavaScript</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://n-brand.github.io/minecraft-skinmerger/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                        <a href="https://github.com/n-brand/minecraft-skinmerger" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="current">
+                <div class="project-content">
+                    <h3>JARVIS-Anleitung</h3>
+                    <p class="project-desc">Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">Doku</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://n-brand.github.io/jarvis-Anleitung/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                        <a href="https://github.com/n-brand/jarvis-Anleitung" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
                 </div>
             </div>
             <div class="project-card" data-category="school">
                 <div class="project-content">
-                    <h3>Database Management Assignment</h3>
-                    <p class="project-desc">A school project designing and implementing a robust SQL database scheme for an e-commerce platform simulator.</p>
+                    <h3>Escape Room</h3>
+                    <p class="project-desc">Escape-Room-Spiel im Browser.</p>
                     <div class="project-tags">
-                        <span class="tag">SQL</span>
-                        <span class="tag">Database</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/n-brand/escape-room" target="_blank" rel="noopener" class="project-link">Code</a>
                     </div>
                 </div>
             </div>
-            <div class="project-card" data-category="official">
+            <div class="project-card" data-category="school">
                 <div class="project-content">
-                    <h3>Corporate Dashboard</h3>
-                    <p class="project-desc">An official application built for data analysis visualization, integrating complex charting and responsive metrics data reporting.</p>
+                    <h3>Textbased Game</h3>
+                    <p class="project-desc">Textbasiertes Abenteuerspiel im Browser.</p>
                     <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">API</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/n-brand/textbased-game" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="school">
+                <div class="project-content">
+                    <h3>Hofladen-Webshop</h3>
+                    <p class="project-desc">Webshop für einen Hofladen.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/n-brand/Hofladen-Webshop" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="school">
+                <div class="project-content">
+                    <h3>Influencer</h3>
+                    <p class="project-desc">Statische Website zum Thema Influencer.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/n-brand/Influencer" target="_blank" rel="noopener" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="school">
+                <div class="project-content">
+                    <h3>Mediensammlung</h3>
+                    <p class="project-desc">Einfache Website für eine Mediensammlung mit meinen Lieblingsfilmen.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://n-brand.github.io/Mediensammlung/" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                        <a href="https://github.com/n-brand/Mediensammlung" target="_blank" rel="noopener" class="project-link">Code</a>
                     </div>
                 </div>
             </div>
@@ -126,39 +178,19 @@
 
     <!-- --- Contact Section --- -->
     <section id="contact" class="section contact-section">
-        <h2>Contact Me</h2>
+        <h2>Kontakt</h2>
         <div class="contact-container">
-            <form action="https://formsubmit.co/deine-email@domain.com" method="POST" class="contact-form">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
-
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <p>Du findest mich und alle meine Projekte auf GitHub.</p>
+            <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="submit-btn">GitHub-Profil öffnen</a>
         </div>
     </section>
 
 </main>
 
-<!-- --- Lightbox --- -->
-<div id="lightbox" class="profile-lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Profile Pic">
-</div>
+<!-- --- Footer --- -->
+<footer class="footer">
+    <p>&copy; <span id="year"></span> Nicolas Brand</p>
+</footer>
 
 <script src="./javascript/main.js"></script>
 </body>
