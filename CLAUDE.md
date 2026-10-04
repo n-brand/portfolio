@@ -46,7 +46,7 @@ Erledigt:
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
 - Bild-Prompt für Illustrationen im Seiten-Stil unter `docs/bild-prompt.md` abgelegt.
-- Swan Calisthenics nutzt jetzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Das Gemini-Original (JPG mit aufgemaltem Schachbrett statt echter Transparenz) wurde kreisförmig ausgeschnitten → `assets/images/swan-calisthenics.png` (600×600, transparent). Originale `Gemini_Generated_Image_*` sind per `.gitignore` ausgeschlossen (eines war in einem früheren Commit versehentlich drin und liegt noch in der Historie).
+- Swan Calisthenics nutzt jetzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Das Gemini-Original (JPG mit aufgemaltem Schachbrett statt echter Transparenz) wurde kreisförmig ausgeschnitten → `assets/images/swan-calisthenics.png` (600×600, transparent). Originale `Gemini_Generated_Image_*` sind per `.gitignore` ausgeschlossen (ein versehentlich committetes Original wurde per filter-branch aus der Historie entfernt).
 - Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
