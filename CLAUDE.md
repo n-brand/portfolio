@@ -59,6 +59,7 @@ Erledigt:
 - JARVIS-Karte hatte fast dieselbe Farbe wie der dunkle Hintergrund → neues Theme im Iron-Man-Stil (Rot #a51d2d, goldene Links), Cyan-Reaktor bleibt.
 - Minecraft-Illustration: Pixel-Kopf halb Steve (links), halb Zombie (rechts), gelbe Merge-Linie in der Mitte. Farben pro Pixel aus echten Minecraft-Gesichtern übernommen (`STEVE_FACE`, `ZOMBIE_FACE` im Generator).
 - Pixel-Art-Illustrationen: Pixel überlappen um 0.6px (kein crispEdges), damit beim Drehen/Skalieren keine Linien zwischen den Pixeln entstehen.
+- Label über der Überschrift auf Über-mich- und Detailseiten (z.B. „ÜBER MICH“) klebte an der Überschrift, weil es inline war → `.detail-header .project-label` ist jetzt `inline-block` mit 18px Abstand.
 - Hover-Klimmzug für Swan vorbereitet: Generator unterstützt `frames`, Animation (Hover, Touch-Auslöser, reduzierte Bewegung) ist gebaut und mit einem Test-Frame geprüft (Test-Frame wieder entfernt).
 - Git-Historie umgeschrieben (alle Commits mit noreply-Adresse, Gemini-Original entfernt) und am 2026-10-04 von Nicolas per Force-Push auf GitHub gebracht. Ab jetzt reichen normale Pushes (Claude darf in dieser Umgebung nicht selbst pushen – Nicolas pusht).
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
