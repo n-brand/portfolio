@@ -1125,3 +1125,68 @@ h2 {
     max-width: 280px;
     filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
 }
+
+/* --- Art Frames --- */
+.art-frames {
+    display: grid;
+    width: 100%;
+    max-width: 210px;
+}
+
+.project-card.featured .card-art .art-frames {
+    max-width: 320px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.detail-art .art-frames {
+    max-width: 280px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.art-frames .art-frame,
+.project-card.featured .card-art .art-frames .art-frame,
+.detail-art .art-frames .art-frame {
+    grid-area: 1 / 1;
+    max-width: none;
+    filter: none;
+}
+
+.art-frames .art-frame + .art-frame {
+    opacity: 0;
+}
+
+.project-card:hover .card-art .art-frames .art-frame {
+    transform: none;
+}
+
+.project-card:hover .art-frames,
+.detail-art:hover .art-frames,
+.art-frames.is-playing {
+    animation: frames-bounce 1.6s ease-in-out infinite;
+}
+
+.project-card:hover .art-frames .art-frame + .art-frame,
+.detail-art:hover .art-frames .art-frame + .art-frame,
+.art-frames.is-playing .art-frame + .art-frame {
+    animation: frames-swap 1.6s ease-in-out infinite;
+}
+
+@keyframes frames-swap {
+    0%, 36% { opacity: 0; }
+    42%, 78% { opacity: 1; }
+    84%, 100% { opacity: 0; }
+}
+
+@keyframes frames-bounce {
+    0%, 36% { transform: translateY(0); }
+    42% { transform: translateY(-6px) scale(1.02); }
+    50%, 78% { transform: translateY(-2px); }
+    84%, 100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .art-frames,
+    .art-frames .art-frame {
+        animation: none !important;
+    }
+}

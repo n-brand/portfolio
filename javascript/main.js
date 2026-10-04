@@ -83,5 +83,23 @@ filterButtons.forEach(button => {
     });
 });
 
+// --- Art Frames ---
+const artFrames = document.querySelectorAll('.art-frames');
+
+if (artFrames.length && window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+    const framesObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            framesObserver.unobserve(entry.target);
+            entry.target.classList.add('is-playing');
+            setTimeout(() => entry.target.classList.remove('is-playing'), 3200);
+        });
+    }, { threshold: 0.6 });
+
+    artFrames.forEach(frames => framesObserver.observe(frames));
+}
+
 // --- Footer Year ---
 document.getElementById('year').textContent = new Date().getFullYear();

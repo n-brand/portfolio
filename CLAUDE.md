@@ -8,17 +8,25 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - `ueber-mich.html` – Über-mich-Seite (Steckbrief, Werdegang, Skills, Interessen – noch mit Platzhaltern)
 - `projekte/<slug>.html` – eine Detailseite pro Projekt (Illustration, Lead, Zeitraum/Status/Tech, Über das Projekt, Features, Technik, Vor/Zurück)
 - `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
-- `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Jahreszahl
+- `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Auslöser der Bild-Animationen auf Touch-Geräten, Jahreszahl
 - `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
-- `assets/images/` – eigene Projektbilder (PNG mit Transparenz); im Generator per `image: 'assets/images/<datei>.png'` beim Projekt eintragen, dann ersetzt das Bild die SVG-Illustration auf Karte und Detailseite
-- `docs/bild-prompt.md` – Prompt für Bildmodelle, um ein Bild im Art Style der Seite (Flat Design, PNG ohne Hintergrund) zu erzeugen
-- Lokal testen: Eintrag `portfolio` in `C:Source.claudelaunch.json` → http://localhost:4176
+- `tools/crop-circle.ps1` – schneidet runde Motive (Kreis mit Navy-Ring, z.B. das Swan-Logo) aus einem Rohbild aus und speichert ein 600×600-PNG mit echter Transparenz (Befehl siehe `docs/bild-prompt.md`)
+- `assets/images/` – fertige Projektbilder (PNG mit Transparenz), siehe „Bilder & Animationen“
+- `originals/` – Rohbilder (z.B. von Gemini), **nicht in Git** (`.gitignore`); daraus werden die Bilder in `assets/images/` erzeugt
+- `docs/bild-prompt.md` – Prompts für Bildmodelle (Bild im Art Style der Seite, zweite Pose für Animationen) und Anleitung zum Zuschneiden
+- Lokal testen: Eintrag `portfolio` in `C:\Source\.claude\launch.json` → http://localhost:4176
 
 ## Seiten bearbeiten
 
 - **Projekte, Sidebar, Über-mich-Seite: immer in `tools/build-pages.js` ändern** und danach `node tools/build-pages.js` ausführen. Nicht direkt in den erzeugten HTML-Dateien ändern – das wird beim nächsten Lauf überschrieben.
 - In `index.html` von Hand gepflegt: `<head>`, Projekte-Überschrift + Filter, Kontakt-Abschnitt. Der Generator ersetzt nur das `.projects-grid` und die `<aside>`.
 - Neues Projekt: Eintrag im Array `projects` (slug, category, title, card, lead, period, status, live, code, about, features, tech, techNotes) + Illustration in `ART[slug]` + Farb-Theme `.theme-<slug>` in `styles.css`.
+
+## Bilder & Animationen
+
+- **Eigenes Bild statt SVG:** beim Projekt `image: 'assets/images/<datei>.png'` eintragen → ersetzt die SVG-Illustration auf Karte und Detailseite.
+- **Animation aus mehreren Bildern:** stattdessen `frames: ['assets/images/<start>.png', 'assets/images/<zweite-pose>.png']` eintragen. Beim Hover über Karte bzw. Detail-Banner wechselt das Bild in einer Schleife (1,6 s) zur zweiten Pose und zurück, mit kurzem Federn (`frames-swap`, `frames-bounce` in `styles.css`). Auf Touch-Geräten spielt die Animation zwei Durchgänge, sobald das Bild ins Blickfeld scrollt (`main.js`, Klasse `.is-playing`). Bei „Bewegung reduzieren“ (`prefers-reduced-motion`) bleibt das Startbild stehen. Beide Frames müssen exakt gleich ausgerichtet sein → beide mit `tools/crop-circle.ps1` zuschneiden.
+- **Rohbilder von Gemini:** Gemini liefert statt echter Transparenz oft ein aufgemaltes Schachbrett (JPG) oder einen schwarzen Hintergrund → Rohbild in `originals/` ablegen und mit `tools/crop-circle.ps1` zuschneiden. Neue Posen oder Varianten immer unter neuem Namen speichern, nie über das Basisbild.
 
 ## Konventionen
 
@@ -46,21 +54,22 @@ Erledigt:
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
 - Bild-Prompt für Illustrationen im Seiten-Stil unter `docs/bild-prompt.md` abgelegt.
-- Swan Calisthenics nutzt jetzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Das Gemini-Original (JPG mit aufgemaltem Schachbrett statt echter Transparenz) wurde kreisförmig ausgeschnitten → `assets/images/swan-calisthenics.png` (600×600, transparent). Originale `Gemini_Generated_Image_*` sind per `.gitignore` ausgeschlossen (ein versehentlich committetes Original wurde per filter-branch aus der Historie entfernt).
-- Git-Historie umgeschrieben (alle Commits mit noreply-Adresse, Gemini-Original entfernt) und am 2026-10-04 von Nicolas per Force-Push auf GitHub gebracht. Ab jetzt reichen normale Pushes (Claude darf in dieser Umgebung nicht selbst pushen – Nicolas pusht).
-- Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
-
-Offen:
-- **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
-- **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und hat einen Live-Link (https://n-brand.github.io/gamehub/). Stand 2026-10-04 zeigt GitHub Pages dort aber nur die README („gamehub“), weil die App in `public/` liegt – muss im Gamehub-Repo gelöst werden (z.B. Pages-Quelle auf `/docs` und `public/` → `docs/` umbenennen, oder `index.html` im Root).
-- **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
-- **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
-- `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
-- Hinweis für neue Gemini-Bilder: Gemini malt die Transparenz oft nur als Schachbrettmuster ins JPG → Hintergrund muss danach entfernt werden (bei runden Motiven per Kreis-Ausschnitt mit PowerShell/System.Drawing).
+- Swan Calisthenics nutzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Am 2026-10-04 hat Nicolas das Basisbild bewusst durch eine neue, schärfere Version ersetzt (Rohbild 1254×1254 mit schwarzem Hintergrund in `originals/swan-calisthenics.png`, mit `tools/crop-circle.ps1` zugeschnitten → `assets/images/swan-calisthenics.png`). Das erste Gemini-Original (JPG mit aufgemaltem Schachbrett) liegt ungetrackt im Projektordner (`Gemini_Generated_Image_*` in `.gitignore`; ein versehentlich committetes Exemplar wurde per filter-branch aus der Historie entfernt).
 - Dunkle Karten (Swan, Textbased Game) haben einen feinen hellen Rand über `--card-ring` im Theme; andere Karten ohne Rand.
 - JARVIS-Karte hatte fast dieselbe Farbe wie der dunkle Hintergrund → neues Theme im Iron-Man-Stil (Rot #a51d2d, goldene Links), Cyan-Reaktor bleibt.
 - Minecraft-Illustration: Pixel-Kopf halb Steve (links), halb Zombie (rechts), gelbe Merge-Linie in der Mitte. Farben pro Pixel aus echten Minecraft-Gesichtern übernommen (`STEVE_FACE`, `ZOMBIE_FACE` im Generator).
 - Pixel-Art-Illustrationen: Pixel überlappen um 0.6px (kein crispEdges), damit beim Drehen/Skalieren keine Linien zwischen den Pixeln entstehen.
+- Hover-Klimmzug für Swan vorbereitet: Generator unterstützt `frames`, Animation (Hover, Touch-Auslöser, reduzierte Bewegung) ist gebaut und mit einem Test-Frame geprüft (Test-Frame wieder entfernt).
+- Git-Historie umgeschrieben (alle Commits mit noreply-Adresse, Gemini-Original entfernt) und am 2026-10-04 von Nicolas per Force-Push auf GitHub gebracht. Ab jetzt reichen normale Pushes (Claude darf in dieser Umgebung nicht selbst pushen – Nicolas pusht).
+- Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
+
+Offen:
+- **Swan-Hover-Klimmzug:** Nicolas erstellt noch das zweite Bild (Schwan zieht sich hoch, Brust über der Stange; Prompt in `docs/bild-prompt.md`). Danach: Rohbild nach `originals/`, mit `tools/crop-circle.ps1` nach `assets/images/swan-calisthenics-hoch.png` zuschneiden, prüfen, ob Ring und Stange in beiden Frames gleich liegen, und beim Swan-Projekt `image` durch `frames: ['assets/images/swan-calisthenics.png', 'assets/images/swan-calisthenics-hoch.png']` ersetzen.
+- **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
+- **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
+- **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
+- **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
+- `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
 - Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen); echtes Profilfoto (optional).
 
 ## Ideen & Inspiration

@@ -368,9 +368,21 @@ const ART = {
 
 const art = (slug, n) => indent(ART[slug].split('\n').map(l => l.replace(/^ {4}/, '')).join('\n'), n);
 
-const artFor = (p, n, prefix) => (p.image
-    ? indent(`<img src="${prefix}${p.image}" alt="" class="art-image" width="600" height="600">`, n)
-    : art(p.slug, n));
+const artImage = (src, prefix, cls) => `<img src="${prefix}${src}" alt="" class="${cls}" width="600" height="600">`;
+
+const artFor = (p, n, prefix) => {
+    if (p.frames) {
+        return indent([
+            '<div class="art-frames">',
+            ...p.frames.map(src => '    ' + artImage(src, prefix, 'art-image art-frame')),
+            '</div>',
+        ].join('\n'), n);
+    }
+    if (p.image) {
+        return indent(artImage(p.image, prefix, 'art-image'), n);
+    }
+    return art(p.slug, n);
+};
 
 const STATUS_BADGE = { 'Live': 'live', 'In Arbeit': 'wip', 'Prototyp': 'proto', 'Fertig': 'done' };
 
