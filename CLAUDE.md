@@ -58,6 +58,7 @@ Offen:
 - **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
 - `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
 - Hinweis für neue Gemini-Bilder: Gemini malt die Transparenz oft nur als Schachbrettmuster ins JPG → Hintergrund muss danach entfernt werden (bei runden Motiven per Kreis-Ausschnitt mit PowerShell/System.Drawing).
+- Dunkle Karten (Swan, Textbased Game) haben einen feinen hellen Rand über `--card-ring` im Theme; andere Karten ohne Rand.
 - JARVIS-Karte hatte fast dieselbe Farbe wie der dunkle Hintergrund → neues Theme im Iron-Man-Stil (Rot #a51d2d, goldene Links), Cyan-Reaktor bleibt.
 - Pixel-Art-Illustrationen: Pixel überlappen um 0.6px (kein crispEdges), damit beim Drehen/Skalieren keine Linien zwischen den Pixeln entstehen.
 - Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen); echtes Profilfoto (optional).
