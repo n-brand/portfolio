@@ -35,7 +35,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 **Nach jeder Änderung an diesem Repo diesen Abschnitt aktualisieren** (was gemacht wurde, was offen ist), damit der Stand jederzeit nachvollziehbar ist.
 
-Stand: 2026-10-03
+Stand: 2026-10-04
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
@@ -47,11 +47,10 @@ Erledigt:
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
 - Bild-Prompt für Illustrationen im Seiten-Stil unter `docs/bild-prompt.md` abgelegt.
 - Swan Calisthenics nutzt jetzt Nicolas' eigenes Logo-Bild (Schwan an der Klimmzugstange, mit Gemini erstellt) statt der SVG. Das Gemini-Original (JPG mit aufgemaltem Schachbrett statt echter Transparenz) wurde kreisförmig ausgeschnitten → `assets/images/swan-calisthenics.png` (600×600, transparent). Originale `Gemini_Generated_Image_*` sind per `.gitignore` ausgeschlossen (ein versehentlich committetes Original wurde per filter-branch aus der Historie entfernt).
-- Git-Historie lokal umgeschrieben: alle Commits nutzen die noreply-Adresse.
+- Git-Historie umgeschrieben (alle Commits mit noreply-Adresse, Gemini-Original entfernt) und am 2026-10-04 von Nicolas per Force-Push auf GitHub gebracht. Ab jetzt reichen normale Pushes (Claude darf in dieser Umgebung nicht selbst pushen – Nicolas pusht).
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
-- **Force-Push steht noch aus** (durch Berechtigungen blockiert; GitHub hat noch die alte Historie mit Gmail-Adresse). Befehl: `git push --force-with-lease=main:e5d463ba931f3a6501298cd35dbb53598cc68cf3 origin main`
 - **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und hat einen Live-Link (https://n-brand.github.io/gamehub/). Stand 2026-10-04 zeigt GitHub Pages dort aber nur die README („gamehub“), weil die App in `public/` liegt – muss im Gamehub-Repo gelöst werden (z.B. Pages-Quelle auf `/docs` und `public/` → `docs/` umbenennen, oder `index.html` im Root).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
