@@ -571,7 +571,7 @@ ${indent(pager, 16)}
 }
 
 const INTEREST_ICONS = {
-    calisthenics: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20"/><path d="M7 4v4a5 5 0 0 0 10 0V4"/><circle cx="12" cy="15" r="2.5"/><path d="M12 17.5V22"/></svg>',
+    calisthenics: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3.5h20"/><path d="M7 3.5l2.5 7M17 3.5l-2.5 7"/><path d="M9.5 10.5h5"/><circle cx="12" cy="7.5" r="2"/><path d="M12 10.5V16"/><path d="M12 16l-2.5 5M12 16l2.5 5"/></svg>',
     gaming: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="14" r="1"/></svg>',
     ai: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
 };
