@@ -238,7 +238,7 @@ const ext = 'target="_blank" rel="noopener"';
 const GITHUB_PATH = 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z';
 
 const pixels = (rows, palette, size, x0, y0) => rows.flatMap((row, y) => [...row].map((c, x) => (
-    palette[c] ? `<rect x="${x0 + x * size}" y="${y0 + y * size}" width="${size}" height="${size}" fill="${palette[c]}"/>` : ''
+    palette[c] ? `<rect x="${x0 + x * size}" y="${y0 + y * size}" width="${size + 0.6}" height="${size + 0.6}" fill="${palette[c]}"/>` : ''
 ))).join('');
 
 const ART = {
@@ -253,7 +253,7 @@ const ART = {
         <rect x="108" y="56" width="24" height="38" rx="12" fill="#e63946"/>
         <path d="M113 92 L108 124 M127 92 L132 124" stroke="#e9eef6" stroke-width="9" stroke-linecap="round"/>
     </svg>`,
-    'minecraft-skin-merger': `<svg viewBox="0 0 240 140" aria-hidden="true" shape-rendering="crispEdges">
+    'minecraft-skin-merger': `<svg viewBox="0 0 240 140" aria-hidden="true">
         ${pixels([
             'hhhhgggg',
             'hhhhgggg',
@@ -266,7 +266,7 @@ const ART = {
         ], { h: '#4a2f1b', s: '#c89a6e', w: '#ffffff', b: '#2b1b4f', n: '#8a4b2f', g: '#5cbf3a', l: '#3e8f26' }, 13, 68, 18)}
         <rect x="117" y="10" width="6" height="120" fill="#ffd43b"/>
     </svg>`,
-    gamehub: `<svg viewBox="0 0 240 140" aria-hidden="true" shape-rendering="crispEdges">
+    gamehub: `<svg viewBox="0 0 240 140" aria-hidden="true">
         ${pixels([
             '..............',
             '.sssss........',
