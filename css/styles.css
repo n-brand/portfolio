@@ -566,11 +566,11 @@ h2 {
 }
 
 .theme-jarvis-anleitung {
-    --card-bg: #0b1a30;
+    --card-bg: #a51d2d;
     --card-text: #ffffff;
-    --card-muted: #b9d3ea;
-    --card-shade: #040b17;
-    --card-link: #a5ecff;
+    --card-muted: #ffd9dc;
+    --card-shade: #6e0f1b;
+    --card-link: #ffd43b;
 }
 
 .theme-escape-room {
