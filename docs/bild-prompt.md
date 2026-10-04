@@ -54,10 +54,15 @@ Pose change (this is the important part):
 - The bar now crosses in front of the swan's belly.
 - The fists stay on the bar at exactly the same spots; the elbows are bent tightly and point down below the bar.
 - The legs and feet are higher too, with empty red space below them.
-- The neck may bend more or the head may lean forward over the bar, so the head stays inside the circle.
+- The head and neck may stick out above the circle: they are allowed to break out of the logo and overlap the outer ring.
 
-Keep unchanged: circle, rings, red background, bar position, colors, art style, image size and framing.
+The bar must stay exactly where it is in the circle: same height, same length, still attached to the ring on both sides. Do not move or tilt it.
+
+Keep the circle, rings, red background, colors and art style unchanged. You may shrink the whole logo slightly or add space above it, so the head that sticks out still fits completely inside the image.
+Outside the circle: plain solid black background (no checkerboard, no transparency, no shadow).
 ```
+
+Ragt der Kopf über den Kreis hinaus, reicht der reine Kreis-Ausschnitt nicht: Dann wird außerhalb des Kreises der schwarze Hintergrund entfernt und das Bild mit Platz über dem Kreis zugeschnitten – beide Frames im gleichen Format, damit Kreis und Stange deckungsgleich bleiben.
 
 Das Ergebnis **unter einem neuen Namen** in `originals/` speichern (z.B. `originals/swan-calisthenics-hoch.png`), nie über das Basisbild.
 
