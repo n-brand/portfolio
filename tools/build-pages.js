@@ -255,15 +255,18 @@ const ART = {
     </svg>`,
     'minecraft-skin-merger': `<svg viewBox="0 0 240 140" aria-hidden="true">
         ${pixels([
-            'hhhhgggg',
-            'hhhhgggg',
-            'ssssgggg',
-            'swbsgbbg',
-            'sssslggl',
-            'snnsgbbg',
-            'snnsbllb',
-            'sssslbbl',
-        ], { h: '#4a2f1b', s: '#c89a6e', w: '#ffffff', b: '#2b1b4f', n: '#8a4b2f', g: '#5cbf3a', l: '#3e8f26' }, 13, 68, 18)}
+            'hhhhDDDD',
+            'hhhhDdDD',
+            'hsssdddd',
+            'ssssdddd',
+            'swbsdKKd',
+            'sssnNddd',
+            'ssmmMMdd',
+            'ssssdddd',
+        ], {
+            h: '#4a2f1b', s: '#c89a6e', w: '#ffffff', b: '#4b47b5', n: '#8a4b2f', m: '#5e3420',
+            D: '#2c5a1e', d: '#5e9e3e', K: '#111111', N: '#3d7a28', M: '#24471a',
+        }, 13, 68, 18)}
         <rect x="117" y="10" width="6" height="120" fill="#ffd43b"/>
     </svg>`,
     gamehub: `<svg viewBox="0 0 240 140" aria-hidden="true">
