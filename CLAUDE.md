@@ -53,7 +53,7 @@ Erledigt:
 Offen:
 - **Force-Push steht noch aus** (durch Berechtigungen blockiert; GitHub hat noch die alte Historie mit Gmail-Adresse). Befehl: `git push --force-with-lease=main:e5d463ba931f3a6501298cd35dbb53598cc68cf3 origin main`
 - **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
-- **Gamehub** ist nur lokal (`C:Sourcegamehub`) fertig, das GitHub-Repo ist noch leer → Code-Link zeigt auf leeres Repo, bis dort gepusht wird. Live-Link ergänzen, sobald gehostet.
+- **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und hat einen Live-Link (https://n-brand.github.io/gamehub/). Stand 2026-10-04 zeigt GitHub Pages dort aber nur die README („gamehub“), weil die App in `public/` liegt – muss im Gamehub-Repo gelöst werden (z.B. Pages-Quelle auf `/docs` und `public/` → `docs/` umbenennen, oder `index.html` im Root).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
 - **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
 - `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.

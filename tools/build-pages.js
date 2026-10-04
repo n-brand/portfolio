@@ -64,7 +64,7 @@ const projects = [
         card: 'Browser-Spieleplattform: Spiele direkt im Browser spielen – mit Kategorien, Suche, Favoriten und Highscores.',
         lead: 'Eine Spieleplattform im Browser: Spiele starten sofort, ohne Installation und ohne Login – mit Katalog, Suche, Favoriten und Highscores.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: null, code: 'https://github.com/n-brand/gamehub',
+        live: 'https://n-brand.github.io/gamehub/', code: 'https://github.com/n-brand/gamehub',
         about: [
             'Gamehub ist eine Sammlung kleiner Browser-Spiele unter einem Dach. Die Startseite zeigt alle Spiele als Kacheln, jedes Spiel hat eine eigene Seite mit Vollbild-Modus, Steuerung und Vorschlägen für ähnliche Spiele.',
             'Das erste fertige Spiel ist Snake. Weitere Spiele wie 2048 oder Memory sind geplant, später auch Accounts und Bestenlisten.',
