@@ -5,7 +5,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 ## Struktur
 
 - `index.html` – Startseite: Sidebar + Projekte (Karten mit Filter) + Kontakt
-- `ueber-mich.html` – Über-mich-Seite (Steckbrief, Werdegang, Skills, Interessen – noch mit Platzhaltern)
+- `ueber-mich.html` – Über-mich-Seite (Vorstellung, Steckbrief, Werdegang, Skills, Interessen); die Inhalte stehen als Daten in `aboutPage()` im Generator
 - `projekte/<slug>.html` – eine Detailseite pro Projekt (Illustration, Lead, Zeitraum/Status/Tech, Über das Projekt, Features, Technik, Vor/Zurück)
 - `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
 - `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Auslöser der Bild-Animationen auf Touch-Geräten, Jahreszahl
@@ -38,6 +38,8 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - Inhalte auf Deutsch, Klassennamen und IDs auf Englisch.
 - Nur strukturierende Kommentare (z.B. `/* --- Navigation --- */`).
 - Texte über Projekte nur mit belegten Fakten (aus Code/Repo), nichts erfinden.
+- **Persönliche Daten:** Wohnort und Lehrbetrieb nennt Nicolas bewusst nicht – nicht ergänzen. Keine Adresse, kein Geburtsdatum, keine Telefonnummer, keine private E-Mail auf der Seite.
+- Infos von Nicolas einzeln abfragen (eine kurze Frage nach der anderen, mit Auswahlmöglichkeiten), nicht als langes Formular.
 
 ## Aktueller Stand – IMMER AKTUELL HALTEN
 
@@ -49,7 +51,7 @@ Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
 - Layout desktop-first: fixierte Sidebar links, Projekte füllen die volle Breite; auf ≤900px Tab-Leiste unten.
 - 9 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
-- Über-mich-Seite angelegt (Platzhalter für persönliche Infos, Skills aus den Projekten abgeleitet).
+- Über-mich-Seite mit Nicolas' Angaben gefüllt (2026-10-04): Vorstellung, Steckbrief (Informatiker EFZ Applikationsentwicklung, Lehrbeginn 2025, Schwerpunkt Webentwicklung), Werdegang (Swan Calisthenics seit Juni 2026, Lehre seit 2025, Sekundarschule 2022–2025), Interessen (Calisthenics, Gaming, KI & neue Tools) als Karten mit Icon. Skills aus den Projekten abgeleitet. Platzhalter-Styles entfernt.
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
 - Kartenfuß vereinheitlicht: immer zuerst die Buttons (Live ansehen, Code) in einer Zeile, darunter „Mehr lesen →“ (`.card-footer`).
@@ -66,12 +68,12 @@ Erledigt:
 
 Offen:
 - **Swan-Hover-Klimmzug:** Nicolas erstellt noch das zweite Bild (Schwan zieht sich hoch, Brust über der Stange; Prompt in `docs/bild-prompt.md`). Danach: Rohbild nach `originals/`, mit `tools/crop-circle.ps1` nach `assets/images/swan-calisthenics-hoch.png` zuschneiden, prüfen, ob Ring und Stange in beiden Frames gleich liegen, und beim Swan-Projekt `image` durch `frames: ['assets/images/swan-calisthenics.png', 'assets/images/swan-calisthenics-hoch.png']` ersetzen.
-- **Über-mich-Seite:** Nicolas liefert noch Infos (Vorstellung, Wohnort, Ausbildung, Werdegang, Interessen) – Platzhalter (`.placeholder`) dann in `aboutPage()` ersetzen.
+- **Über-mich-Seite (optional):** weitere Links (z.B. LinkedIn, Instagram) und ein echtes Profilfoto statt der „NB“-Kachel, falls Nicolas das möchte.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.
 - **Influencer:** Repo enthält noch Reste aus dem Webshop (Beschreibungen, Footer) und ein kaputtes `js/local.json` – evtl. aufräumen.
 - `README.md` enthält noch den ursprünglichen KI-Prompt – evtl. durch Projektbeschreibung ersetzen.
-- Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen); echtes Profilfoto (optional).
+- Echte Screenshots der Projekte (optional, zusätzlich zu den Illustrationen).
 
 ## Ideen & Inspiration
 

@@ -762,7 +762,7 @@ h2 {
     margin-bottom: 16px;
 }
 
-.detail-body p + h2, .detail-body .placeholder + h2 {
+.detail-body p + h2 {
     margin-top: 28px;
 }
 
@@ -830,23 +830,49 @@ h2 {
     margin-bottom: 56px;
 }
 
-.placeholder {
-    padding: 14px 18px;
-    border: 2px dashed var(--border-color);
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.interest-card {
+    padding: 22px 24px;
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    box-shadow: 0 4px 0 var(--surface-shade);
+}
+
+.interest-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
     border-radius: 12px;
-    color: var(--text-muted);
-    font-style: italic;
+    background-color: var(--yellow);
+    color: #183153;
+    box-shadow: 0 3px 0 #e0a800;
 }
 
-.detail-header .placeholder {
-    margin-top: 20px;
-    max-width: 65ch;
+.interest-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.placeholder-inline {
+.interest-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.interest-card p {
     color: var(--text-muted);
-    font-style: italic;
-    font-weight: 600;
 }
 
 .timeline {

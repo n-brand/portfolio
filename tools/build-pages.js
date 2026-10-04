@@ -570,17 +570,57 @@ ${indent(pager, 16)}
 `;
 }
 
+const INTEREST_ICONS = {
+    calisthenics: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20"/><path d="M7 4v4a5 5 0 0 0 10 0V4"/><circle cx="12" cy="15" r="2.5"/><path d="M12 17.5V22"/></svg>',
+    gaming: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="14" r="1"/></svg>',
+    ai: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
+};
+
 function aboutPage() {
+    const intro = 'Ich bin Nicolas, Informatiker in Ausbildung (EFZ Applikationsentwicklung, seit 2025). Am liebsten baue ich Dinge fürs Web – von der Website meiner Calisthenics-Community bis zu kleinen Tools und Spielen im Browser. Neue Tools probiere ich gern aus, gerade im Bereich KI.';
+    const facts = [
+        ['Ausbildung', 'Informatiker EFZ – Applikationsentwicklung'],
+        ['Lehrbeginn', '2025'],
+        ['Schwerpunkt', 'Webentwicklung'],
+    ];
+    const timeline = [
+        { date: 'Juni 2026 – heute', title: 'Webentwicklung bei Swan Calisthenics', text: 'Ich habe die Website der Community gebaut und betreue sie – vom Design über den Mitgliederbereich bis zum Blog.' },
+        { date: '2025 – heute', title: 'Informatiker EFZ – Applikationsentwicklung', text: 'Berufslehre mit Schwerpunkt Softwareentwicklung.' },
+        { date: '2022 – 2025', title: 'Sekundarschule' },
+    ];
     const skills = [
         ['Frontend', ['HTML', 'CSS', 'JavaScript', 'Web Components', 'Canvas']],
         ['Backend & Daten', ['Supabase', 'Node.js', 'JSON']],
         ['Tools & Hosting', ['Git', 'GitHub Pages', 'Claude Code']],
     ];
+    const interests = [
+        { icon: 'calisthenics', title: 'Calisthenics', text: 'Training mit dem eigenen Körpergewicht – und Teil des Teams von Swan Calisthenics.' },
+        { icon: 'gaming', title: 'Gaming', text: 'Videospiele – und eigene Spiele im Browser, zum Beispiel im Gamehub.' },
+        { icon: 'ai', title: 'KI & neue Tools', text: 'Neue Tools ausprobieren – zum Beispiel Claude Code oder KI für Bilder.' },
+    ];
+
+    const factItems = facts.map(([label, value]) => `<div class="meta-item">
+    <span class="meta-label">${esc(label)}</span>
+    ${esc(value)}
+</div>`).join('\n');
+    const timelineItems = timeline.map(item => [
+        '<div class="timeline-item">',
+        '    <div class="timeline-dot"></div>',
+        `    <div class="timeline-date">${esc(item.date)}</div>`,
+        `    <h3>${esc(item.title)}</h3>`,
+        ...(item.text ? [`    <p>${esc(item.text)}</p>`] : []),
+        '</div>',
+    ].join('\n')).join('\n');
     const skillGroups = skills.map(([name, list]) => `<div class="skill-group">
     <h3>${esc(name)}</h3>
     <div class="project-tags">
 ${indent(tags(list), 8)}
     </div>
+</div>`).join('\n');
+    const interestCards = interests.map(item => `<div class="interest-card">
+    <div class="interest-icon">${INTEREST_ICONS[item.icon]}</div>
+    <h3>${esc(item.title)}</h3>
+    <p>${esc(item.text)}</p>
 </div>`).join('\n');
 
     return `<!DOCTYPE html>
@@ -607,24 +647,12 @@ ${indent(sidebar('', 'about'), 4)}
             <header class="detail-header">
                 <span class="project-label">Über mich</span>
                 <h1>Hallo, ich bin Nicolas</h1>
-                <p class="detail-lead">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
-                <p class="placeholder">Hier folgt eine kurze Vorstellung: wer ich bin, was ich mache und was mich antreibt.</p>
+                <p class="detail-lead">${esc(intro)}</p>
             </header>
 
             <!-- --- Profile Facts --- -->
             <div class="detail-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Wohnort</span>
-                    <span class="placeholder-inline">folgt</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Ausbildung</span>
-                    <span class="placeholder-inline">folgt</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Schwerpunkt</span>
-                    Webentwicklung
-                </div>
+${indent(factItems, 16)}
             </div>
 
             <div class="detail-body">
@@ -633,18 +661,7 @@ ${indent(sidebar('', 'about'), 4)}
                 <section>
                     <h2>Werdegang</h2>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Jahr – heute</div>
-                            <h3>Aktuelle Ausbildung / Stelle</h3>
-                            <p class="placeholder">Folgt: Betrieb oder Schule und eine kurze Beschreibung.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Jahr – Jahr</div>
-                            <h3>Schule</h3>
-                            <p class="placeholder">Folgt: Schule und Schwerpunkte.</p>
-                        </div>
+${indent(timelineItems, 24)}
                     </div>
                 </section>
 
@@ -660,7 +677,9 @@ ${indent(skillGroups, 24)}
             <!-- --- Interests --- -->
             <section class="about-block">
                 <h2>Interessen</h2>
-                <p class="placeholder">Folgt: Hobbys und was mich neben dem Programmieren interessiert.</p>
+                <div class="interest-grid">
+${indent(interestCards, 20)}
+                </div>
             </section>
 
             <!-- --- Call to Action --- -->
