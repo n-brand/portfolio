@@ -413,14 +413,28 @@ const ART = {
         <rect x="144" y="93" width="9" height="14" fill="#39ff6a"/>
     </svg>`,
     'hofladen-webshop': `<svg viewBox="0 0 240 140" aria-hidden="true">
-        <path d="M40 124 h160 l-14 -54 h-132 Z" fill="#c2773a"/>
-        <path d="M54 70 h132" stroke="#9a5a26" stroke-width="6" stroke-linecap="round"/>
-        <circle cx="86" cy="58" r="22" fill="#e03131"/>
-        <path d="M86 38 q4 -12 14 -12" stroke="#5c3a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <ellipse cx="100" cy="30" rx="9" ry="5" fill="#5cbf3a" transform="rotate(-20 100 30)"/>
-        <ellipse cx="134" cy="60" rx="15" ry="19" fill="#fff8ec"/>
-        <path d="M160 72 l24 -40 l10 6 Z" fill="#fd7e14"/>
-        <path d="M186 34 l6 -12 M190 36 l12 -6 M184 32 l-2 -14" stroke="#5cbf3a" stroke-width="4" stroke-linecap="round"/>
+        <rect x="44" y="28" width="7" height="72" fill="#9a5a26"/><rect x="189" y="28" width="7" height="72" fill="#9a5a26"/>
+        <g>${[0, 1, 2, 3, 4, 5, 6, 7].map(i => {
+            const x = 34 + i * 21.5, c = i % 2 ? '#fff8ec' : '#e03131';
+            return `<rect x="${x}" y="14" width="21.6" height="20" fill="${c}"/><circle cx="${x + 10.75}" cy="34" r="10.75" fill="${c}"/>`;
+        }).join('')}</g>
+        <rect x="30" y="8" width="180" height="10" rx="5" fill="#a61e1e"/>
+        <path d="M140 40v8" stroke="#5c2a06" stroke-width="2"/>
+        <g transform="rotate(-8 140 56)">
+            <rect x="124" y="47" width="32" height="18" rx="5" fill="#ffd43b"/>
+            <text x="140" y="60" text-anchor="middle" font-family="Nunito, sans-serif" font-size="10" font-weight="900" fill="#5c2a06">-20%</text>
+        </g>
+        <circle cx="66" cy="74" r="9" fill="#e03131"/><circle cx="82" cy="72" r="9" fill="#f03e3e"/><circle cx="97" cy="74" r="9" fill="#e03131"/>
+        <ellipse cx="85" cy="62" rx="5" ry="2.8" fill="#5cbf3a" transform="rotate(-25 85 62)"/>
+        <rect x="56" y="78" width="52" height="18" rx="3" fill="#e8a35a"/><path d="M58 87h48" stroke="#c2773a" stroke-width="2"/>
+        <ellipse cx="123" cy="77" rx="5.5" ry="7" fill="#fff8ec"/><ellipse cx="135" cy="76" rx="5.5" ry="7" fill="#f4e4cc"/><ellipse cx="147" cy="77" rx="5.5" ry="7" fill="#fff8ec"/>
+        <rect x="114" y="84" width="42" height="12" rx="3" fill="#b9a487"/>
+        <path d="M168 66l-4-10M175 64v-11M182 66l4-10" stroke="#5cbf3a" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="164" y="64" width="8" height="20" rx="4" fill="#fd7e14"/><rect x="171" y="62" width="8" height="22" rx="4" fill="#ff922b"/><rect x="178" y="64" width="8" height="20" rx="4" fill="#fd7e14"/>
+        <rect x="160" y="80" width="30" height="16" rx="3" fill="#e8a35a"/>
+        <rect x="30" y="94" width="180" height="9" rx="4" fill="#9a5a26"/>
+        <rect x="36" y="102" width="168" height="30" rx="4" fill="#c2773a"/>
+        <path d="M36 112h168M36 122h168" stroke="#a8622c" stroke-width="2"/>
     </svg>`,
     influencer: `<svg viewBox="0 0 240 140" aria-hidden="true">
         <rect x="62" y="24" width="116" height="78" rx="20" fill="#ffffff"/>
@@ -432,15 +446,24 @@ const ART = {
         <rect x="106" y="117" width="40" height="6" rx="3" fill="#ffffff"/>
     </svg>`,
     mediensammlung: `<svg viewBox="0 0 240 140" aria-hidden="true">
-        <g transform="rotate(-8 92 82)">
-            <rect x="44" y="60" width="96" height="62" rx="8" fill="#183153"/>
-            <rect x="44" y="40" width="96" height="18" rx="4" fill="#ffffff"/>
-            <path d="M58 40 l-10 18 M78 40 l-10 18 M98 40 l-10 18 M118 40 l-10 18 M138 40 l-10 18" stroke="#183153" stroke-width="7"/>
+        ${[[-14, '#183153', '<circle cx="113" cy="40" r="10" fill="#ffd43b"/><circle cx="118" cy="36" r="9" fill="#183153"/>'],
+            [14, '#6c3ce9', '<path d="M120 26l4.5 9.2 10.1 1.5-7.3 7.1 1.7 10.1-9-4.8-9 4.8 1.7-10.1-7.3-7.1 10.1-1.5z" fill="#ffd43b"/>'],
+            [0, '#e03131', '<circle cx="120" cy="44" r="14" fill="#ffffff"/><path d="M116 37v14l11-7z" fill="#e03131"/>'],
+        ].map(([deg, bg, motif]) => `<g transform="rotate(${deg} 120 120)">
+            <rect x="95" y="20" width="50" height="74" rx="6" fill="#1c7ed6"/>
+            <rect x="95" y="16" width="50" height="74" rx="6" fill="#ffffff"/>
+            <rect x="99" y="20" width="42" height="50" rx="3" fill="${bg}"/>${motif}
+            <rect x="99" y="75" width="30" height="4" rx="2" fill="#183153"/><rect x="99" y="82" width="20" height="3" rx="1.5" fill="#a5c8ec"/>
+        </g>`).join('')}
+        <path d="M30 86h34l-4 42H34z" fill="#ffffff"/>
+        <path d="M37 86h6l1 42h-5zM51 86h6l-1 42h-5z" fill="#e03131"/>
+        <g fill="#fff3bf"><circle cx="34" cy="84" r="6"/><circle cx="43" cy="80" r="7"/><circle cx="53" cy="81" r="6.5"/><circle cx="61" cy="85" r="5.5"/><circle cx="47" cy="74" r="5"/></g>
+        <g fill="#ffd43b"><circle cx="38" cy="78" r="2.5"/><circle cx="56" cy="76" r="2.5"/></g>
+        <g transform="rotate(12 196 104)">
+            <path d="M174 92h44v8a5 5 0 0 0 0 10v8h-44v-8a5 5 0 0 0 0-10z" fill="#ffd43b"/>
+            <path d="M206 94v22" stroke="#183153" stroke-width="2" stroke-dasharray="3 3"/>
+            <rect x="181" y="100" width="18" height="4" rx="2" fill="#183153"/><rect x="181" y="107" width="12" height="3" rx="1.5" fill="#183153" opacity=".5"/>
         </g>
-        <rect x="150" y="24" width="52" height="104" rx="6" fill="#183153"/>
-        <g fill="#74c0fc"><rect x="155" y="30" width="7" height="9" rx="2"/><rect x="155" y="48" width="7" height="9" rx="2"/><rect x="155" y="66" width="7" height="9" rx="2"/><rect x="155" y="84" width="7" height="9" rx="2"/><rect x="155" y="102" width="7" height="9" rx="2"/>
-        <rect x="190" y="30" width="7" height="9" rx="2"/><rect x="190" y="48" width="7" height="9" rx="2"/><rect x="190" y="66" width="7" height="9" rx="2"/><rect x="190" y="84" width="7" height="9" rx="2"/><rect x="190" y="102" width="7" height="9" rx="2"/></g>
-        <rect x="166" y="34" width="20" height="40" rx="3" fill="#ffd43b"/><rect x="166" y="80" width="20" height="40" rx="3" fill="#ff8787"/>
     </svg>`,
 };
 
