@@ -89,10 +89,10 @@ const projects = [
         card: 'Rundenbasiertes Strategiespiel in Low-Poly-3D: Stamm wählen, Städte gründen, forschen und die Karte erobern – direkt im Browser.',
         lead: 'Ein eigenes rundenbasiertes 4X-Strategiespiel im Browser: erkunden, ausbauen, forschen und erobern auf einer Low-Poly-3D-Insel – auch als App installierbar.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: '', code: '',
+        live: 'https://n-brand.github.io/StrategieSpiel/', code: 'https://github.com/n-brand/StrategieSpiel',
         about: [
             'Das Spiel ist inspiriert von Polytopia, aber komplett selbst gebaut: eigene Stämme, eigene Grafik, eigene Töne und eigene Namen. Man startet mit einer Stadt, erkundet die Karte im Nebel, gründet weitere Städte und kämpft gegen Computer-Gegner.',
-            'Es läuft im Browser in 3D und lässt sich als App aufs Handy installieren. Es ist noch in Arbeit und noch nicht online.',
+            'Es läuft im Browser in 3D und lässt sich als App aufs Handy installieren. Es ist spielbar, wird aber noch weiterentwickelt.',
         ],
         features: [
             '4 Stämme mit eigenem Look (Nordlinge, Steinvolk, Ebenenreich, Sandreiter)',
