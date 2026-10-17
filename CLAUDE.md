@@ -45,12 +45,12 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 **Nach jeder Änderung an diesem Repo diesen Abschnitt aktualisieren** (was gemacht wurde, was offen ist), damit der Stand jederzeit nachvollziehbar ist.
 
-Stand: 2026-10-04
+Stand: 2026-10-17
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
 - Layout desktop-first: fixierte Sidebar links, Projekte füllen die volle Breite; auf ≤900px Tab-Leiste unten.
-- 9 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
+- 10 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, StrategieSpiel, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
 - Über-mich-Seite mit Nicolas' Angaben gefüllt (2026-10-04): Vorstellung, Steckbrief (Informatiker EFZ Applikationsentwicklung, Lehrbeginn 2025, Schwerpunkt Webentwicklung), Werdegang (Swan Calisthenics seit Juni 2026, Lehre seit 2025, Sekundarschule 2022–2025), Interessen (Calisthenics, Gaming, KI & neue Tools) als Karten mit Icon (`INTEREST_ICONS` im Generator; Calisthenics = Klimmzug-Figur, von Nicolas aus vier Varianten gewählt). Skills aus den Projekten abgeleitet. Platzhalter-Styles entfernt.
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
@@ -65,10 +65,12 @@ Erledigt:
 - Große Bildschirme: statt 4 jetzt 5–7 Projekte pro Zeile (Grundschrift-Vergrößerung ab 2000px entfernt, Karten-Mindestbreite 360px → 270px, kompaktere Abstände).
 - Hover-Klimmzug für Swan vorbereitet: Generator unterstützt `frames`, Animation (Hover, Touch-Auslöser, reduzierte Bewegung) ist gebaut und mit einem Test-Frame geprüft (Test-Frame wieder entfernt).
 - Git-Historie umgeschrieben (alle Commits mit noreply-Adresse, Gemini-Original entfernt) und am 2026-10-04 von Nicolas per Force-Push auf GitHub gebracht. Ab jetzt reichen normale Pushes (Claude darf in dieser Umgebung nicht selbst pushen – Nicolas pusht).
+- **StrategieSpiel** (2026-10-17) als aktuelles Projekt ergänzt: Nicolas' rundenbasiertes 4X-Strategiespiel in Low-Poly-3D (Three.js, PWA), Ordner `C:Sourced-test`. Arbeitstitel war „Kleine Reiche“ – **nicht mehr verwenden**, der Name ist „StrategieSpiel“. Illustration: isometrische Insel mit Turm (aus dem App-Icon des Spiels übernommen, `tools/make-icons.mjs` dort) plus Segelboot; Theme Petrol #0b7285 mit gelben Links. Noch ohne Live-/Code-Link → Karte zeigt gestrichelte Pille „Bald spielbar“ (`.project-link.soon`; `links()` im Generator zeigt sie, wenn weder `live` noch `code` gesetzt ist).
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
 - **Swan-Hover-Klimmzug:** Nicolas erstellt noch das zweite Bild (Schwan zieht sich hoch, Brust über der Stange; Prompt in `docs/bild-prompt.md`). Wunsch von Nicolas: Der Kopf darf dabei über Logo und äußeren Ring hinausragen, die Stange bleibt an derselben Stelle im Kreis. Folge: `tools/crop-circle.ps1` muss dafür erweitert werden (schwarzen Hintergrund außerhalb des Kreises entfernen statt alles wegzuschneiden, Platz über dem Kreis lassen) und beide Frames brauchen dasselbe Format (Kreis gleich groß und an gleicher Stelle); der herausragende Kopf darf in der Karte über den Bildbereich hinausgehen. Danach: Rohbild nach `originals/`, mit `tools/crop-circle.ps1` nach `assets/images/swan-calisthenics-hoch.png` zuschneiden, prüfen, ob Ring und Stange in beiden Frames gleich liegen, und beim Swan-Projekt `image` durch `frames: ['assets/images/swan-calisthenics.png', 'assets/images/swan-calisthenics-hoch.png']` ersetzen.
+- **StrategieSpiel:** sobald es gehostet ist bzw. ein Repo hat, `live` und `code` eintragen (dann verschwindet „Bald spielbar“) und Status prüfen. Fakten auf der Detailseite stammen aus der CLAUDE.md des Spiels vom 2026-10-17 – bei größeren Änderungen nachziehen.
 - **Über-mich-Seite (optional):** weitere Links (z.B. LinkedIn, Instagram) und ein echtes Profilfoto statt der „NB“-Kachel, falls Nicolas das möchte.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.

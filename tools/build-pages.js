@@ -84,6 +84,34 @@ const projects = [
         ],
     },
     {
+        slug: 'strategiespiel', category: 'current',
+        title: 'StrategieSpiel',
+        card: 'Rundenbasiertes Strategiespiel in Low-Poly-3D: Stamm wählen, Städte gründen, forschen und die Karte erobern – direkt im Browser.',
+        lead: 'Ein eigenes rundenbasiertes 4X-Strategiespiel im Browser: erkunden, ausbauen, forschen und erobern auf einer Low-Poly-3D-Insel – auch als App installierbar.',
+        period: 'Oktober 2026 – heute', status: 'In Arbeit',
+        live: '', code: '',
+        about: [
+            'Das Spiel ist inspiriert von Polytopia, aber komplett selbst gebaut: eigene Stämme, eigene Grafik, eigene Töne und eigene Namen. Man startet mit einer Stadt, erkundet die Karte im Nebel, gründet weitere Städte und kämpft gegen Computer-Gegner.',
+            'Es läuft im Browser in 3D und lässt sich als App aufs Handy installieren. Es ist noch in Arbeit und noch nicht online.',
+        ],
+        features: [
+            '4 Stämme mit eigenem Look (Nordlinge, Steinvolk, Ebenenreich, Sandreiter)',
+            'Forschungsbaum mit 25 Techniken als Stern, mit eigenen Icons',
+            'Städte mit Stufen, Ruinen, Straßen, Häfen und Schiffe',
+            'Computer-Gegner in vier Stufen (Leicht bis Verrückt)',
+            'Spielarten „30 Runden“ und „Eroberung“ auf 4 Kartentypen',
+            'Töne und Musik pro Stamm, als App installierbar und offline spielbar',
+        ],
+        tech: ['JavaScript', 'Three.js', 'PWA'],
+        techNotes: [
+            '3D-Ansicht mit Three.js, ohne Build-Schritt',
+            'Spiellogik ohne DOM, getrennt von der 3D-Ansicht',
+            'Töne per Web Audio API, ohne Audiodateien',
+            'Service Worker für Offline-Betrieb',
+            'Über 120 Unit-Tests und eine KI-gegen-KI-Simulation',
+        ],
+    },
+    {
         slug: 'jarvis-anleitung', category: 'current',
         title: 'JARVIS-Anleitung',
         card: 'Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.',
@@ -300,6 +328,39 @@ const ART = {
         <circle cx="146" cy="108" r="5" fill="#ff6b6b"/>
         <circle cx="158" cy="118" r="5" fill="#ffd43b"/>
     </svg>`,
+    strategiespiel: `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <g fill="#a5e0f2" opacity=".5">
+            <path d="M16 40l6-3 6 3v1.5l-6-3-6 3z"/><path d="M200 30l6-3 6 3v1.5l-6-3-6 3z"/><path d="M214 116l5-2.5 5 2.5v1.5l-5-2.5-5 2.5z"/>
+        </g>
+        <g transform="translate(18 110)">
+            <path d="M0 0h26l-5 7H5z" fill="#8b5a2b"/>
+            <path d="M13 -1V-26" stroke="#2b3445" stroke-width="1.6"/>
+            <path d="M13.8 -25L25 -4H13.8z" fill="#f1f3f5"/><path d="M12.2 -21L4 -4H12.2z" fill="#c5ccd6"/>
+        </g>
+        <g transform="translate(37.5 -13.5) scale(1.65)">
+            <path d="M8 62L50 83L50 88L8 67Z" fill="#23709d"/>
+            <path d="M50 83L92 62L92 67L50 88Z" fill="#1b5a80"/>
+            <path d="M8 62L50 41L92 62L50 83Z" fill="#2f8fc6"/>
+            <path d="M19 64L50 48.5L81 64L50 79.5Z" fill="#5cc3dd"/>
+            <path d="M24 57L50 70L50 77L24 64Z" fill="#7a5839"/>
+            <path d="M50 70L76 57L76 64L50 77Z" fill="#5f4430"/>
+            <path d="M24 57L50 44L76 57L50 70Z" fill="#8cc657"/>
+            <path d="M47.5 55L55 58.75L55 39.75L47.5 36Z" fill="#f1f3f5"/>
+            <path d="M55 58.75L62.5 55L62.5 36L55 39.75Z" fill="#c5ccd6"/>
+            <path d="M50.05 48.3L52.45 49.5L52.45 44.18L50.05 42.98Z" fill="#3d4a5c"/>
+            <path d="M57.25 57.63L59.65 56.43L59.65 49.58L57.25 50.79Z" fill="#6b4a2b"/>
+            <path d="M45.25 36L55 40.88L55 23Z" fill="#f59f00"/>
+            <path d="M55 40.88L64.75 36L55 23Z" fill="#c77700"/>
+            <path d="M54.45 24L55.55 24L55.55 13L54.45 13Z" fill="#2b3445"/>
+            <path d="M55.55 13L64.5 15.4L55.55 17.8Z" fill="#f03e3e"/>
+            <path d="M30 57.5L36 60.2L36 45.94Z" fill="#58a64b"/><path d="M36 60.2L42 57.5L36 45.94Z" fill="#3c8c3c"/>
+            <path d="M31.56 51.04L36 53.04L36 40.5Z" fill="#58a64b"/><path d="M36 53.04L40.44 51.04L36 40.5Z" fill="#3c8c3c"/>
+            <path d="M62.5 59.5L67 61.53L67 51.34Z" fill="#58a64b"/><path d="M67 61.53L71.5 59.5L67 51.34Z" fill="#3c8c3c"/>
+            <path d="M63.67 54.94L67 56.44L67 47.5Z" fill="#58a64b"/><path d="M67 56.44L70.33 54.94L67 47.5Z" fill="#3c8c3c"/>
+            <path d="M38 63L43 65.25L43 54.16Z" fill="#58a64b"/><path d="M43 65.25L48 63L43 54.16Z" fill="#3c8c3c"/>
+            <path d="M39.3 58.06L43 59.73L43 50Z" fill="#58a64b"/><path d="M43 59.73L46.7 58.06L43 50Z" fill="#3c8c3c"/>
+        </g>
+    </svg>`,
     'jarvis-anleitung': `<svg viewBox="0 0 240 140" aria-hidden="true">
         <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
         <circle cx="120" cy="70" r="66" fill="url(#glow-jarvis)"/>
@@ -391,7 +452,8 @@ const tags = list => list.map(t => `<span class="tag">${esc(t)}</span>`).join('\
 const links = (p, base) => {
     const out = [];
     if (p.live) out.push(`<a href="${p.live}" ${ext} class="project-link primary">Live ansehen</a>`);
-    out.push(`<a href="${p.code}" ${ext} class="project-link">Code</a>`);
+    if (p.code) out.push(`<a href="${p.code}" ${ext} class="project-link">Code</a>`);
+    if (!out.length) out.push('<span class="project-link soon">Bald spielbar</span>');
     return out.join('\n');
 };
 

@@ -541,6 +541,12 @@ h2 {
     opacity: 1;
 }
 
+.project-link.soon {
+    border-style: dashed;
+    opacity: 0.7;
+    cursor: default;
+}
+
 /* --- Project Themes --- */
 .theme-swan-calisthenics {
     --card-bg: #183153;
@@ -565,6 +571,15 @@ h2 {
     --card-muted: #e2d9ff;
     --card-shade: #4a1fbf;
     --card-link: #ffffff;
+}
+
+.theme-strategiespiel {
+    --card-bg: #0b7285;
+    --card-text: #ffffff;
+    --card-muted: #c3fae8;
+    --card-shade: #064c5a;
+    --card-link: #ffd43b;
+    --card-ring: rgba(255, 255, 255, 0.2);
 }
 
 .theme-jarvis-anleitung {
