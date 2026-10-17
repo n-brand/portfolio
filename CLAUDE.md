@@ -69,6 +69,7 @@ Erledigt:
 - Gamehub-Illustration überarbeitet (2026-10-17): statt dünner Pixel-Schlange über Controller jetzt ein Browserfenster mit drei Spiel-Kacheln (Snake, 2048, Memory) und schräg davor ein Controller – zeigt „viele Spiele an einem Ort“.
 - Hofladen- und Mediensammlung-Illustration überarbeitet (2026-10-17): Hofladen = Marktstand mit rot-weiß gestreiftem Dach, Apfelkiste, Eierkarton, Rüebli und gelbem „-20%“-Schild (Aktionspreise); Mediensammlung = drei aufgefächerte Film-Poster-Karten (wie auf der Seite), Popcorn und Kinoticket.
 - Influencer-Illustration überarbeitet (2026-10-17): Handy mit Profil (Avatar, Folgen-Knopf, Beitragsraster), drumherum Like-Blase „12k“, Folgen-Blase, Kommentar-Blase und DE/US-Umschalter (wie der Filter der Seite).
+- Escape-Room-Illustration überarbeitet (2026-10-17): Puppenhaus im Querschnitt mit vier Räumen; das Schlafzimmer ist gelb hervorgehoben, der Mauszeiger klickt darauf (wie der Prototyp: klickbare Räume mit Hover); dazu Schlüssel links, Vorhängeschloss rechts, Fragezeichen und Tür mit Schlüsselloch.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
