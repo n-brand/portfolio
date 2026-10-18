@@ -176,7 +176,7 @@ public static class SwanSplit {
                 for (int k = start; k < x; k++) {
                     int i = (y * w + k) * 4;
                     if (y > 450 && Radius(k, y) > 245 && FillAlongCircle(bg, px, alpha, k, y, w, h)) continue;
-                    if (NearFist(k, y) && Radius(k, y) < 265) { Put(bg, i, Red[0], Red[1], Red[2], 1); continue; }
+                    if (NearFist(k, y)) { if (Radius(k, y) < 261) Put(bg, i, Red[0], Red[1], Red[2], 1); continue; }
                     int il = (y * w + (l >= 0 ? l : r)) * 4, ir = (y * w + (r < w ? r : l)) * 4;
                     double t = (double)(k - l) / (r - l);
                     for (int c = 0; c < 3; c++) bg[i + c] = (byte)Math.Round(px[il + c] + (px[ir + c] - px[il + c]) * t);
@@ -205,16 +205,20 @@ public static class SwanSplit {
         return true;
     }
 
-    static void DrawBar(byte[] bg, double[] profile, int w) {
+    static void EraseBar(byte[] bg, double[] profile, int w) {
         for (int y = BarTop - 2; y <= BarBottom + 2; y++)
             for (int x = BarLeft; x <= BarRight; x++) {
                 double pa = profile[y];
                 if (pa <= 0) continue;
                 int i = (y * w + x) * 4;
-                Put(bg, i,
-                    bg[i + 2] * (1 - pa) + Navy[0] * pa,
-                    bg[i + 1] * (1 - pa) + Navy[1] * pa,
-                    bg[i] * (1 - pa) + Navy[2] * pa, bg[i + 3] / 255.0);
+                // Stange aus dem Hintergrund nehmen (zeichnet nur die Stangen-Ebene), sonst sind die Raender doppelt dunkel
+                bool light = bg[i + 1] > 150;
+                if (light) continue;
+                // Farbe unter der Stange nach Abstand vom Mittelpunkt: Rot bis 264, weisser Ring bis 282, Navy-Ring bis 296
+                double r = Radius(x, y);
+                if (r < 264) Put(bg, i, Red[0], Red[1], Red[2], bg[i + 3] / 255.0);
+                else if (r < 282.5) Put(bg, i, 255, 255, 255, bg[i + 3] / 255.0);
+                else if (r < 296) Put(bg, i, Navy[0], Navy[1], Navy[2], bg[i + 3] / 255.0);
             }
     }
 
@@ -333,7 +337,7 @@ public static class SwanSplit {
 
         InpaintNeck(body, px, alpha, w);
         FillBackground(bg, px, alpha, w, h);
-        DrawBar(bg, profile, w);
+        EraseBar(bg, profile, w);
         Save(bg, w, h, System.IO.Path.Combine(outDir, "swan-bg.png"));
         Save(body, w, h, System.IO.Path.Combine(outDir, "swan-body.png"));
         Save(bar, w, h, System.IO.Path.Combine(outDir, "swan-bar.png"));
