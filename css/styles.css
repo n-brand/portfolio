@@ -1252,18 +1252,46 @@ h2 {
     height: auto;
 }
 
+.art-swan-calisthenics .layer-swan-arm-left {
+    transform-origin: 23.5% 31.5%;
+}
+
+.art-swan-calisthenics .layer-swan-arm-right {
+    transform-origin: 77% 31.5%;
+}
+
+.project-card:hover .art-swan-calisthenics .art-layer,
+.detail-art:hover .art-swan-calisthenics .art-layer,
+.art-swan-calisthenics.is-playing .art-layer {
+    animation: 1.8s ease-in-out infinite;
+}
+
 .project-card:hover .art-swan-calisthenics .layer-swan-body,
 .detail-art:hover .art-swan-calisthenics .layer-swan-body,
 .art-swan-calisthenics.is-playing .layer-swan-body {
-    animation: swan-pullup 1.8s ease-in-out infinite;
+    animation-name: swan-pullup;
 }
 
+.project-card:hover .art-swan-calisthenics .layer-swan-arm-left,
+.project-card:hover .art-swan-calisthenics .layer-swan-arm-right,
+.detail-art:hover .art-swan-calisthenics .layer-swan-arm-left,
+.detail-art:hover .art-swan-calisthenics .layer-swan-arm-right,
+.art-swan-calisthenics.is-playing .layer-swan-arm-left,
+.art-swan-calisthenics.is-playing .layer-swan-arm-right {
+    animation-name: swan-arm-bend;
+}
+
+/* Arme (Faust bis Schulter, 111 px) werden um den Weg des Körpers (60 px) kürzer */
 @keyframes swan-pullup {
     0%, 8% { transform: translateY(0); }
-    40% { transform: translateY(-12%); }
-    46% { transform: translateY(-12.6%); }
-    56% { transform: translateY(-12%); }
+    40%, 56% { transform: translateY(-10%); }
     88%, 100% { transform: translateY(0); }
+}
+
+@keyframes swan-arm-bend {
+    0%, 8% { transform: scale(1, 1); }
+    40%, 56% { transform: scale(1.16, 0.46); }
+    88%, 100% { transform: scale(1, 1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

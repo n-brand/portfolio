@@ -1,6 +1,7 @@
 # Zerlegt das Swan-Logo (600x600, transparent) in Ebenen fuer die CSS-Klimmzug-Animation:
 #   swan-bg.png    Kreis ohne Schwan (Schwan durch Rot ersetzt)
-#   swan-body.png  Schwan ohne Faeuste (bewegt sich hoch), Stange am Hals ausgebessert
+#   swan-arm-left.png / swan-arm-right.png  Arme unter den Faeusten (werden beim Hochziehen gestaucht)
+#   swan-body.png  Schwan ohne Faeuste und Arme (bewegt sich hoch), Stange am Hals ausgebessert
 #   swan-bar.png   nur die Stange
 #   swan-fists.png nur die Faeuste (bleiben an der Stange)
 # Aufruf: powershell -ExecutionPolicy Bypass -File tools/split-swan.ps1
@@ -23,6 +24,8 @@ public static class SwanSplit {
     static readonly int[] Red = { 247, 63, 67 };
     static readonly int[] Navy = { 16, 46, 82 };
     static readonly int[][] Fists = { new[] { 104, 108, 178, 188 }, new[] { 426, 108, 499, 188 } };
+    // Arme von der Faust bis zur Schulter: x1, y1, x2, y2
+    public static readonly int[][] Arms = { new[] { 70, 189, 178, 300 }, new[] { 412, 189, 535, 300 } };
 
     static byte[] Load(Bitmap b) {
         var d = b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
@@ -44,6 +47,15 @@ public static class SwanSplit {
     static bool InFist(int x, int y) {
         foreach (var f in Fists) if (x >= f[0] && x <= f[2] && y >= f[1] && y <= f[3]) return true;
         return false;
+    }
+
+    // Arm-Ebene ragt oben unter die Faust und unten unter den Koerper (overlap), damit keine Naht entsteht
+    static int InArm(int x, int y, int overlap) {
+        for (int k = 0; k < Arms.Length; k++) {
+            var r = Arms[k];
+            if (x >= r[0] && x <= r[2] && y >= r[1] - overlap && y <= r[3] + overlap) return k;
+        }
+        return -1;
     }
 
     static double Clamp(double v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
@@ -81,6 +93,27 @@ public static class SwanSplit {
             (px[i + 2] - (1 - a) * Red[0]) / a,
             (px[i + 1] - (1 - a) * Red[1]) / a,
             (px[i] - (1 - a) * Red[2]) / a, a);
+    }
+
+    // Kantenpixel: Farbe vom naechsten voll deckenden Nachbarn, Deckkraft aus dem Mischverhaeltnis mit Rot
+    static void PutMatted(byte[] o, byte[] px, double[] alpha, int x, int y, int w, int h) {
+        int i = (y * w + x) * 4;
+        double a = alpha[y * w + x];
+        if (a <= 0) return;
+        if (a >= 1) { Put(o, i, px[i + 2], px[i + 1], px[i], 1); return; }
+        int best = -1, bestD = 99;
+        for (int dy = -3; dy <= 3; dy++)
+            for (int dx = -3; dx <= 3; dx++) {
+                int nx = x + dx, ny = y + dy;
+                if (nx < 0 || ny < 0 || nx >= w || ny >= h || alpha[ny * w + nx] < 1) continue;
+                int d = dx * dx + dy * dy;
+                if (d < bestD) { bestD = d; best = (ny * w + nx) * 4; }
+            }
+        if (best < 0) { PutUnblended(o, px, i, a); return; }
+        double fr = px[best + 2] - Red[0], fg = px[best + 1] - Red[1], fb = px[best] - Red[2];
+        double cr = px[i + 2] - Red[0], cg = px[i + 1] - Red[1], cb = px[i] - Red[2];
+        double m = Clamp((cr * fr + cg * fg + cb * fb) / (fr * fr + fg * fg + fb * fb));
+        Put(o, i, px[best + 2], px[best + 1], px[best], m);
     }
 
     // Deckkraft der Stange pro Zeile, gemessen an einer Spalte mit rotem Hintergrund
@@ -168,6 +201,7 @@ public static class SwanSplit {
         var body = new byte[px.Length];
         var bar = new byte[px.Length];
         var fists = new byte[px.Length];
+        var arms = new[] { new byte[px.Length], new byte[px.Length] };
 
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
@@ -175,8 +209,12 @@ public static class SwanSplit {
                 bool barRow = y >= BarTop && y <= BarBottom;
                 double a = alpha[y * w + x];
 
+                int arm = InArm(x, y, 6);
+                if (arm >= 0) PutMatted(arms[arm], px, alpha, x, y, w, h);
                 if (InFist(x, y)) {
-                    PutUnblended(fists, px, i, a);
+                    PutMatted(fists, px, alpha, x, y, w, h);
+                } else if (InArm(x, y, 0) >= 0 && y < Arms[0][3] - 4) {
+                    // Arm: gehoert nur zur Arm-Ebene
                 } else if (barRow) {
                     double above = SwanAlpha(px, x, BarTop - 1, w), below = SwanAlpha(px, x, BarBottom + 1, w);
                     if (above > 0.5 && below > 0.5) {
@@ -189,7 +227,7 @@ public static class SwanSplit {
                             px[ia] + (px[ib] - px[ia]) * t, 1);
                     }
                 } else {
-                    PutUnblended(body, px, i, a);
+                    PutMatted(body, px, alpha, x, y, w, h);
                 }
 
 
@@ -207,6 +245,8 @@ public static class SwanSplit {
         Save(body, w, h, System.IO.Path.Combine(outDir, "swan-body.png"));
         Save(bar, w, h, System.IO.Path.Combine(outDir, "swan-bar.png"));
         Save(fists, w, h, System.IO.Path.Combine(outDir, "swan-fists.png"));
+        Save(arms[0], w, h, System.IO.Path.Combine(outDir, "swan-arm-left.png"));
+        Save(arms[1], w, h, System.IO.Path.Combine(outDir, "swan-arm-right.png"));
     }
 }
 "@

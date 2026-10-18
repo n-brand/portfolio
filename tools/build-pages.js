@@ -8,7 +8,7 @@ const CATEGORY_LABELS = { official: 'Offizielles Projekt', current: 'Aktuelles P
 const projects = [
     {
         slug: 'swan-calisthenics', category: 'official', featured: true, image: 'assets/images/swan-calisthenics.png',
-        layers: ['swan-bg', 'swan-body', 'swan-bar', 'swan-fists'],
+        layers: ['swan-bg', 'swan-arm-left', 'swan-arm-right', 'swan-body', 'swan-bar', 'swan-fists'],
         title: 'Swan Calisthenics',
         card: 'Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.',
         lead: 'Die offizielle Website der Swan Calisthenics Community: kostenlose Outdoor-Trainings für alle Niveaus im Street Workout Park in Horgen – mit Mitgliederbereich, Blog und Vereinsseiten.',
