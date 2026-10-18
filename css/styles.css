@@ -1290,7 +1290,7 @@ h2 {
 
 @keyframes swan-arm-bend {
     0%, 8% { transform: scale(1, 1); }
-    40%, 56% { transform: scale(1.16, 0.46); }
+    40%, 56% { transform: scale(1.08, 0.46); }
     88%, 100% { transform: scale(1, 1); }
 }
 

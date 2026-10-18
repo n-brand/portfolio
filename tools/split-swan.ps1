@@ -24,8 +24,8 @@ public static class SwanSplit {
     static readonly int[] Red = { 247, 63, 67 };
     static readonly int[] Navy = { 16, 46, 82 };
     static readonly int[][] Fists = { new[] { 104, 108, 178, 188 }, new[] { 426, 108, 499, 188 } };
-    // Arme von der Faust bis zur Schulter: x1, y1, x2, y2
-    public static readonly int[][] Arms = { new[] { 106, 189, 178, 300 }, new[] { 412, 189, 499, 300 } };
+    // Arme samt aeusserem Fluegel von der Faust bis zur Schulter: x1, y1, x2, y2 (rechts ab y 160 wegen der Fluegelspitze)
+    public static readonly int[][] Arms = { new[] { 55, 189, 178, 300 }, new[] { 412, 160, 548, 300 } };
 
     static byte[] Load(Bitmap b) {
         var d = b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
@@ -59,7 +59,9 @@ public static class SwanSplit {
     static int InArm(int x, int y, int overlap) {
         for (int k = 0; k < Arms.Length; k++) {
             var r = Arms[k];
-            if (x >= r[0] && x <= r[2] && y >= r[1] - overlap && y <= r[3] + overlap && !InRightWing(x, y)) return k;
+            // Links folgt die Innenkante der Schulter, die im Bild vor dem Arm liegt
+            int right = k == 0 ? (y < 220 ? 175 : (int)(157 + (y - 220) * 0.4)) : r[2];
+            if (x >= r[0] && x <= right && y >= r[1] - overlap && y <= r[3] + overlap) return k;
         }
         return -1;
     }
@@ -220,7 +222,7 @@ public static class SwanSplit {
                 // An senkrechten Schnittkanten ueberlappen die Ebenen 2 px, sonst scheint beim Verkleinern Rot durch
                 bool fistLayer = InFist(x, y) || (InFist(x - 2, y) && InFist(x - 4, y));
                 int core = InArm(x, y, 0);
-                bool armOnly = core >= 0 && InArm(x - 2, y, 0) == core && InArm(x + 2, y, 0) == core && y < Arms[0][3] - 4;
+                bool armOnly = core >= 0 && InArm(x - 2, y, 0) == core && InArm(x + (core == 0 ? 16 : 2), y, 0) == core && y < Arms[0][3] - 4;
                 if (fistLayer) PutMatted(fists, px, alpha, x, y, w, h);
                 if (InFist(x, y)) {
                     // Faust: gehoert nur zur Faust-Ebene
@@ -239,6 +241,9 @@ public static class SwanSplit {
                     }
                 } else {
                     PutMatted(body, px, alpha, x, y, w, h);
+                    // Unter den Armen weich einblenden (Arm darunter zeigt dasselbe), sonst entsteht beim Verkleinern ein heller Strich
+                    if (core >= 0 && y >= Arms[0][3] - 4 && y < Arms[0][3] + 6)
+                        body[i + 3] = (byte)(body[i + 3] * (y - Arms[0][3] + 5) / 11);
                 }
 
 
