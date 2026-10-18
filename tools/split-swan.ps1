@@ -113,12 +113,33 @@ public static class SwanSplit {
                 int l = start - 1, r = x;
                 for (int k = start; k < x; k++) {
                     int i = (y * w + k) * 4;
+                    if (y > 450 && Radius(k, y) > 245 && FillAlongCircle(bg, px, alpha, k, y, w, h)) continue;
                     int il = (y * w + (l >= 0 ? l : r)) * 4, ir = (y * w + (r < w ? r : l)) * 4;
                     double t = (double)(k - l) / (r - l);
                     for (int c = 0; c < 3; c++) bg[i + c] = (byte)Math.Round(px[il + c] + (px[ir + c] - px[il + c]) * t);
                 }
             }
         }
+    }
+
+    // Am Kreisrand entlang des Kreises auffuellen, damit Rot und Ring nicht ineinander verlaufen
+    static bool FillAlongCircle(byte[] bg, byte[] px, double[] alpha, int x, int y, int w, int h) {
+        double r = Radius(x, y), a0 = Math.Atan2(y - Cy, x - Cx), step = 1.0 / r;
+        int[] found = new int[2], dist = new int[2];
+        for (int d = 0; d < 2; d++) {
+            found[d] = -1;
+            for (int s = 1; s < 400; s++) {
+                double a = a0 + (d == 0 ? -s : s) * step;
+                int sx = (int)Math.Round(Cx + r * Math.Cos(a)), sy = (int)Math.Round(Cy + r * Math.Sin(a));
+                if (sx < 0 || sy < 0 || sx >= w || sy >= h) break;
+                if (!NearSwan(alpha, sx, sy, w, h)) { found[d] = (sy * w + sx) * 4; dist[d] = s; break; }
+            }
+        }
+        if (found[0] < 0 || found[1] < 0) return false;
+        double t = (double)dist[0] / (dist[0] + dist[1]);
+        int i = (y * w + x) * 4;
+        for (int c = 0; c < 3; c++) bg[i + c] = (byte)Math.Round(px[found[0] + c] + (px[found[1] + c] - px[found[0] + c]) * t);
+        return true;
     }
 
     static void DrawBar(byte[] bg, double[] profile, int w) {
