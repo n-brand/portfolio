@@ -84,7 +84,7 @@ filterButtons.forEach(button => {
 });
 
 // --- Art Frames ---
-const artFrames = document.querySelectorAll('.art-frames');
+const artFrames = document.querySelectorAll('.art-frames, .art-layers');
 
 if (artFrames.length && window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
     const framesObserver = new IntersectionObserver(entries => {

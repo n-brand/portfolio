@@ -11,6 +11,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 - `javascript/main.js` – Hell/Dunkel-Umschalter (Wahl in `localStorage` unter `theme`), aktiver Navigationspunkt beim Scrollen (nur Startseite), Projektfilter, Auslöser der Bild-Animationen auf Touch-Geräten, Jahreszahl
 - `tools/build-pages.js` – **Generator**: enthält alle Projektdaten (Texte, Features, Tech, Links, Status) und die SVG-Illustrationen und erzeugt daraus die Projektkarten in `index.html`, alle `projekte/*.html`, `ueber-mich.html` sowie die Sidebar auf allen Seiten.
 - `tools/crop-circle.ps1` – schneidet runde Motive (Kreis mit Navy-Ring, z.B. das Swan-Logo) aus einem Rohbild aus und speichert ein 600×600-PNG mit echter Transparenz (Befehl siehe `docs/bild-prompt.md`)
+- `tools/split-swan.ps1` – zerlegt das Swan-Logo in vier Ebenen für die CSS-Klimmzug-Animation (`swan-bg`, `swan-body`, `swan-bar`, `swan-fists` in `assets/images/`); nach jeder Änderung am Swan-Bild neu ausführen: `powershell -ExecutionPolicy Bypass -File tools/split-swan.ps1`
 - `assets/images/` – fertige Projektbilder (PNG mit Transparenz), siehe „Bilder & Animationen“
 - `originals/` – Rohbilder (z.B. von Gemini), **nicht in Git** (`.gitignore`); daraus werden die Bilder in `assets/images/` erzeugt
 - `docs/bild-prompt.md` – Prompts für Bildmodelle (Bild im Art Style der Seite, zweite Pose für Animationen) und Anleitung zum Zuschneiden
@@ -25,6 +26,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 ## Bilder & Animationen
 
 - **Eigenes Bild statt SVG:** beim Projekt `image: 'assets/images/<datei>.png'` eintragen → ersetzt die SVG-Illustration auf Karte und Detailseite.
+- **Animation aus Ebenen (nur CSS):** beim Projekt `layers: ['<name>', …]` eintragen (Dateien `assets/images/<name>.png`, alle gleich groß, übereinander gestapelt, Reihenfolge = Zeichenreihenfolge). Die Bewegung steht pro Projekt in `styles.css` (z.B. `.art-swan-calisthenics .layer-swan-body` mit `@keyframes swan-pullup`). Alle Ebenen brauchen `position: relative`, sonst landet die per `transform` bewegte Ebene über den anderen. Touch-Auslöser und reduzierte Bewegung wie bei Frames.
 - **Animation aus mehreren Bildern:** stattdessen `frames: ['assets/images/<start>.png', 'assets/images/<zweite-pose>.png']` eintragen. Beim Hover über Karte bzw. Detail-Banner wechselt das Bild in einer Schleife (1,6 s) zur zweiten Pose und zurück, mit kurzem Federn (`frames-swap`, `frames-bounce` in `styles.css`). Auf Touch-Geräten spielt die Animation zwei Durchgänge, sobald das Bild ins Blickfeld scrollt (`main.js`, Klasse `.is-playing`). Bei „Bewegung reduzieren“ (`prefers-reduced-motion`) bleibt das Startbild stehen. Beide Frames müssen exakt gleich ausgerichtet sein → beide mit `tools/crop-circle.ps1` zuschneiden.
 - **Rohbilder von Gemini:** Gemini liefert statt echter Transparenz oft ein aufgemaltes Schachbrett (JPG) oder einen schwarzen Hintergrund → Rohbild in `originals/` ablegen und mit `tools/crop-circle.ps1` zuschneiden. Neue Posen oder Varianten immer unter neuem Namen speichern, nie über das Basisbild.
 
@@ -45,7 +47,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 **Nach jeder Änderung an diesem Repo diesen Abschnitt aktualisieren** (was gemacht wurde, was offen ist), damit der Stand jederzeit nachvollziehbar ist.
 
-Stand: 2026-10-17
+Stand: 2026-10-18
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
@@ -70,10 +72,11 @@ Erledigt:
 - Hofladen- und Mediensammlung-Illustration überarbeitet (2026-10-17): Hofladen = Marktstand mit rot-weiß gestreiftem Dach, Apfelkiste, Eierkarton, Rüebli und gelbem „-20%“-Schild (Aktionspreise); Mediensammlung = drei aufgefächerte Film-Poster-Karten (wie auf der Seite), Popcorn und Kinoticket.
 - Influencer-Illustration überarbeitet (2026-10-17): Handy mit Profil (Avatar, Folgen-Knopf, Beitragsraster), drumherum Like-Blase „12k“, Folgen-Blase, Kommentar-Blase und DE/US-Umschalter (wie der Filter der Seite).
 - Escape-Room-Illustration überarbeitet (2026-10-17): Puppenhaus im Querschnitt mit vier Räumen; das Schlafzimmer ist gelb hervorgehoben, der Mauszeiger klickt darauf (wie der Prototyp: klickbare Räume mit Hover); dazu Schlüssel links, Vorhängeschloss rechts, Fragezeichen und Tür mit Schlüsselloch.
+- **Swan-Hover-Klimmzug in reinem CSS** (2026-10-18, Wunsch von Nicolas statt zweitem Gemini-Bild): `tools/split-swan.ps1` zerlegt das Logo in Hintergrund (Schwan entfernt, Lücken zeilenweise aus den Nachbarpixeln aufgefüllt, Schatten unter den Füßen bleibt stehen), Körper (Stange am Hals ausgebessert), Stange und Fäuste. Beim Hover zieht sich der Körper um 12 % hoch (`swan-pullup`, 1,8 s Schleife), Fäuste und Stange bleiben stehen, die Stange liegt vor dem Hals, der Kopf ragt über den Kreis. Unterarme gleiten dabei hinter die Fäuste (wirkt wie Arme beugen).
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
-- **Swan-Hover-Klimmzug:** Nicolas erstellt noch das zweite Bild (Schwan zieht sich hoch, Brust über der Stange; Prompt in `docs/bild-prompt.md`). Wunsch von Nicolas: Der Kopf darf dabei über Logo und äußeren Ring hinausragen, die Stange bleibt an derselben Stelle im Kreis. Folge: `tools/crop-circle.ps1` muss dafür erweitert werden (schwarzen Hintergrund außerhalb des Kreises entfernen statt alles wegzuschneiden, Platz über dem Kreis lassen) und beide Frames brauchen dasselbe Format (Kreis gleich groß und an gleicher Stelle); der herausragende Kopf darf in der Karte über den Bildbereich hinausgehen. Danach: Rohbild nach `originals/`, mit `tools/crop-circle.ps1` nach `assets/images/swan-calisthenics-hoch.png` zuschneiden, prüfen, ob Ring und Stange in beiden Frames gleich liegen, und beim Swan-Projekt `image` durch `frames: ['assets/images/swan-calisthenics.png', 'assets/images/swan-calisthenics-hoch.png']` ersetzen.
+- **Swan-Klimmzug (optional):** Läuft jetzt per CSS mit Ebenen. Ein echtes zweites Gemini-Bild (Prompt in `docs/bild-prompt.md`) wäre nur noch nötig, wenn die Pose stärker wechseln soll (z.B. Brust deutlich über der Stange). Kleine Schwäche: an den Fäusten ist beim Hochziehen ein feiner rosa Saum zu sehen.
 - **Über-mich-Seite (optional):** weitere Links (z.B. LinkedIn, Instagram) und ein echtes Profilfoto statt der „NB“-Kachel, falls Nicolas das möchte.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.

@@ -1228,7 +1228,46 @@ h2 {
     84%, 100% { transform: translateY(0); }
 }
 
+/* --- Art Layers (Swan-Klimmzug) --- */
+.art-layers {
+    display: grid;
+    width: 100%;
+    max-width: 210px;
+}
+
+.project-card.featured .card-art .art-layers {
+    max-width: 320px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.detail-art .art-layers {
+    max-width: 280px;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.art-layer {
+    position: relative;
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+}
+
+.project-card:hover .art-swan-calisthenics .layer-swan-body,
+.detail-art:hover .art-swan-calisthenics .layer-swan-body,
+.art-swan-calisthenics.is-playing .layer-swan-body {
+    animation: swan-pullup 1.8s ease-in-out infinite;
+}
+
+@keyframes swan-pullup {
+    0%, 8% { transform: translateY(0); }
+    40% { transform: translateY(-12%); }
+    46% { transform: translateY(-12.6%); }
+    56% { transform: translateY(-12%); }
+    88%, 100% { transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+    .art-layer,
     .art-frames,
     .art-frames .art-frame {
         animation: none !important;

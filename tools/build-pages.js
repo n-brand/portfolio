@@ -8,6 +8,7 @@ const CATEGORY_LABELS = { official: 'Offizielles Projekt', current: 'Aktuelles P
 const projects = [
     {
         slug: 'swan-calisthenics', category: 'official', featured: true, image: 'assets/images/swan-calisthenics.png',
+        layers: ['swan-bg', 'swan-body', 'swan-bar', 'swan-fists'],
         title: 'Swan Calisthenics',
         card: 'Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.',
         lead: 'Die offizielle Website der Swan Calisthenics Community: kostenlose Outdoor-Trainings für alle Niveaus im Street Workout Park in Horgen – mit Mitgliederbereich, Blog und Vereinsseiten.',
@@ -510,6 +511,13 @@ const art = (slug, n) => indent(ART[slug].split('\n').map(l => l.replace(/^ {4}/
 const artImage = (src, prefix, cls) => `<img src="${prefix}${src}" alt="" class="${cls}" width="600" height="600">`;
 
 const artFor = (p, n, prefix) => {
+    if (p.layers) {
+        return indent([
+            `<div class="art-layers art-${p.slug}">`,
+            ...p.layers.map(name => `    <img src="${prefix}assets/images/${name}.png" alt="" class="art-layer layer-${name}" width="600" height="600">`),
+            '</div>',
+        ].join('\n'), n);
+    }
     if (p.frames) {
         return indent([
             '<div class="art-frames">',
