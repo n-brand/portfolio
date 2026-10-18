@@ -25,7 +25,7 @@ public static class SwanSplit {
     static readonly int[] Navy = { 16, 46, 82 };
     static readonly int[][] Fists = { new[] { 104, 108, 178, 188 }, new[] { 426, 108, 499, 188 } };
     // Arme von der Faust bis zur Schulter: x1, y1, x2, y2
-    public static readonly int[][] Arms = { new[] { 70, 189, 178, 300 }, new[] { 412, 189, 535, 300 } };
+    public static readonly int[][] Arms = { new[] { 106, 189, 178, 300 }, new[] { 412, 189, 499, 300 } };
 
     static byte[] Load(Bitmap b) {
         var d = b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
@@ -44,7 +44,13 @@ public static class SwanSplit {
         b.Dispose();
     }
 
+    // Rechte Fluegelspitze liegt schraeg neben dem Handgelenk (Kante von 510|163 nach 493|200): gehoert zum Koerper
+    static bool InRightWing(int x, int y) {
+        return y > 160 && x > Math.Max(490, 493 + (200 - y) * 0.46);
+    }
+
     static bool InFist(int x, int y) {
+        if (InRightWing(x, y)) return false;
         foreach (var f in Fists) if (x >= f[0] && x <= f[2] && y >= f[1] && y <= f[3]) return true;
         return false;
     }
@@ -53,7 +59,7 @@ public static class SwanSplit {
     static int InArm(int x, int y, int overlap) {
         for (int k = 0; k < Arms.Length; k++) {
             var r = Arms[k];
-            if (x >= r[0] && x <= r[2] && y >= r[1] - overlap && y <= r[3] + overlap) return k;
+            if (x >= r[0] && x <= r[2] && y >= r[1] - overlap && y <= r[3] + overlap && !InRightWing(x, y)) return k;
         }
         return -1;
     }
