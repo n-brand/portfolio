@@ -1252,12 +1252,9 @@ h2 {
     height: auto;
 }
 
-.art-swan-calisthenics .layer-swan-arm-left {
-    transform-origin: 23.5% 31.5%;
-}
-
+.art-swan-calisthenics .layer-swan-arm-left,
 .art-swan-calisthenics .layer-swan-arm-right {
-    transform-origin: 77% 31.5%;
+    transform-origin: 50% 31.5%;
 }
 
 .project-card:hover .art-swan-calisthenics .art-layer,
@@ -1278,20 +1275,21 @@ h2 {
 .detail-art:hover .art-swan-calisthenics .layer-swan-arm-right,
 .art-swan-calisthenics.is-playing .layer-swan-arm-left,
 .art-swan-calisthenics.is-playing .layer-swan-arm-right {
-    animation-name: swan-arm-bend;
+    animation-name: swan-arm-strip;
 }
 
-/* Arme (Faust bis Schulter, 111 px) werden um den Weg des Körpers (60 px) kürzer */
+/* Arme (Faust bis Schulter, 111 px) werden um den Weg des Körpers (40 px) kürzer;
+   jeder Arm-Streifen mischt Stauchen (Anteil --f) und Hochgehen wie der Körper (1 - --f) */
 @keyframes swan-pullup {
     0%, 8% { transform: translateY(0); }
-    40%, 56% { transform: translateY(-10%); }
+    40%, 56% { transform: translateY(-6.67%); }
     88%, 100% { transform: translateY(0); }
 }
 
-@keyframes swan-arm-bend {
-    0%, 8% { transform: scale(1, 1); }
-    40%, 56% { transform: scale(1.08, 0.46); }
-    88%, 100% { transform: scale(1, 1); }
+@keyframes swan-arm-strip {
+    0%, 8% { transform: translateY(0) scaleY(1); }
+    40%, 56% { transform: translateY(calc((var(--f) - 1) * 6.667%)) scaleY(calc(1 - var(--f) * 0.36)); }
+    88%, 100% { transform: translateY(0) scaleY(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

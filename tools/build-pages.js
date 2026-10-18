@@ -5,10 +5,29 @@ const ROOT = path.join(__dirname, '..');
 
 const CATEGORY_LABELS = { official: 'Offizielles Projekt', current: 'Aktuelles Projekt', school: 'Schulprojekt' };
 
+// Arm-Ebene in senkrechte Streifen zerlegen: voll gestaucht (f = 1) ab "full", zur Innenkante "edge" hin
+// schrittweise weniger (f -> 0, bewegt sich wie der Körper). So entsteht keine sichtbare Schnittkante.
+function armStrips(x1, x2, full, edge) {
+    const step = 1, dir = Math.sign(edge - full), strips = [];
+    const core = dir > 0 ? [x1, full] : [full, x2];
+    strips.push([core[0], core[1], 1]);
+    for (let x = full; dir > 0 ? x < edge : x > edge; x += dir * step) {
+        const a = Math.min(x, x + dir * step), b = Math.max(x, x + dir * step);
+        const f = 1 - (Math.abs((a + b) / 2 - full) / Math.abs(edge - full));
+        strips.push([a, b, +f.toFixed(3)]);
+    }
+    return strips;
+}
+
 const projects = [
     {
         slug: 'swan-calisthenics', category: 'official', featured: true, image: 'assets/images/swan-calisthenics.png',
-        layers: ['swan-bg', 'swan-arm-left', 'swan-arm-right', 'swan-body', 'swan-bar', 'swan-fists'],
+        layers: [
+            'swan-bg',
+            { name: 'swan-arm-left', strips: armStrips(55, 178, 148, 178) },
+            { name: 'swan-arm-right', strips: armStrips(412, 548, 442, 412) },
+            'swan-body', 'swan-bar', 'swan-fists',
+        ],
         title: 'Swan Calisthenics',
         card: 'Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.',
         lead: 'Die offizielle Website der Swan Calisthenics Community: kostenlose Outdoor-Trainings für alle Niveaus im Street Workout Park in Horgen – mit Mitgliederbereich, Blog und Vereinsseiten.',
@@ -514,7 +533,12 @@ const artFor = (p, n, prefix) => {
     if (p.layers) {
         return indent([
             `<div class="art-layers art-${p.slug}">`,
-            ...p.layers.map(name => `    <img src="${prefix}assets/images/${name}.png" alt="" class="art-layer layer-${name}" width="600" height="600">`),
+            ...p.layers.flatMap(layer => {
+                const img = (name, extra = '') => `    <img src="${prefix}assets/images/${name}.png" alt="" class="art-layer layer-${name}"${extra} width="600" height="600">`;
+                if (typeof layer === 'string') return [img(layer)];
+                const pct = v => +(v / 6).toFixed(3) + '%';
+                return layer.strips.map(([a, b, f]) => img(layer.name, ` style="--f: ${f}; clip-path: inset(0 ${pct(600 - b - 1)} 0 ${pct(a - 1)})"`));
+            }),
             '</div>',
         ].join('\n'), n);
     }

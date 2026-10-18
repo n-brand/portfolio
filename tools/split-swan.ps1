@@ -59,9 +59,7 @@ public static class SwanSplit {
     static int InArm(int x, int y, int overlap) {
         for (int k = 0; k < Arms.Length; k++) {
             var r = Arms[k];
-            // Links folgt die Innenkante der Schulter, die im Bild vor dem Arm liegt
-            int right = k == 0 ? (y < 220 ? 175 : (int)(157 + (y - 220) * 0.4)) : r[2];
-            if (x >= r[0] && x <= right && y >= r[1] - overlap && y <= r[3] + overlap) return k;
+            if (x >= r[0] && x <= r[2] && y >= r[1] - overlap && y <= r[3] + overlap) return k;
         }
         return -1;
     }
@@ -218,11 +216,11 @@ public static class SwanSplit {
                 double a = alpha[y * w + x];
 
                 int arm = InArm(x, y, 6);
-                if (arm >= 0) PutMatted(arms[arm], px, alpha, x, y, w, h);
+                if (arm >= 0 && (!InFist(x, y) || y >= Arms[0][1] - 6)) PutMatted(arms[arm], px, alpha, x, y, w, h);
                 // An senkrechten Schnittkanten ueberlappen die Ebenen 2 px, sonst scheint beim Verkleinern Rot durch
                 bool fistLayer = InFist(x, y) || (InFist(x - 2, y) && InFist(x - 4, y));
                 int core = InArm(x, y, 0);
-                bool armOnly = core >= 0 && InArm(x - 2, y, 0) == core && InArm(x + (core == 0 ? 16 : 2), y, 0) == core && y < Arms[0][3] - 4;
+                bool armOnly = core >= 0 && InArm(x - 2, y, 0) == core && InArm(x + 2, y, 0) == core && y < Arms[0][3] - 4;
                 if (fistLayer) PutMatted(fists, px, alpha, x, y, w, h);
                 if (InFist(x, y)) {
                     // Faust: gehoert nur zur Faust-Ebene
