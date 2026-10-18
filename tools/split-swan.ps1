@@ -49,6 +49,11 @@ public static class SwanSplit {
         return y > 160 && x > Math.Max(490, 493 + (200 - y) * 0.46);
     }
 
+    static bool NearFist(int x, int y) {
+        foreach (var f in Fists) if (x >= f[0] - 4 && x <= f[2] + 4 && y >= f[1] - 4 && y <= f[3]) return true;
+        return false;
+    }
+
     static bool InFist(int x, int y) {
         if (InRightWing(x, y)) return false;
         foreach (var f in Fists) if (x >= f[0] && x <= f[2] && y >= f[1] && y <= f[3]) return true;
@@ -71,7 +76,12 @@ public static class SwanSplit {
     // Weisse Zwickel zwischen Ring und Stangen-Enden
     static bool InWedge(int x, int y) { return y <= BarBottom + 1 && (x < 104 || x > 499); }
 
-    static bool InRed(int x, int y) { return Radius(x, y) < RedRadius && !InWedge(x, y); }
+    // Die aeusseren Finger reichen bis an den weissen Ring: in den Faust-Bereichen gilt der volle Kreis (264)
+    static bool InRed(int x, int y) {
+        bool fistBox = false;
+        foreach (var f in Fists) if (x >= f[0] && x <= f[2] && y >= f[1] && y <= f[3]) fistBox = true;
+        return Radius(x, y) < (fistBox ? 265 : RedRadius) && !InWedge(x, y);
+    }
 
     // Wie stark ein Pixel zum Schwan gehoert (0 = Hintergrund)
     static double SwanAlpha(byte[] px, int x, int y, int w) {
@@ -153,7 +163,8 @@ public static class SwanSplit {
         return false;
     }
 
-    // Schwan aus dem Hintergrund entfernen: pro Zeile zwischen den Nachbarpixeln links und rechts auffuellen
+    // Schwan aus dem Hintergrund entfernen: pro Zeile zwischen den Nachbarpixeln links und rechts auffuellen.
+    // Rund um die Faeuste einfach Rot, sonst mischt sich das Weiss des Rings hinein.
     static void FillBackground(byte[] bg, byte[] px, double[] alpha, int w, int h) {
         for (int y = 0; y < h; y++) {
             int x = 0;
@@ -165,6 +176,7 @@ public static class SwanSplit {
                 for (int k = start; k < x; k++) {
                     int i = (y * w + k) * 4;
                     if (y > 450 && Radius(k, y) > 245 && FillAlongCircle(bg, px, alpha, k, y, w, h)) continue;
+                    if (NearFist(k, y) && Radius(k, y) < 265) { Put(bg, i, Red[0], Red[1], Red[2], 1); continue; }
                     int il = (y * w + (l >= 0 ? l : r)) * 4, ir = (y * w + (r < w ? r : l)) * 4;
                     double t = (double)(k - l) / (r - l);
                     for (int c = 0; c < 3; c++) bg[i + c] = (byte)Math.Round(px[il + c] + (px[ir + c] - px[il + c]) * t);
