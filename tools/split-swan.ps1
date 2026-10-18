@@ -81,6 +81,8 @@ public static class SwanSplit {
             if (y < 480 || x < 230 || x > 430 || px[i + 2] < 150) return 0;
             return Clamp((px[i + 1] - px[i] - 30) / 40.0);
         }
+        // Stangen-Kanten (Mischung aus Rot und Navy) sind kein Schwan; Hals und Faeuste sind dort weiss/hellblau
+        if (y >= BarTop - 2 && y <= BarBottom + 2 && px[i + 1] < 110 && px[i] < 130) return 0;
         double dr = px[i + 2] - Red[0], dg = px[i + 1] - Red[1], db = px[i] - Red[2];
         return Clamp((Math.Sqrt(dr * dr + dg * dg + db * db) - 20) / 60);
     }
