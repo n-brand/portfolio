@@ -83,6 +83,7 @@ Erledigt:
 - Weiße Linie über der Stange entfernt (2026-10-18): Die rot-navy gemischten Randpixel der Stange galten als „Schwan“, dadurch wurde die Hintergrund-Zeile mit dem Weiß des Rings aufgefüllt. In den Stangenzeilen zählen dunkle/rote Farben (G < 110, B < 130) jetzt nicht als Schwan.
 - Äußere Finger beider Fäuste repariert (2026-10-18): sie reichen bis an den weißen Ring und wurden durch die verkleinerte Kreisgrenze (`RedRadius` 255, gegen den rosa Kopfrand) abgeschnitten. In den Faust-Bereichen gilt jetzt der volle Kreis (265); rund um die Fäuste wird der Hintergrund mit reinem Rot statt Rot/Weiß-Mischung gefüllt (`NearFist`).
 - Stange nur noch in der Stangen-Ebene (2026-10-18): Sie war auch im Hintergrund enthalten, dadurch wurden die halbdurchsichtigen Ränder doppelt dunkel. `EraseBar` ersetzt die Stange im Hintergrund durch die Farbe darunter, nach Radius: Rot bis 264, weißer Ring bis 282, Navy-Ring bis 296. Rund um die Fäuste wird nur bis Radius 261 rot gefüllt, damit sich kein Rot in den Ring beißt. Ruheposition weicht nur noch in ~40 Einzelpixeln vom Original ab.
+- Außenrand des Swan-Logos rund gemacht (2026-10-18, Wunsch von Nicolas): Links und rechts lag noch schwarzer Gemini-Hintergrund außerhalb des Navy-Rings, dadurch wirkte das Logo oval. `CleanRim` in `split-swan.ps1` malt dunkle Randpixel Navy und schneidet den Ring als sauberen Kreis bei Radius 297,5 ab (betrifft nur `swan-bg.png`).
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:

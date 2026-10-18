@@ -276,6 +276,22 @@ public static class SwanSplit {
         }
     }
 
+    // Aussenrand als sauberer Kreis: im Rohbild liegt links und rechts noch schwarzer Gemini-Hintergrund,
+    // dadurch wirkt das Logo oval. Dunkle Randpixel werden Navy, ausserhalb von 297.5 wird es durchsichtig.
+    static void CleanRim(byte[] bg, int w, int h) {
+        const double outer = 297.5;
+        for (int y = 0; y < h; y++)
+            for (int x = 0; x < w; x++) {
+                double r = Radius(x, y);
+                if (r < 284) continue;
+                int i = (y * w + x) * 4;
+                double cover = Clamp(outer + 0.5 - r);
+                if (cover <= 0) { bg[i] = bg[i + 1] = bg[i + 2] = bg[i + 3] = 0; continue; }
+                bool dark = bg[i + 3] < 250 || bg[i] + bg[i + 1] + bg[i + 2] < 200;
+                if (dark) Put(bg, i, Navy[0], Navy[1], Navy[2], cover);
+            }
+    }
+
     public static void Run(string input, string outDir) {
         var src = new Bitmap(input);
         int w = src.Width, h = src.Height;
@@ -338,6 +354,7 @@ public static class SwanSplit {
         InpaintNeck(body, px, alpha, w);
         FillBackground(bg, px, alpha, w, h);
         EraseBar(bg, profile, w);
+        CleanRim(bg, w, h);
         Save(bg, w, h, System.IO.Path.Combine(outDir, "swan-bg.png"));
         Save(body, w, h, System.IO.Path.Combine(outDir, "swan-body.png"));
         Save(bar, w, h, System.IO.Path.Combine(outDir, "swan-bar.png"));
