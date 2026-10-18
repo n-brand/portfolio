@@ -217,9 +217,14 @@ public static class SwanSplit {
 
                 int arm = InArm(x, y, 6);
                 if (arm >= 0) PutMatted(arms[arm], px, alpha, x, y, w, h);
+                // An senkrechten Schnittkanten ueberlappen die Ebenen 2 px, sonst scheint beim Verkleinern Rot durch
+                bool fistLayer = InFist(x, y) || (InFist(x - 2, y) && InFist(x - 4, y));
+                int core = InArm(x, y, 0);
+                bool armOnly = core >= 0 && InArm(x - 2, y, 0) == core && InArm(x + 2, y, 0) == core && y < Arms[0][3] - 4;
+                if (fistLayer) PutMatted(fists, px, alpha, x, y, w, h);
                 if (InFist(x, y)) {
-                    PutMatted(fists, px, alpha, x, y, w, h);
-                } else if (InArm(x, y, 0) >= 0 && y < Arms[0][3] - 4) {
+                    // Faust: gehoert nur zur Faust-Ebene
+                } else if (armOnly) {
                     // Arm: gehoert nur zur Arm-Ebene
                 } else if (barRow) {
                     double above = SwanAlpha(px, x, BarTop - 1, w), below = SwanAlpha(px, x, BarBottom + 1, w);
