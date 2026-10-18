@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 
 public static class SwanSplit {
     // Masse im 600x600-Bild: roter Kreis mit Radius 264, die Fuesse ragen unten in den weissen Ring
-    const double Cx = 300, Cy = 300, RedRadius = 261;
+    const double Cx = 300, Cy = 300, RedRadius = 255;
     const int BarTop = 131, BarBottom = 151, BarLeft = 56, BarRight = 544, BarSample = 250;
     static readonly int[] Red = { 247, 63, 67 };
     static readonly int[] Navy = { 16, 46, 82 };
@@ -102,16 +102,26 @@ public static class SwanSplit {
     }
 
     // Kantenpixel: Farbe vom naechsten voll deckenden Nachbarn, Deckkraft aus dem Mischverhaeltnis mit Rot
+    // Innenpixel: rundum Schwan, also kein mit Rot gemischtes Kantenpixel
+    static bool Interior(double[] alpha, int x, int y, int w, int h) {
+        for (int dy = -1; dy <= 1; dy++)
+            for (int dx = -1; dx <= 1; dx++) {
+                int nx = x + dx, ny = y + dy;
+                if (nx < 0 || ny < 0 || nx >= w || ny >= h || alpha[ny * w + nx] < 1) return false;
+            }
+        return true;
+    }
+
     static void PutMatted(byte[] o, byte[] px, double[] alpha, int x, int y, int w, int h) {
         int i = (y * w + x) * 4;
         double a = alpha[y * w + x];
         if (a <= 0) return;
-        if (a >= 1) { Put(o, i, px[i + 2], px[i + 1], px[i], 1); return; }
+        if (Interior(alpha, x, y, w, h)) { Put(o, i, px[i + 2], px[i + 1], px[i], 1); return; }
         int best = -1, bestD = 99;
         for (int dy = -3; dy <= 3; dy++)
             for (int dx = -3; dx <= 3; dx++) {
                 int nx = x + dx, ny = y + dy;
-                if (nx < 0 || ny < 0 || nx >= w || ny >= h || alpha[ny * w + nx] < 1) continue;
+                if (nx < 0 || ny < 0 || nx >= w || ny >= h || !Interior(alpha, nx, ny, w, h)) continue;
                 int d = dx * dx + dy * dy;
                 if (d < bestD) { bestD = d; best = (ny * w + nx) * 4; }
             }
@@ -194,6 +204,60 @@ public static class SwanSplit {
             }
     }
 
+    // Linke und rechte Kante des Halses in einer Zeile (zwischen x 300 und 420)
+    // ... und das Ende des hellblauen Schattenstreifens links im Hals (erstes fast weisses Pixel)
+    static void NeckEdges(byte[] px, double[] alpha, int y, int w, out int l, out int b, out int r) {
+        l = 300; while (l < 420 && alpha[y * w + l] < 0.5) l++;
+        r = 420; while (r > 300 && alpha[y * w + r] < 0.5) r--;
+        b = l; while (b < r && !(px[(y * w + b) * 4 + 2] > 238 && px[(y * w + b) * 4 + 1] > 238)) b++;
+    }
+
+    // Weiche Kurve (Hermite) zwischen den Kanten ueber und unter der Stange, mit der Steigung von 6 Zeilen davor/danach
+    static double Hermite(double p0, double m0, double p1, double m1, double t) {
+        double t2 = t * t, t3 = t2 * t;
+        return (2 * t3 - 3 * t2 + 1) * p0 + (t3 - 2 * t2 + t) * m0 + (-2 * t3 + 3 * t2) * p1 + (t3 - t2) * m1;
+    }
+
+    // Hals hinter der Stange: Kanten folgen der Biegung, das Innere (Schattenstreifen) wird anteilig zwischen
+    // den Zeilen ueber und unter der Stange verteilt statt spaltenweise senkrecht aufgefuellt
+    static void InpaintNeck(byte[] body, byte[] px, double[] alpha, int w) {
+        int y0 = BarTop - 1, y1 = BarBottom + 1, span = y1 - y0;
+        int la, ba, ra, l0, b0, r0, l1, b1, r1, lb, bb, rb;
+        NeckEdges(px, alpha, y0 - 6, w, out la, out ba, out ra);
+        NeckEdges(px, alpha, y0, w, out l0, out b0, out r0);
+        NeckEdges(px, alpha, y1, w, out l1, out b1, out r1);
+        NeckEdges(px, alpha, y1 + 6, w, out lb, out bb, out rb);
+        double ml0 = (l0 - la) / 6.0 * span, mb0 = (b0 - ba) / 6.0 * span, mr0 = (r0 - ra) / 6.0 * span;
+        double ml1 = (lb - l1) / 6.0 * span, mb1 = (bb - b1) / 6.0 * span, mr1 = (rb - r1) / 6.0 * span;
+        for (int y = y0 + 1; y < y1; y++) {
+            double t = (double)(y - y0) / span;
+            double l = Hermite(l0, ml0, l1, ml1, t), b = Hermite(b0, mb0, b1, mb1, t), r = Hermite(r0, mr0, r1, mr1, t);
+            for (int x = l0 - 12; x <= r0 + 12; x++) {
+                int i = (y * w + x) * 4;
+                body[i] = body[i + 1] = body[i + 2] = body[i + 3] = 0;
+                // Abschnitt links (Kante bis Schattenende) und rechts (Schattenende bis Kante) getrennt abbilden
+                bool left = x < b;
+                double u = left ? (x - l) / (b - l) : (x - b) / (r - b);
+                if ((left && u < -0.4) || (!left && u > 1.08)) continue;
+                double acc0 = 0, acc1 = 0, acc2 = 0, acc3 = 0;
+                for (int k = 0; k < 2; k++) {
+                    int yy = k == 0 ? y0 : y1;
+                    double sl = k == 0 ? l0 : l1, sb = k == 0 ? b0 : b1, sr = k == 0 ? r0 : r1;
+                    double sx = left ? sl + u * (sb - sl) : sb + u * (sr - sb);
+                    int xa = (int)Math.Floor(sx); double fx = sx - xa;
+                    double wk = k == 0 ? 1 - t : t;
+                    for (int j = 0; j < 2; j++) {
+                        int si = (yy * w + xa + j) * 4;
+                        double wj = wk * (j == 0 ? 1 - fx : fx), a = body[si + 3] / 255.0;
+                        acc0 += body[si] * a * wj; acc1 += body[si + 1] * a * wj; acc2 += body[si + 2] * a * wj; acc3 += a * wj;
+                    }
+                }
+                if (acc3 <= 0) continue;
+                Put(body, i, acc2 / acc3, acc1 / acc3, acc0 / acc3, acc3);
+            }
+        }
+    }
+
     public static void Run(string input, string outDir) {
         var src = new Bitmap(input);
         int w = src.Width, h = src.Height;
@@ -253,6 +317,7 @@ public static class SwanSplit {
             }
         }
 
+        InpaintNeck(body, px, alpha, w);
         FillBackground(bg, px, alpha, w, h);
         DrawBar(bg, profile, w);
         Save(bg, w, h, System.IO.Path.Combine(outDir, "swan-bg.png"));
