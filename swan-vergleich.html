@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swan-Klimmzug – Vergleich</title>
+    <meta name="robots" content="noindex">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/swan-css.css">
+    <style>
+        .compare {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .compare h1 {
+            margin: 0 0 8px;
+        }
+
+        .compare-intro {
+            color: var(--text-muted);
+            margin: 0 0 32px;
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .compare-grid h2 {
+            margin: 0 0 6px;
+            font-size: 1.3rem;
+        }
+
+        .compare-grid p {
+            margin: 0 0 18px;
+            color: var(--text-muted);
+        }
+
+        .compare-grid .detail-art {
+            align-items: center;
+            min-height: 380px;
+        }
+    </style>
+</head>
+<body>
+
+<main class="compare">
+    <h1>Swan-Klimmzug: Vergleich</h1>
+    <p class="compare-intro">Mit der Maus über ein Bild fahren, dann macht der Schwan einen Klimmzug. Diese Seite ist nicht verlinkt.</p>
+
+    <div class="compare-grid">
+        <section>
+            <h2>A: Bild in Ebenen</h2>
+            <p>Dein Logo, mit <code>tools/split-swan.ps1</code> in Ebenen zerlegt; Arme werden gestaucht.</p>
+            <div class="detail-art theme-swan-calisthenics">
+                <div class="art-layers art-swan-calisthenics">
+                    <img src="assets/images/swan-bg.png" alt="" class="art-layer layer-swan-bg" width="600" height="600">
+                    <img src="assets/images/swan-arm-left.png" alt="" class="art-layer layer-swan-arm-left" width="600" height="600">
+                    <img src="assets/images/swan-arm-right.png" alt="" class="art-layer layer-swan-arm-right" width="600" height="600">
+                    <img src="assets/images/swan-body.png" alt="" class="art-layer layer-swan-body" width="600" height="600">
+                    <img src="assets/images/swan-bar.png" alt="" class="art-layer layer-swan-bar" width="600" height="600">
+                    <img src="assets/images/swan-fists.png" alt="" class="art-layer layer-swan-fists" width="600" height="600">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>B: Reines CSS</h2>
+            <p>Ohne Bild, nur aus CSS-Formen; Arme mit echtem Ellbogengelenk.</p>
+            <div class="detail-art theme-swan-calisthenics swan-trigger">
+                <div class="swan-css" role="img" aria-label="Schwan an der Klimmzugstange">
+                    <div class="sc-ring"></div>
+                    <div class="sc-shadow"></div>
+                    <div class="sc-move sc-back">
+                        <div class="sc-wing-l"><div class="sc-feather"></div><div class="sc-feather"></div><div class="sc-feather"></div><div class="sc-feather"></div></div>
+                        <div class="sc-wing-r"><div class="sc-feather"></div><div class="sc-feather"></div><div class="sc-feather"></div><div class="sc-feather"></div></div>
+                        <div class="sc-leg sc-leg-l"></div>
+                        <div class="sc-leg sc-leg-r"></div>
+                        <div class="sc-foot sc-foot-l"></div>
+                        <div class="sc-foot sc-foot-r"></div>
+                    </div>
+                    <div class="sc-arm sc-arm-l"><div class="sc-fore"><div class="sc-upper"></div></div></div>
+                    <div class="sc-arm sc-arm-r"><div class="sc-fore"><div class="sc-upper"></div></div></div>
+                    <div class="sc-move sc-front">
+                        <div class="sc-neck"></div>
+                        <div class="sc-torso"></div>
+                        <div class="sc-abs"></div>
+                        <div class="sc-delt sc-delt-l"></div>
+                        <div class="sc-delt sc-delt-r"></div>
+                        <div class="sc-head"></div>
+                        <div class="sc-crest"></div>
+                        <div class="sc-beak"></div>
+                        <div class="sc-eye"></div>
+                    </div>
+                    <div class="sc-bar"></div>
+                    <div class="sc-fist sc-fist-l"></div>
+                    <div class="sc-fist sc-fist-r"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+</body>
+</html>
