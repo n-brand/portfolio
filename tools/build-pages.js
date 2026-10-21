@@ -29,7 +29,7 @@ const projects = [
             'swan-body', 'swan-bar', 'swan-fists',
         ],
         title: 'Swan Calisthenics',
-        card: 'Website der Swan Calisthenics Community – offene Trainings, im Sommer draußen im Street Workout Park Horgen, im Winter in einer Halle.',
+        card: 'Website der Swan Calisthenics Community & Verein',
         lead: 'Die offizielle Website der Swan Calisthenics Community: offene Trainings für alle Niveaus – im Sommer draußen im Street Workout Park in Horgen, im Winter in einer Halle – mit Mitgliederbereich, Blog und Vereinsseiten.',
         period: 'Juni 2026 – heute', status: 'Live',
         live: 'https://swancalisthenics.ch/', code: 'https://github.com/swancalisthenics/home',
