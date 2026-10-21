@@ -1049,9 +1049,11 @@ ${indent(sidebar('', 'contact'), 4)}
             </header>
 
             <!-- --- Channels --- -->
-            <div class="interest-grid">
-${indent(cards, 16)}
-            </div>
+            <section class="about-block">
+                <div class="interest-grid">
+${indent(cards, 20)}
+                </div>
+            </section>
 
             <!-- --- Pager --- -->
             <nav class="detail-pager" aria-label="Weiter">
