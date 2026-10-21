@@ -1375,33 +1375,18 @@ h2 {
     transform-origin: 50% 31.5%;
 }
 
-.project-card:hover .art-swan-calisthenics .art-layer,
-.detail-art:hover .art-swan-calisthenics .art-layer,
-.art-swan-calisthenics.is-playing .art-layer,
+/* Läuft standardmässig in Dauerschleife (.is-looping), der Play/Pause-Knopf schaltet sie aus */
 .art-swan-calisthenics.is-looping .art-layer {
     animation: 1.8s ease-in-out infinite;
 }
 
-.project-card:hover .art-swan-calisthenics .layer-swan-body,
-.detail-art:hover .art-swan-calisthenics .layer-swan-body,
-.art-swan-calisthenics.is-playing .layer-swan-body,
 .art-swan-calisthenics.is-looping .layer-swan-body {
     animation-name: swan-pullup;
 }
 
-.project-card:hover .art-swan-calisthenics .layer-swan-arm-left,
-.project-card:hover .art-swan-calisthenics .layer-swan-arm-right,
-.detail-art:hover .art-swan-calisthenics .layer-swan-arm-left,
-.detail-art:hover .art-swan-calisthenics .layer-swan-arm-right,
-.art-swan-calisthenics.is-playing .layer-swan-arm-left,
-.art-swan-calisthenics.is-playing .layer-swan-arm-right,
 .art-swan-calisthenics.is-looping .layer-swan-arm-left,
 .art-swan-calisthenics.is-looping .layer-swan-arm-right {
     animation-name: swan-arm-strip;
-}
-
-.art-swan-calisthenics.is-paused .art-layer {
-    animation-play-state: paused !important;
 }
 
 /* --- Art Play Button --- */

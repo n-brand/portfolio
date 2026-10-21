@@ -108,24 +108,19 @@ document.querySelectorAll('.card-toggle').forEach(button => {
 });
 
 // --- Art Play Button ---
-// Erster Klick: Animation läuft in Dauerschleife; danach wechselt der Knopf zwischen Pause und Weiter
+// Animation läuft standardmässig; der Knopf schaltet sie aus (Schwan zurück in die Ausgangsposition) und wieder an
 document.querySelectorAll('.art-play').forEach(button => {
     const art = button.parentElement.querySelector('.art-layers');
 
     button.addEventListener('click', () => {
-        if (art.classList.contains('is-looping')) {
-            art.classList.toggle('is-paused');
-        } else {
-            art.classList.add('is-looping');
-        }
-        const playing = !art.classList.contains('is-paused');
+        const playing = art.classList.toggle('is-looping');
         button.setAttribute('aria-pressed', String(playing));
-        button.setAttribute('aria-label', playing ? 'Animation pausieren' : 'Animation abspielen');
+        button.setAttribute('aria-label', playing ? 'Animation ausschalten' : 'Animation einschalten');
     });
 });
 
 // --- Art Frames ---
-const artFrames = document.querySelectorAll('.art-frames, .art-layers');
+const artFrames = document.querySelectorAll('.art-frames');
 
 if (artFrames.length && window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
     const framesObserver = new IntersectionObserver(entries => {

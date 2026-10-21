@@ -645,7 +645,7 @@ const artImage = (src, prefix, cls) => `<img src="${prefix}${src}" alt="" class=
 const artFor = (p, n, prefix) => {
     if (p.layers) {
         return indent([
-            `<div class="art-layers art-${p.slug}">`,
+            `<div class="art-layers art-${p.slug} is-looping">`,
             ...p.layers.flatMap(layer => {
                 const img = (name, extra = '') => `    <img src="${prefix}assets/images/${name}.png" alt="" class="art-layer layer-${name}"${extra} width="600" height="600">`;
                 if (typeof layer === 'string') return [img(layer)];
@@ -686,8 +686,8 @@ const ARROW = '<svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><p
 
 const badge = p => `<span class="card-badge badge-${STATUS_BADGE[p.status]}">${esc(p.status)}</span>`;
 
-// Play/Pause-Knopf für Animationen aus Ebenen (Klimmzug in Dauerschleife statt nur beim Hovern)
-const PLAY_BUTTON = `<button class="art-play" type="button" aria-pressed="false" aria-label="Animation abspielen">
+// Play/Pause-Knopf für Animationen aus Ebenen: Klimmzug läuft standardmässig, der Knopf schaltet ihn aus und an
+const PLAY_BUTTON = `<button class="art-play" type="button" aria-pressed="true" aria-label="Animation ausschalten">
     <svg class="art-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
     <svg class="art-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5.5" width="4" height="13" rx="1.2"/><rect x="13.5" y="5.5" width="4" height="13" rx="1.2"/></svg>
 </button>`;
