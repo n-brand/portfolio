@@ -10,6 +10,7 @@ const PRECACHE = [
     './',
     './index.html',
     './ueber-mich.html',
+    './kontakt.html',
     './manifest.webmanifest',
     './projekte/swan-calisthenics.html',
     './projekte/minecraft-skin-merger.html',

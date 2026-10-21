@@ -755,7 +755,7 @@ function sidebar(prefix, active) {
             <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
             <span>Projekte</span>
         </a>
-        <a href="${prefix}index.html#contact" class="nav-link${on('contact')}" data-section="contact">
+        <a href="${prefix}kontakt.html" class="nav-link${on('contact')}">
             <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
             <span>Kontakt</span>
         </a>
@@ -992,7 +992,77 @@ ${indent(interestCards, 20)}
             <!-- --- Call to Action --- -->
             <nav class="detail-pager" aria-label="Weiter">
                 <a href="index.html#projects" class="pager-link"><span class="meta-label">Weiter zu</span>Meinen Projekten</a>
-                <a href="index.html#contact" class="pager-link next"><span class="meta-label">Lust auf Austausch?</span>Kontakt</a>
+                <a href="kontakt.html" class="pager-link next"><span class="meta-label">Lust auf Austausch?</span>Kontakt</a>
+            </nav>
+        </article>
+    </main>
+</div>
+
+<script src="./javascript/main.js"></script>
+</body>
+</html>
+`;
+}
+
+function contactPage() {
+    const channels = [
+        {
+            icon: `<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="${GITHUB_PATH}"/></svg>`,
+            title: 'GitHub',
+            text: 'Hier liegen alle meine Projekte mit Code – und hier erreichst du mich am einfachsten.',
+            href: 'https://github.com/n-brand', label: 'github.com/n-brand',
+        },
+        {
+            icon: INTEREST_ICONS.calisthenics,
+            title: 'Swan Calisthenics',
+            text: 'Die Community, bei der ich mittrainiere und deren Website ich baue.',
+            href: 'https://swancalisthenics.ch/', label: 'swancalisthenics.ch',
+        },
+    ];
+    const cards = channels.map(c => `<a href="${c.href}" ${ext} class="interest-card contact-card">
+    <div class="interest-icon">${c.icon}</div>
+    <h3>${esc(c.title)}</h3>
+    <p>${esc(c.text)}</p>
+    <span class="arrow-link">${esc(c.label)} ${ARROW}</span>
+</a>`).join('\n');
+
+    return `<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt – Nicolas Brand</title>
+    <meta name="description" content="So erreichst du Nicolas Brand.">
+${appHead('./')}
+${FONT_LINKS}
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+${indent(sidebar('', 'contact'), 4)}
+
+    <!-- --- Main Content --- -->
+    <main class="main-content">
+        <article class="detail">
+
+            <!-- --- Contact Header --- -->
+            <header class="detail-header">
+                <span class="project-label">Kontakt</span>
+                <h1>Lust auf Austausch?</h1>
+                <p class="detail-lead">Du hast eine Frage zu einem Projekt oder eine Idee? Am einfachsten erreichst du mich über GitHub.</p>
+            </header>
+
+            <!-- --- Channels --- -->
+            <div class="interest-grid">
+${indent(cards, 16)}
+            </div>
+
+            <!-- --- Pager --- -->
+            <nav class="detail-pager" aria-label="Weiter">
+                <a href="index.html#projects" class="pager-link"><span class="meta-label">Weiter zu</span>Meinen Projekten</a>
+                <a href="ueber-mich.html" class="pager-link next"><span class="meta-label">Mehr über mich</span>Über mich</a>
             </nav>
         </article>
     </main>
@@ -1010,7 +1080,7 @@ projects.forEach((p, i) => fs.writeFileSync(path.join(ROOT, 'projekte', `${p.slu
 const indexPath = path.join(ROOT, 'index.html');
 let index = fs.readFileSync(indexPath, 'utf8').replace(/\r\n/g, '\n');
 const start = index.indexOf('            <div class="projects-grid">');
-const endMarker = '            </div>\n        </section>\n\n        <!-- --- Contact Section --- -->';
+const endMarker = '            </div>\n        </section>\n\n    </main>';
 const end = index.indexOf(endMarker);
 if (start < 0 || end < 0) throw new Error('grid markers not found');
 const grid = '            <div class="projects-grid">\n' + indent(projects.map(card).join('\n'), 16) + '\n';
@@ -1033,7 +1103,7 @@ const walk = dir => fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true }
     e.isDirectory() ? walk(path.posix.join(dir, e.name)) : [path.posix.join(dir, e.name)]
 ));
 const precache = [
-    './', 'index.html', 'ueber-mich.html', 'manifest.webmanifest',
+    './', 'index.html', 'ueber-mich.html', 'kontakt.html', 'manifest.webmanifest',
     ...projects.map(p => `projekte/${p.slug}.html`),
     'css/styles.css', 'javascript/main.js',
     ...walk('assets').filter(f => /\.(png|svg|webp|jpg)$/.test(f)),
@@ -1044,5 +1114,6 @@ const list = 'const PRECACHE = [\n' + precache.map(f => `    '${f.startsWith('./
 fs.writeFileSync(swPath, sw.replace(/(\/\/ PRECACHE-START[^\n]*\n)[\s\S]*?(\n\/\/ PRECACHE-END)/, `$1${list}$2`));
 
 fs.writeFileSync(path.join(ROOT, 'ueber-mich.html'), aboutPage());
+fs.writeFileSync(path.join(ROOT, 'kontakt.html'), contactPage());
 fs.writeFileSync(indexPath, index);
 console.log('ok', projects.length);

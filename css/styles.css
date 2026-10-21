@@ -906,6 +906,28 @@ h2 {
     stroke-linejoin: round;
 }
 
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+}
+
+.contact-card .interest-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.contact-card .arrow-link {
+    margin-top: 14px;
+    color: var(--accent-color);
+}
+
 .interest-card h3 {
     font-size: 1.15rem;
     margin-bottom: 6px;
