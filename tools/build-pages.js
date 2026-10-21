@@ -710,12 +710,7 @@ function card(p) {
     ${badge(p)}
 ${cardArt(p)}
     <div class="project-content">${label}
-        <div class="card-head">
-            <h3><a href="projekte/${p.slug}.html" class="project-title-link">${esc(p.title)}</a></h3>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="details-${p.slug}" aria-label="Details zu ${esc(p.title)} anzeigen">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-        </div>
+        <h3><a href="projekte/${p.slug}.html" class="project-title-link">${esc(p.title)}</a></h3>
         <div class="card-details" id="details-${p.slug}">
             <p class="project-desc">${esc(p.card)}</p>
             <div class="project-tags">
@@ -728,6 +723,9 @@ ${indent(links(p), 20)}
                 <a href="projekte/${p.slug}.html" class="arrow-link">Mehr lesen ${ARROW}</a>
             </div>
         </div>
+        <button class="card-toggle" type="button" aria-expanded="false" aria-controls="details-${p.slug}" aria-label="Details zu ${esc(p.title)} anzeigen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
     </div>
 </div>`;
 }
