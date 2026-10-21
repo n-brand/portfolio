@@ -1192,6 +1192,7 @@ h2 {
     }
 
     .card-badge {
+        top: -10px;
         font-size: 0.62rem;
         padding: 3px 9px;
     }

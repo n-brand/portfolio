@@ -29,12 +29,12 @@ const projects = [
             'swan-body', 'swan-bar', 'swan-fists',
         ],
         title: 'Swan Calisthenics',
-        card: 'Website der Swan Calisthenics Community – offene Outdoor-Trainings im Street Workout Park Horgen, jeden Sonntag 18–20 Uhr.',
-        lead: 'Die offizielle Website der Swan Calisthenics Community: kostenlose Outdoor-Trainings für alle Niveaus im Street Workout Park in Horgen – mit Mitgliederbereich, Blog und Vereinsseiten.',
+        card: 'Website der Swan Calisthenics Community – offene Trainings, im Sommer draußen im Street Workout Park Horgen, im Winter in einer Halle.',
+        lead: 'Die offizielle Website der Swan Calisthenics Community: offene Trainings für alle Niveaus – im Sommer draußen im Street Workout Park in Horgen, im Winter in einer Halle – mit Mitgliederbereich, Blog und Vereinsseiten.',
         period: 'Juni 2026 – heute', status: 'Live',
         live: 'https://swancalisthenics.ch/', code: 'https://github.com/swancalisthenics/home',
         about: [
-            'Swan Calisthenics ist eine offene Community, die sich jeden Sonntag von 18 bis 20 Uhr zum gemeinsamen Bodyweight-Training trifft. Die Website stellt die Community vor, zeigt Trainingslevels, Galerie, Standort und FAQ und informiert über den Verein.',
+            'Swan Calisthenics ist eine offene Community, die sich sonntags zum gemeinsamen Bodyweight-Training trifft: im Sommer von 18 bis 20 Uhr draußen im Street Workout Park in Horgen, im Herbst, wenn es früher dunkel wird, von 17 bis 19 Uhr, und ab Dezember drinnen in einer Halle. Die Website stellt die Community vor, zeigt Trainingslevels, Galerie, Standort und FAQ und informiert über den Verein.',
             'Im Team bin ich für die Webentwicklung verantwortlich. Die Seite ist aus einem Schulprojekt (Modul 293) entstanden und wurde seitdem stark ausgebaut und auf Ladezeit optimiert.',
         ],
         features: [
