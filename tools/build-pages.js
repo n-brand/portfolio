@@ -165,7 +165,7 @@ const projects = [
         card: 'Mein JARVIS-Sprachassistent als installierbare Web-App fürs Handy – bewusst ohne Erinnerung.',
         lead: 'Ein Ableger meines JARVIS-Forks: dieselbe holografische Iron-Man-Oberfläche als Web-App fürs Handy, die sich nichts über den Nutzer merkt.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: '', code: 'https://github.com/n-brand/Jarvis-Mobile',
+        live: 'https://n-brand.github.io/Jarvis-Mobile/', code: 'https://github.com/n-brand/Jarvis-Mobile',
         about: [
             'JARVIS ist ein Open-Source-Sprachassistent im Browser, dessen „Gehirn“ Claude Code ist; das Original stammt nicht von mir. In meinem eigenen Fork habe ich ihn stark erweitert: weitere Personas wie EDITH, FRIDAY und KAREN mit eigenem Weckwort und eigener Persönlichkeit, ein Einstellungs-Panel, Sprachbefehle für fast alle Einstellungen, Anhänge und eine Desktop-App mit Electron.',
             'Jarvis Mobile ist die Kopie davon fürs Handy, als installierbare Web-App (PWA) gedacht. Bewusst ohne Erinnerung: kein persönlicher Kontext, kein Standort, kein Notizblock – jedes Gespräch beginnt leer, gespeichert werden nur Einstellungen im Browser. Die Oberfläche läuft im Browser, das Gehirn (die Bridge) weiterhin auf dem eigenen Rechner.',
