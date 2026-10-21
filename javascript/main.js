@@ -92,21 +92,6 @@ filterButtons.forEach(button => {
     });
 });
 
-// --- Card Toggle (Handy: Karten aus- und einklappen) ---
-document.querySelectorAll('.card-toggle').forEach(button => {
-    const card = button.closest('.project-card');
-    const title = card.querySelector('.project-title-link').textContent;
-
-    button.addEventListener('click', () => {
-        const open = card.classList.toggle('is-open');
-        button.setAttribute('aria-expanded', String(open));
-        button.setAttribute('aria-label', `Details zu ${title} ${open ? 'ausblenden' : 'anzeigen'}`);
-        if (open) {
-            card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        }
-    });
-});
-
 // --- Art Play Button ---
 // Animation läuft standardmässig; der Knopf schaltet sie aus (Schwan zurück in die Ausgangsposition) und wieder an
 document.querySelectorAll('.art-play').forEach(button => {
