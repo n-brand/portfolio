@@ -48,12 +48,12 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 **Nach jeder Änderung an diesem Repo diesen Abschnitt aktualisieren** (was gemacht wurde, was offen ist), damit der Stand jederzeit nachvollziehbar ist.
 
-Stand: 2026-10-18
+Stand: 2026-10-21
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
 - Layout desktop-first: fixierte Sidebar links, Projekte füllen die volle Breite; auf ≤900px Tab-Leiste unten.
-- 10 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, StrategieSpiel, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
+- 11 Projekte mit eigener Detailseite („Mehr lesen“): Swan Calisthenics (offiziell, Code: https://github.com/swancalisthenics/home), Minecraft Skin Merger, Gamehub, StrategieSpiel, Watch-Shop, JARVIS-Anleitung (aktuell), Escape Room, Textbased Game, Hofladen-Webshop, Influencer, Mediensammlung (Schule). Inhalte aus dem jeweiligen Code recherchiert.
 - Über-mich-Seite mit Nicolas' Angaben gefüllt (2026-10-04): Vorstellung, Steckbrief (Informatiker EFZ Applikationsentwicklung, Lehrbeginn 2025, Schwerpunkt Webentwicklung), Werdegang (Swan Calisthenics seit Juni 2026, Lehre seit 2025, Sekundarschule 2022–2025), Interessen (Calisthenics, Gaming, KI & neue Tools) als Karten mit Icon (`INTEREST_ICONS` im Generator; Calisthenics = Klimmzug-Figur, von Nicolas aus vier Varianten gewählt). Skills aus den Projekten abgeleitet. Platzhalter-Styles entfernt.
 - Redesign im Font-Awesome-Stil mit Farb-Theme + Illustration pro Projekt.
 - Dark als Standard-Design, Hell/Dunkel-Umschalter in der Sidebar (Wahl bleibt gespeichert).
@@ -84,10 +84,12 @@ Erledigt:
 - Äußere Finger beider Fäuste repariert (2026-10-18): sie reichen bis an den weißen Ring und wurden durch die verkleinerte Kreisgrenze (`RedRadius` 255, gegen den rosa Kopfrand) abgeschnitten. In den Faust-Bereichen gilt jetzt der volle Kreis (265); rund um die Fäuste wird der Hintergrund mit reinem Rot statt Rot/Weiß-Mischung gefüllt (`NearFist`).
 - Stange nur noch in der Stangen-Ebene (2026-10-18): Sie war auch im Hintergrund enthalten, dadurch wurden die halbdurchsichtigen Ränder doppelt dunkel. `EraseBar` ersetzt die Stange im Hintergrund durch die Farbe darunter, nach Radius: Rot bis 264, weißer Ring bis 282, Navy-Ring bis 296. Rund um die Fäuste wird nur bis Radius 261 rot gefüllt, damit sich kein Rot in den Ring beißt. Ruheposition weicht nur noch in ~40 Einzelpixeln vom Original ab.
 - Außenrand des Swan-Logos rund gemacht (2026-10-18, Wunsch von Nicolas): Links und rechts lag noch schwarzer Gemini-Hintergrund außerhalb des Navy-Rings, dadurch wirkte das Logo oval. `CleanRim` in `split-swan.ps1` malt dunkle Randpixel Navy und schneidet den Ring als sauberen Kreis bei Radius 297,5 ab (betrifft nur `swan-bg.png`).
+- **Watch-Shop** (2026-10-21) als aktuelles Projekt ergänzt: Demo-Shop der erfundenen Uhrenmarke Orvane (Ordner `C:SourceWatch-Shop`, Repo https://github.com/n-brand/Watch-Shop, erster Commit 2026-10-19). Fakten aus README und Code (3D-Uhr aus Code mit three.js, GSAP/Lenis, Konfigurator 3 Gehäuse × 3 Armbänder, Warenkorb ohne Zahlung, Modell-Verlauf, Logo-Seite, PWA). Illustration: goldene Uhr mit dunklem Zifferblatt auf 10:10 und Kristall-Logo, links drei Metall-Farbtupfer (Konfigurator), rechts Einkaufstüte mit CHF-Schild, Drehpfeil für 3D. Theme Uhrmachergrün #0f3d2e mit goldenen Links.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:
 - **Swan-Klimmzug (optional):** Läuft jetzt per CSS mit Ebenen. Ein echtes zweites Gemini-Bild (Prompt in `docs/bild-prompt.md`) wäre nur noch nötig, wenn die Pose stärker wechseln soll (z.B. Brust deutlich über der Stange). Kleine Schwäche: auf Schulterhöhe ändert sich die Stauchung der Flügel sprunghaft (gestaucht oben, normal unten).
+- **Watch-Shop live schalten:** https://n-brand.github.io/Watch-Shop/ zeigte am 2026-10-21 noch 404 (GitHub Pages im Repo nicht aktiv). Pfade sind relativ, daher reicht Settings → Pages → „Deploy from a branch“, `main`, Ordner `/ (root)`. Danach im Generator `live` eintragen.
 - **Über-mich-Seite (optional):** weitere Links (z.B. LinkedIn, Instagram) und ein echtes Profilfoto statt der „NB“-Kachel, falls Nicolas das möchte.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.

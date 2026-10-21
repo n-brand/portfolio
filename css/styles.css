@@ -582,6 +582,15 @@ h2 {
     --card-ring: rgba(255, 255, 255, 0.2);
 }
 
+.theme-watch-shop {
+    --card-bg: #0f3d2e;
+    --card-text: #ffffff;
+    --card-muted: #cfe3d8;
+    --card-shade: #072419;
+    --card-link: #e2c07a;
+    --card-ring: rgba(226, 192, 122, 0.35);
+}
+
 .theme-jarvis-anleitung {
     --card-bg: #a51d2d;
     --card-text: #ffffff;

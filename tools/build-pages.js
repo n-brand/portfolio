@@ -132,6 +132,34 @@ const projects = [
         ],
     },
     {
+        slug: 'watch-shop', category: 'current',
+        title: 'Watch-Shop',
+        card: 'Demo-Shop der erfundenen Uhrenmarke Orvane: fotorealistische 3D-Uhr zum Drehen, Konfigurator und Warenkorb.',
+        lead: 'Ein Demo-Shop für die erfundene Uhrenmarke Orvane: Die Uhr Meridian ist ein fotorealistisches 3D-Modell, das man drehen und im Konfigurator anpassen kann.',
+        period: 'Oktober 2026 – heute', status: 'In Arbeit',
+        live: '', code: 'https://github.com/n-brand/Watch-Shop',
+        about: [
+            'Der Shop stellt die Meridian vor: Beim Scrollen erzählt die Seite in Animationen vom Gehäuse, dem Saphirglas und dem Uhrwerk. Im Konfigurator wählt man Gehäuse und Armband, der Preis passt sich an, und die Uhr landet im Warenkorb – bezahlt wird nichts.',
+            'Die Uhr ist komplett im Code gebaut, nicht aus einer fertigen 3D-Datei. Marke, Logo und Bilder sind frei erfunden bzw. Platzhalter.',
+        ],
+        features: [
+            'Meridian als fotorealistisches 3D-Modell, mit der Maus drehbar',
+            'Scroll-Animationen zu Gehäuse, Saphirglas und Kaliber',
+            'Konfigurator: 3 Gehäuse (Roségold, Gelbgold, Edelstahl) und 3 Armbänder, Preis in CHF',
+            'Kollektion mit vier Modellen und Warenkorb ohne Zahlung',
+            'Modell-Verlauf aller gespeicherten Uhrenversionen und Logo-Entwürfe in 2D und 3D',
+            'Hell- und Dunkelmodus, offline nutzbar als App (PWA)',
+        ],
+        tech: ['JavaScript', 'Three.js', 'GSAP', 'PWA'],
+        techNotes: [
+            'Gehäuse, Zifferblatt, Zeiger, Armband und Materialien aus Code erzeugt',
+            'Studio-Licht und Kamera mit three.js, Scroll-Animationen mit GSAP und Lenis',
+            'Gespeicherte Modelle als glb, mit Meshopt und WebP komprimiert',
+            'Service Worker für Offline-Betrieb',
+            'Kleiner Node.js-Server speichert lokal neue Modellversionen',
+        ],
+    },
+    {
         slug: 'jarvis-anleitung', category: 'current',
         title: 'JARVIS-Anleitung',
         card: 'Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.',
@@ -397,6 +425,31 @@ const ART = {
             <path d="M38 63L43 65.25L43 54.16Z" fill="#58a64b"/><path d="M43 65.25L48 63L43 54.16Z" fill="#3c8c3c"/>
             <path d="M39.3 58.06L43 59.73L43 50Z" fill="#58a64b"/><path d="M43 59.73L46.7 58.06L43 50Z" fill="#3c8c3c"/>
         </g>
+    </svg>`,
+    'watch-shop': `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <path d="M100 6h40l-4 30h-32zM104 104h32l4 30h-40z" fill="#b8913f"/>
+        <path d="M104 12h32M104 22h32M106 114h28M105 124h30" stroke="#8a6a26" stroke-width="2"/>
+        <circle cx="120" cy="74" r="40" fill="#8a6a26"/>
+        <circle cx="120" cy="70" r="40" fill="#e2c07a"/>
+        <rect x="158" y="65" width="8" height="10" rx="2" fill="#b8913f"/>
+        <circle cx="120" cy="70" r="32" fill="#1c1914"/>
+        <g stroke="#e2c07a" stroke-width="3" stroke-linecap="round">
+            <path d="M120 44v5M120 91v5M94 70h5M141 70h5"/>
+            <path d="M133 47.5l-1.5 2.6M143.5 57l-2.6 1.5M143.5 83l-2.6-1.5M133 92.5l-1.5-2.6M107 92.5l1.5-2.6M96.5 83l2.6-1.5M96.5 57l2.6 1.5M107 47.5l1.5 2.6" stroke-width="2"/>
+        </g>
+        <path d="M120 52l2.5 5-2.5 5-2.5-5z" fill="#74c0fc"/>
+        <path d="M120 70L106 62" stroke="#f1e3c2" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M120 70L136 58" stroke="#f1e3c2" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M120 70v20" stroke="#ff6b6b" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="120" cy="70" r="3" fill="#e2c07a"/>
+        <path d="M84 118a50 12 0 0 0 72 0" fill="none" stroke="#a9e34b" stroke-width="3" stroke-linecap="round"/>
+        <path d="M156 118l-7-2 3 7z" fill="#a9e34b"/>
+        <circle cx="42" cy="44" r="9" fill="#d9a383"/><circle cx="42" cy="70" r="9" fill="#e2c07a"/><circle cx="42" cy="96" r="9" fill="#c9ccd0"/>
+        <circle cx="42" cy="70" r="13" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+        <path d="M184 62h34l-4 42h-26z" fill="#ffffff"/>
+        <path d="M193 62v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#ffffff" stroke-width="3"/>
+        <rect x="190" y="76" width="22" height="12" rx="3" fill="#e2c07a"/>
+        <text x="201" y="85.5" text-anchor="middle" font-family="Nunito, sans-serif" font-size="8" font-weight="900" fill="#1c1914">CHF</text>
     </svg>`,
     'jarvis-anleitung': `<svg viewBox="0 0 240 140" aria-hidden="true">
         <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
