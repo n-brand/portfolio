@@ -160,6 +160,33 @@ const projects = [
         ],
     },
     {
+        slug: 'jarvis-mobile', category: 'current',
+        title: 'Jarvis Mobile',
+        card: 'Mein JARVIS-Sprachassistent als installierbare Web-App fürs Handy – bewusst ohne Erinnerung.',
+        lead: 'Ein Ableger meines JARVIS-Forks: dieselbe holografische Iron-Man-Oberfläche als Web-App fürs Handy, die sich nichts über den Nutzer merkt.',
+        period: 'Oktober 2026 – heute', status: 'In Arbeit',
+        live: '', code: 'https://github.com/n-brand/Jarvis-Mobile',
+        about: [
+            'JARVIS ist ein Open-Source-Sprachassistent im Browser, dessen „Gehirn“ Claude Code ist; das Original stammt nicht von mir. In meinem eigenen Fork habe ich ihn stark erweitert: weitere Personas wie EDITH, FRIDAY und KAREN mit eigenem Weckwort und eigener Persönlichkeit, ein Einstellungs-Panel, Sprachbefehle für fast alle Einstellungen, Anhänge und eine Desktop-App mit Electron.',
+            'Jarvis Mobile ist die Kopie davon fürs Handy, als installierbare Web-App (PWA) gedacht. Bewusst ohne Erinnerung: kein persönlicher Kontext, kein Standort, kein Notizblock – jedes Gespräch beginnt leer, gespeichert werden nur Einstellungen im Browser. Die Oberfläche läuft im Browser, das Gehirn (die Bridge) weiterhin auf dem eigenen Rechner.',
+        ],
+        features: [
+            'Holografische Iron-Man-Oberfläche mit Arc-Reaktor (Three.js und eigene Shader)',
+            'Weckwort „Hey Jarvis“, Sprache rein und raus, Unterbrechen mitten im Satz',
+            'Mehrere Personas mit eigenem Weckwort und eigener Persönlichkeit',
+            'Ohne Erinnerung: jedes Gespräch beginnt leer',
+            'Steuert die eigene Oberfläche per Sprache (Farben, Reaktor, Effekte)',
+            'Schreibende Aktionen sind standardmässig gesperrt',
+        ],
+        tech: ['React', 'TypeScript', 'Three.js', 'Node.js', 'PWA'],
+        techNotes: [
+            'Oberfläche mit React, Vite, Three.js und eigenen GLSL-Shadern',
+            'Bridge in Node.js mit dem Claude Agent SDK, verbunden per WebSocket',
+            'Spracherkennung und Stimme im Browser, optional ElevenLabs',
+            'Sicherheits-Filter für Werkzeuge: lesend erlaubt, schreibend nur nach Freigabe',
+        ],
+    },
+    {
         slug: 'jarvis-anleitung', category: 'current',
         title: 'JARVIS-Anleitung',
         card: 'Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.',
@@ -461,6 +488,28 @@ const ART = {
         <path d="M193 62v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#ffffff" stroke-width="3"/>
         <rect x="190" y="76" width="22" height="12" rx="3" fill="#e2c07a"/>
         <text x="201" y="85.5" text-anchor="middle" font-family="Nunito, sans-serif" font-size="8" font-weight="900" fill="#1c1914">CHF</text>
+    </svg>`,
+    'jarvis-mobile': `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <defs><radialGradient id="glow-jarvis-mobile"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".75"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
+        <rect x="92" y="12" width="56" height="124" rx="12" fill="#c98a12"/>
+        <rect x="92" y="8" width="56" height="124" rx="12" fill="#16202c"/>
+        <rect x="97" y="15" width="46" height="110" rx="7" fill="#0a1018"/>
+        <rect x="112" y="18" width="16" height="3.5" rx="1.75" fill="#16202c"/>
+        <circle cx="120" cy="62" r="24" fill="url(#glow-jarvis-mobile)"/>
+        <circle cx="120" cy="62" r="16" fill="none" stroke="#4dd4ff" stroke-width="3" stroke-dasharray="7 4"/>
+        <circle cx="120" cy="62" r="10" fill="none" stroke="#a5ecff" stroke-width="2.5"/>
+        <circle cx="120" cy="62" r="5" fill="#e9fbff"/>
+        <g fill="#4dd4ff">
+            <rect x="104" y="98" width="4" height="8" rx="2"/><rect x="110" y="94" width="4" height="16" rx="2"/><rect x="116" y="96" width="4" height="12" rx="2"/>
+            <rect x="122" y="92" width="4" height="20" rx="2"/><rect x="128" y="96" width="4" height="12" rx="2"/><rect x="134" y="99" width="4" height="6" rx="2"/>
+        </g>
+        <rect x="10" y="26" width="74" height="28" rx="14" fill="#ffffff"/>
+        <path d="M72 52l14 8-4-12z" fill="#ffffff"/>
+        <text x="47" y="44.5" text-anchor="middle" font-family="Nunito, sans-serif" font-size="11" font-weight="900" fill="#3a2200">Hey Jarvis</text>
+        <circle cx="190" cy="96" r="20" fill="#ffffff"/>
+        <path d="M190 84v15M183.5 92.5l6.5 6.5 6.5-6.5" fill="none" stroke="#3a2200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M181 103.5h18" stroke="#3a2200" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M200 32l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffffff" opacity=".85"/>
     </svg>`,
     'jarvis-anleitung': `<svg viewBox="0 0 240 140" aria-hidden="true">
         <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>

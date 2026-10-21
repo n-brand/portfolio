@@ -591,6 +591,14 @@ h2 {
     --card-ring: rgba(226, 192, 122, 0.35);
 }
 
+.theme-jarvis-mobile {
+    --card-bg: #f5b82e;
+    --card-text: #3a2200;
+    --card-muted: #5c3a08;
+    --card-shade: #c98a12;
+    --card-link: #3a2200;
+}
+
 .theme-jarvis-anleitung {
     --card-bg: #a51d2d;
     --card-text: #ffffff;

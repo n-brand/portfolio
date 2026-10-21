@@ -16,6 +16,7 @@ const PRECACHE = [
     './projekte/gamehub.html',
     './projekte/strategiespiel.html',
     './projekte/watch-shop.html',
+    './projekte/jarvis-mobile.html',
     './projekte/jarvis-anleitung.html',
     './projekte/escape-room.html',
     './projekte/textbased-game.html',
