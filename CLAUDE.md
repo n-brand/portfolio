@@ -5,7 +5,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 ## Struktur
 
 - `index.html` – Startseite: Sidebar + Projekte (Karten mit Filter)
-- `kontakt.html` – eigene Kontaktseite (seit 2026-10-21, Wunsch von Nicolas; vorher Abschnitt auf der Startseite): Karten für GitHub und Swan Calisthenics; Inhalte in `contactPage()` im Generator
+- `kontakt.html` – eigene Kontaktseite (seit 2026-10-21, Wunsch von Nicolas; vorher Abschnitt auf der Startseite): Karte für GitHub (Swan-Karte auf Wunsch von Nicolas entfernt); Inhalte in `contactPage()` im Generator
 - `ueber-mich.html` – Über-mich-Seite (Vorstellung, Steckbrief, Werdegang, Skills, Interessen); die Inhalte stehen als Daten in `aboutPage()` im Generator
 - `projekte/<slug>.html` – eine Detailseite pro Projekt (Illustration, Lead, Zeitraum/Status/Tech, Über das Projekt, Features, Technik, Vor/Zurück)
 - `css/styles.css` – alle Styles; Dark ist Standard (`:root`), Light über `:root[data-theme="light"]`
@@ -101,7 +101,7 @@ Offen:
 - **Swan-Klimmzug (optional):** Läuft jetzt per CSS mit Ebenen. Ein echtes zweites Gemini-Bild (Prompt in `docs/bild-prompt.md`) wäre nur noch nötig, wenn die Pose stärker wechseln soll (z.B. Brust deutlich über der Stange). Kleine Schwäche: auf Schulterhöhe ändert sich die Stauchung der Flügel sprunghaft (gestaucht oben, normal unten).
 - **Watch-Shop live schalten:** https://n-brand.github.io/Watch-Shop/ zeigte am 2026-10-21 noch 404 (GitHub Pages im Repo nicht aktiv). Pfade sind relativ, daher reicht Settings → Pages → „Deploy from a branch“, `main`, Ordner `/ (root)`. Danach im Generator `live` eintragen.
 - **Jarvis Mobile Live-Link** ist eingetragen (2026-10-21, auf Wunsch von Nicolas), die Seite bleibt aber weiß: GitHub Pages liefert die ungebaute `index.html` aus, die `/src/main.tsx` lädt (404). Lösung im Jarvis-Mobile-Repo: GitHub-Actions-Workflow (`npm ci`, `npm run build`, `dist/` veröffentlichen), Vite-`base` auf `/Jarvis-Mobile/`, Pages-Quelle „GitHub Actions“.
-- **Über mich / Kontakt ergänzen (optional):** Nicolas wusste am 2026-10-21 noch nicht, was auf „Über mich“ dazukommen soll (Vorschläge: wie er zum Coden kam, was er gerade lernt, Ziele, mehr zu Swan). Kontakt hat nur GitHub und Swan – weitere Kanäle nur mit seiner Angabe, keine private E-Mail.
+- **Über mich / Kontakt ergänzen (optional):** Nicolas wusste am 2026-10-21 noch nicht, was auf „Über mich“ dazukommen soll (Vorschläge: wie er zum Coden kam, was er gerade lernt, Ziele, mehr zu Swan). Kontakt hat nur GitHub – weitere Kanäle nur mit seiner Angabe, keine private E-Mail.
 - **Über-mich-Seite (optional):** weitere Links (z.B. LinkedIn, Instagram) und ein echtes Profilfoto statt der „NB“-Kachel, falls Nicolas das möchte.
 - **Gamehub** ist auf GitHub (https://github.com/n-brand/gamehub) und im Portfolio mit Live-Link (https://n-brand.github.io/gamehub/) eingetragen. GitHub Pages zeigt dort aber nur die README („gamehub“): Die App liegt in `public/`, und `public/index.html` nutzt absolute Pfade (`/css/…`, `/js/…`), die unter `/gamehub/` ins Leere zeigen. Lösung im Gamehub-Repo (nicht hier): Pfade relativ machen + GitHub-Actions-Workflow, der `public/` veröffentlicht (Pages-Quelle „GitHub Actions“).
 - **Escape Room:** alle Commits stammen vom GitHub-Nutzer „Emi15454“ – mit Nicolas klären, ob Gruppenarbeit, und ggf. erwähnen.

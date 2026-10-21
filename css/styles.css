@@ -921,6 +921,8 @@ h2 {
 .contact-card .interest-icon svg {
     width: 26px;
     height: 26px;
+    fill: currentColor;
+    stroke: none;
 }
 
 .contact-card .arrow-link {

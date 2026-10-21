@@ -1012,12 +1012,6 @@ function contactPage() {
             text: 'Hier liegen alle meine Projekte mit Code – und hier erreichst du mich am einfachsten.',
             href: 'https://github.com/n-brand', label: 'github.com/n-brand',
         },
-        {
-            icon: INTEREST_ICONS.calisthenics,
-            title: 'Swan Calisthenics',
-            text: 'Die Community, bei der ich mittrainiere und deren Website ich baue.',
-            href: 'https://swancalisthenics.ch/', label: 'swancalisthenics.ch',
-        },
     ];
     const cards = channels.map(c => `<a href="${c.href}" ${ext} class="interest-card contact-card">
     <div class="interest-icon">${c.icon}</div>
