@@ -686,14 +686,29 @@ const ARROW = '<svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><p
 
 const badge = p => `<span class="card-badge badge-${STATUS_BADGE[p.status]}">${esc(p.status)}</span>`;
 
+// Play/Pause-Knopf für Animationen aus Ebenen (Klimmzug in Dauerschleife statt nur beim Hovern)
+const PLAY_BUTTON = `<button class="art-play" type="button" aria-pressed="false" aria-label="Animation abspielen">
+    <svg class="art-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+    <svg class="art-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5.5" width="4" height="13" rx="1.2"/><rect x="13.5" y="5.5" width="4" height="13" rx="1.2"/></svg>
+</button>`;
+
+const cardArt = p => (p.layers ? `    <div class="card-art">
+        <div class="art-stage">
+            <a href="projekte/${p.slug}.html" class="card-art-link" tabindex="-1" aria-hidden="true">
+${artFor(p, 16, '')}
+            </a>
+${indent(PLAY_BUTTON, 12)}
+        </div>
+    </div>` : `    <a href="projekte/${p.slug}.html" class="card-art" tabindex="-1" aria-hidden="true">
+${artFor(p, 8, '')}
+    </a>`);
+
 function card(p) {
     const label = p.featured ? `
         <span class="project-label">${CATEGORY_LABELS[p.category]}</span>` : '';
     return `<div class="project-card theme-${p.slug}${p.featured ? ' featured' : ''}" data-category="${p.category}">
     ${badge(p)}
-    <a href="projekte/${p.slug}.html" class="card-art" tabindex="-1" aria-hidden="true">
-${artFor(p, 8, '')}
-    </a>
+${cardArt(p)}
     <div class="project-content">${label}
         <h3><a href="projekte/${p.slug}.html" class="project-title-link">${esc(p.title)}</a></h3>
         <p class="project-desc">${esc(p.card)}</p>
@@ -792,7 +807,10 @@ ${indent(sidebar('../', 'projects'), 4)}
             <!-- --- Detail Art --- -->
             <div class="detail-art theme-${p.slug}">
                 ${badge(p)}
-${artFor(p, 16, '../')}
+${p.layers ? `                <div class="art-stage">
+${artFor(p, 20, '../')}
+${indent(PLAY_BUTTON, 20)}
+                </div>` : artFor(p, 16, '../')}
             </div>
 
             <!-- --- Detail Header --- -->

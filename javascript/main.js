@@ -92,6 +92,23 @@ filterButtons.forEach(button => {
     });
 });
 
+// --- Art Play Button ---
+// Erster Klick: Animation läuft in Dauerschleife; danach wechselt der Knopf zwischen Pause und Weiter
+document.querySelectorAll('.art-play').forEach(button => {
+    const art = button.parentElement.querySelector('.art-layers');
+
+    button.addEventListener('click', () => {
+        if (art.classList.contains('is-looping')) {
+            art.classList.toggle('is-paused');
+        } else {
+            art.classList.add('is-looping');
+        }
+        const playing = !art.classList.contains('is-paused');
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', playing ? 'Animation pausieren' : 'Animation abspielen');
+    });
+});
+
 // --- Art Frames ---
 const artFrames = document.querySelectorAll('.art-frames, .art-layers');
 
