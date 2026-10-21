@@ -1,3 +1,12 @@
+// --- Service Worker (PWA) ---
+const siteRoot = new URL('..', document.currentScript.src);
+
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register(new URL('sw.js', siteRoot), { scope: siteRoot.pathname }).catch(() => {});
+    });
+}
+
 // --- Theme Toggle ---
 const themeToggle = document.querySelector('.theme-toggle');
 

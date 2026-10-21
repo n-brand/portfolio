@@ -308,6 +308,17 @@ const FONT_LINKS = `${THEME_SCRIPT}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">`;
 
+// PWA: Manifest, Icons und iPhone-Angaben (Home-Bildschirm-App) für jede Seite
+const appHead = prefix => `    <link rel="manifest" href="${prefix}manifest.webmanifest">
+    <meta name="theme-color" content="#0d1a2d">
+    <link rel="icon" href="${prefix}assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="${prefix}assets/icons/icon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="${prefix}assets/icons/apple-touch-icon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Nicolas B.">`;
+
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const ext = 'target="_blank" rel="noopener"';
 
@@ -714,6 +725,7 @@ function detailPage(p, i) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(p.title)} – Nicolas Brand</title>
     <meta name="description" content="${esc(p.lead)}">
+${appHead('../')}
 ${FONT_LINKS}
     <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -855,6 +867,7 @@ ${indent(tags(list), 8)}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich – Nicolas Brand</title>
     <meta name="description" content="Über Nicolas Brand: Werdegang, Skills und Interessen.">
+${appHead('./')}
 ${FONT_LINKS}
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -942,6 +955,25 @@ if (!index.includes('fonts.googleapis.com')) {
 } else if (!index.includes(THEME_SCRIPT)) {
     index = index.replace('    <link rel="preconnect" href="https://fonts.googleapis.com">', THEME_SCRIPT + '\n    <link rel="preconnect" href="https://fonts.googleapis.com">');
 }
+if (!index.includes('manifest.webmanifest')) {
+    index = index.replace(THEME_SCRIPT, appHead('./') + '\n' + THEME_SCRIPT);
+}
+
+// Service Worker: alle Seiten, Styles, Skripte und Bilder für den Offline-Betrieb vorab laden
+const walk = dir => fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true }).flatMap(e => (
+    e.isDirectory() ? walk(path.posix.join(dir, e.name)) : [path.posix.join(dir, e.name)]
+));
+const precache = [
+    './', 'index.html', 'ueber-mich.html', 'manifest.webmanifest',
+    ...projects.map(p => `projekte/${p.slug}.html`),
+    'css/styles.css', 'javascript/main.js',
+    ...walk('assets').filter(f => /\.(png|svg|webp|jpg)$/.test(f)),
+];
+const swPath = path.join(ROOT, 'sw.js');
+const sw = fs.readFileSync(swPath, 'utf8');
+const list = 'const PRECACHE = [\n' + precache.map(f => `    '${f.startsWith('./') ? f : './' + f}',`).join('\n') + '\n];';
+fs.writeFileSync(swPath, sw.replace(/(\/\/ PRECACHE-START[^\n]*\n)[\s\S]*?(\n\/\/ PRECACHE-END)/, `$1${list}$2`));
+
 fs.writeFileSync(path.join(ROOT, 'ueber-mich.html'), aboutPage());
 fs.writeFileSync(indexPath, index);
 console.log('ok', projects.length);
