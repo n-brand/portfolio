@@ -711,6 +711,7 @@ function card(p) {
 ${cardArt(p)}
     <div class="project-content">${label}
         <h3><a href="projekte/${p.slug}.html" class="project-title-link">${esc(p.title)}</a></h3>
+        <span class="card-go" aria-hidden="true">${ARROW}</span>
         <div class="card-details">
             <p class="project-desc">${esc(p.card)}</p>
             <div class="project-tags">

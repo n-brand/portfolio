@@ -455,6 +455,11 @@ h2 {
     flex-direction: column;
 }
 
+/* Pfeil als Hinweis, dass die Karte zur Detailseite führt – nur auf dem Handy */
+.card-go {
+    display: none;
+}
+
 .project-desc {
     color: var(--card-muted);
     font-size: 0.95rem;
@@ -1213,6 +1218,33 @@ h2 {
 
     .card-details {
         display: none;
+    }
+
+    .card-go {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.14);
+        background-color: color-mix(in srgb, var(--card-link) 18%, transparent);
+        color: var(--card-link);
+    }
+
+    .card-go .arrow-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .project-card {
+        transition: transform 0.15s ease;
+    }
+
+    .project-card:active {
+        transform: scale(0.97);
     }
 
     .card-badge {
