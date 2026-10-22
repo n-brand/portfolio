@@ -137,7 +137,7 @@ const projects = [
         card: 'Demo-Shop der erfundenen Uhrenmarke Orvane: fotorealistische 3D-Uhr zum Drehen, Konfigurator und Warenkorb.',
         lead: 'Ein Demo-Shop für die erfundene Uhrenmarke Orvane: Die Uhr Meridian ist ein fotorealistisches 3D-Modell, das man drehen und im Konfigurator anpassen kann.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: '', code: 'https://github.com/n-brand/Watch-Shop',
+        live: 'https://n-brand.github.io/Watch-Shop/', code: 'https://github.com/n-brand/Watch-Shop',
         about: [
             'Der Shop stellt die Meridian vor: Beim Scrollen erzählt die Seite in Animationen vom Gehäuse, dem Saphirglas und dem Uhrwerk. Im Konfigurator wählt man Gehäuse und Armband, der Preis passt sich an, und die Uhr landet im Warenkorb – bezahlt wird nichts.',
             'Die Uhr ist komplett im Code gebaut, nicht aus einer fertigen 3D-Datei. Marke, Logo und Bilder sind frei erfunden bzw. Platzhalter.',
