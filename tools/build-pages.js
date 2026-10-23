@@ -32,7 +32,7 @@ const projects = [
         card: 'Website der Swan Calisthenics Community & Verein',
         lead: 'Die offizielle Website der Swan Calisthenics Community: offene Trainings für alle Niveaus – im Sommer draußen im Street Workout Park in Horgen, im Winter in einer Halle – mit Mitgliederbereich, Blog und Vereinsseiten.',
         period: 'Juni 2026 – heute', status: 'Live',
-        live: 'https://swancalisthenics.ch/', code: 'https://github.com/swancalisthenics/home',
+        live: 'https://swancalisthenics.ch/', code: 'https://github.com/swancalisthenics/home', updated: '2026-10-18',
         about: [
             'Swan Calisthenics ist eine offene Community, die sich sonntags zum gemeinsamen Bodyweight-Training trifft: im Sommer von 18 bis 20 Uhr draußen im Street Workout Park in Horgen, im Herbst, wenn es früher dunkel wird, von 17 bis 19 Uhr, und ab Dezember drinnen in einer Halle. Die Website stellt die Community vor, zeigt Trainingslevels, Galerie, Standort und FAQ und informiert über den Verein.',
             'Im Team bin ich für die Webentwicklung verantwortlich. Die Seite ist aus einem Schulprojekt (Modul 293) entstanden und wurde seitdem stark ausgebaut und auf Ladezeit optimiert.',
@@ -59,7 +59,7 @@ const projects = [
         card: 'Browser-Tool, das zwei Minecraft-Java-Skins zusammenführt – Körperteile und Layer lassen sich pro Skin auswählen.',
         lead: 'Ein Browser-Tool, das zwei Minecraft-Java-Skins zu einem neuen Skin kombiniert – Körperteil für Körperteil, mit Live-Vorschau und Download.',
         period: 'September 2026', status: 'Live',
-        live: 'https://n-brand.github.io/minecraft-skinmerger/', code: 'https://github.com/n-brand/minecraft-skinmerger',
+        live: 'https://n-brand.github.io/minecraft-skinmerger/', code: 'https://github.com/n-brand/minecraft-skinmerger', updated: '2026-09-22',
         about: [
             'Man lädt zwei Skins (64×64 PNG) hoch und entscheidet für jedes Körperteil, ob es von Skin A oder Skin B kommen soll – getrennt für die Basis- und die Overlay-Ebene. Das Ergebnis wird sofort angezeigt und lässt sich als PNG herunterladen.',
             'Alles läuft direkt im Browser, ohne Server und ohne Upload ins Internet.',
@@ -84,7 +84,7 @@ const projects = [
         card: 'Browser-Spieleplattform: Spiele direkt im Browser spielen – mit Kategorien, Suche, Favoriten und Highscores.',
         lead: 'Eine Spieleplattform im Browser: Spiele starten sofort, ohne Installation und ohne Login – mit Katalog, Suche, Favoriten und Highscores.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: 'https://n-brand.github.io/gamehub/', code: 'https://github.com/n-brand/gamehub',
+        live: 'https://n-brand.github.io/gamehub/', code: 'https://github.com/n-brand/gamehub', updated: '2026-10-17',
         about: [
             'Gamehub ist eine Sammlung kleiner Browser-Spiele unter einem Dach. Die Startseite zeigt alle Spiele als Kacheln, jedes Spiel hat eine eigene Seite mit Vollbild-Modus, Steuerung und Vorschlägen für ähnliche Spiele.',
             'Das erste fertige Spiel ist Snake. Weitere Spiele wie 2048 oder Memory sind geplant, später auch Accounts und Bestenlisten.',
@@ -109,7 +109,7 @@ const projects = [
         card: 'Rundenbasiertes Strategiespiel in Low-Poly-3D: Stamm wählen, Städte gründen, forschen und die Karte erobern – direkt im Browser.',
         lead: 'Ein eigenes rundenbasiertes 4X-Strategiespiel im Browser: erkunden, ausbauen, forschen und erobern auf einer Low-Poly-3D-Insel – auch als App installierbar.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: 'https://n-brand.github.io/StrategieSpiel/', code: 'https://github.com/n-brand/StrategieSpiel',
+        live: 'https://n-brand.github.io/StrategieSpiel/', code: 'https://github.com/n-brand/StrategieSpiel', updated: '2026-10-17',
         about: [
             'Das Spiel ist inspiriert von Polytopia, aber komplett selbst gebaut: eigene Stämme, eigene Grafik, eigene Töne und eigene Namen. Man startet mit einer Stadt, erkundet die Karte im Nebel, gründet weitere Städte und kämpft gegen Computer-Gegner.',
             'Es läuft im Browser in 3D und lässt sich als App aufs Handy installieren. Es ist spielbar, wird aber noch weiterentwickelt.',
@@ -137,7 +137,7 @@ const projects = [
         card: 'Demo-Shop der erfundenen Uhrenmarke Orvane: fotorealistische 3D-Uhr zum Drehen, Konfigurator und Warenkorb.',
         lead: 'Ein Demo-Shop für die erfundene Uhrenmarke Orvane: Die Uhr Meridian ist ein fotorealistisches 3D-Modell, das man drehen und im Konfigurator anpassen kann.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: '', code: 'https://github.com/n-brand/Watch-Shop',
+        live: 'https://n-brand.github.io/Watch-Shop/', code: 'https://github.com/n-brand/Watch-Shop', updated: '2026-10-21',
         about: [
             'Der Shop stellt die Meridian vor: Beim Scrollen erzählt die Seite in Animationen vom Gehäuse, dem Saphirglas und dem Uhrwerk. Im Konfigurator wählt man Gehäuse und Armband, der Preis passt sich an, und die Uhr landet im Warenkorb – bezahlt wird nichts.',
             'Die Uhr ist komplett im Code gebaut, nicht aus einer fertigen 3D-Datei. Marke, Logo und Bilder sind frei erfunden bzw. Platzhalter.',
@@ -165,7 +165,7 @@ const projects = [
         card: 'Mein JARVIS-Sprachassistent als installierbare Web-App fürs Handy – bewusst ohne Erinnerung.',
         lead: 'Ein Ableger meines JARVIS-Forks: dieselbe holografische Iron-Man-Oberfläche als Web-App fürs Handy, die sich nichts über den Nutzer merkt.',
         period: 'Oktober 2026 – heute', status: 'In Arbeit',
-        live: 'https://n-brand.github.io/Jarvis-Mobile/', code: 'https://github.com/n-brand/Jarvis-Mobile',
+        live: 'https://n-brand.github.io/Jarvis-Mobile/', code: 'https://github.com/n-brand/Jarvis-Mobile', updated: '2026-10-21',
         about: [
             'JARVIS ist ein Open-Source-Sprachassistent im Browser, dessen „Gehirn“ Claude Code ist; das Original stammt nicht von mir. In meinem eigenen Fork habe ich ihn stark erweitert: weitere Personas wie EDITH, FRIDAY und KAREN mit eigenem Weckwort und eigener Persönlichkeit, ein Einstellungs-Panel, Sprachbefehle für fast alle Einstellungen, Anhänge und eine Desktop-App mit Electron.',
             'Jarvis Mobile ist die Kopie davon fürs Handy, als installierbare Web-App (PWA) gedacht. Bewusst ohne Erinnerung: kein persönlicher Kontext, kein Standort, kein Notizblock – jedes Gespräch beginnt leer, gespeichert werden nur Einstellungen im Browser. Die Oberfläche läuft im Browser, das Gehirn (die Bridge) weiterhin auf dem eigenen Rechner.',
@@ -192,7 +192,7 @@ const projects = [
         card: 'Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.',
         lead: 'Eine deutschsprachige Schritt-für-Schritt-Anleitung, mit der man den Open-Source-Sprachassistenten JARVIS unter Windows einrichtet.',
         period: 'September 2026', status: 'Live',
-        live: 'https://n-brand.github.io/jarvis-Anleitung/', code: 'https://github.com/n-brand/jarvis-Anleitung',
+        live: 'https://n-brand.github.io/jarvis-Anleitung/', code: 'https://github.com/n-brand/jarvis-Anleitung', updated: '2026-09-21',
         about: [
             'JARVIS ist ein Open-Source-Sprachassistent im Browser, der Claude Code als „Gehirn“ nutzt. Ich habe dazu eine verständliche Anleitung geschrieben, damit auch Einsteiger ihn zum Laufen bringen.',
             'Die Anleitung führt durch alle Schritte von PowerShell und Node.js bis zum Start im Browser. Das Projekt JARVIS selbst stammt nicht von mir und wird auf der Seite verlinkt.',
@@ -217,7 +217,7 @@ const projects = [
         card: 'Prototyp eines Point-and-Click-Spiels: ein Haus mit klickbaren Räumen.',
         lead: 'Der Prototyp eines Point-and-Click-Abenteuers: Man sieht ein Haus und kann einzelne Räume anklicken und betreten.',
         period: 'Juni 2026', status: 'Prototyp',
-        live: null, code: 'https://github.com/n-brand/escape-room',
+        live: null, code: 'https://github.com/n-brand/escape-room', updated: '2026-06-17',
         about: [
             'Das Spiel zeigt ein Haus, dessen Räume als klickbare Bereiche über dem Bild liegen. Ein Klick öffnet die Detailansicht des Raums, über „Zurück“ geht es wieder zum Haus.',
             'Der Prototyp legt die Grundlage für Navigation und Raumansichten; Rätsel und ein Spielziel sind noch nicht umgesetzt.',
@@ -240,7 +240,7 @@ const projects = [
         card: 'Text-Adventure im Browser: In einer Höhle entscheidest du zwischen Schleichen und Kämpfen.',
         lead: 'Ein kleines Text-Adventure im Browser: Als Abenteurer in einer Höhle triffst du Entscheidungen, die Punkte bringen oder Leben kosten.',
         period: 'Juni 2026', status: 'Fertig',
-        live: null, code: 'https://github.com/n-brand/textbased-game',
+        live: null, code: 'https://github.com/n-brand/textbased-game', updated: '2026-06-16',
         about: [
             'In einer Höhle stehen eine verschlossene Schatztruhe und eine schlafende Wache. Du entscheidest, ob du dich vorbeischleichst oder kämpfst – jede Wahl hat Folgen für deine Lebenspunkte und deinen Punktestand.',
             'Erreichst du 50 Punkte, gewinnst du. Verlierst du alle Leben, ist das Spiel vorbei und du kannst neu starten.',
@@ -263,7 +263,7 @@ const projects = [
         card: 'Produktkatalog für einen Hofladen mit Kategorie-Filter, Detailansicht und Aktionspreisen.',
         lead: 'Ein Produktkatalog für einen Hofladen – frische Produkte vom Bauernhof mit Kategorien, Detailansicht und Aktionspreisen.',
         period: 'Juni 2026', status: 'Fertig',
-        live: null, code: 'https://github.com/n-brand/Hofladen-Webshop',
+        live: null, code: 'https://github.com/n-brand/Hofladen-Webshop', updated: '2026-06-03',
         about: [
             'Der Katalog zeigt 18 Produkte vom Hof – von Äpfeln und Eiern bis zu Kürbis und Bratwurst – mit Preisen in CHF. Über Filter-Buttons lässt sich nach Kategorie sortieren, ein Klick auf ein Produkt zeigt die ausführliche Beschreibung.',
             'Das Projekt entstand gemeinsam mit Emilijan Russ.',
@@ -287,7 +287,7 @@ const projects = [
         card: 'Übersicht bekannter Influencer mit Filter nach Herkunft und Detailansicht.',
         lead: 'Eine Übersichtsseite mit bekannten deutschen und amerikanischen Influencern, als Karten mit Filter und Detailansicht.',
         period: 'Mai – Juni 2026', status: 'Prototyp',
-        live: null, code: 'https://github.com/n-brand/Influencer',
+        live: null, code: 'https://github.com/n-brand/Influencer', updated: '2026-06-02',
         about: [
             'Die Seite zeigt 19 Influencer als Karten in einem Grid. Über einen Filter lässt sich zwischen deutschen und amerikanischen Creatorn wechseln, ein Klick öffnet die Detailansicht.',
             'Technisch baut das Projekt auf dem Code des Hofladen-Katalogs auf und überträgt das Prinzip auf ein neues Thema.',
@@ -310,7 +310,7 @@ const projects = [
         card: 'Meine Lieblingsfilme und -serien als Karten mit Poster, Jahr und IMDb-Link.',
         lead: 'Eine kleine Website mit meinen Lieblingsfilmen und -serien – als Karten mit Poster, Erscheinungsjahr und Kurzbeschreibung.',
         period: 'Juni 2026', status: 'Live',
-        live: 'https://n-brand.github.io/Mediensammlung/', code: 'https://github.com/n-brand/Mediensammlung',
+        live: 'https://n-brand.github.io/Mediensammlung/', code: 'https://github.com/n-brand/Mediensammlung', updated: '2026-06-06',
         about: [
             'Die Seite zeigt neun Filme und Serien, darunter die Dark-Knight-Trilogie, Iron Man, Snowden und Lucifer. Jede Karte hat Poster, Titel, Jahr, eine kurze Beschreibung und einen Link zu IMDb.',
         ],
@@ -346,6 +346,8 @@ const appHead = prefix => `    <link rel="manifest" href="${prefix}manifest.webm
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Nicolas B.">`;
 
+const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+const dateDe = iso => { const [y, m, d] = iso.split('-').map(Number); return `${d}. ${MONTHS[m - 1]} ${y}`; };
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const ext = 'target="_blank" rel="noopener"';
 
@@ -835,6 +837,10 @@ ${indent(links(p), 20)}
                 <div class="meta-item">
                     <span class="meta-label">Status</span>
                     ${esc(p.status)}
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Stand</span>
+                    ${dateDe(p.updated)}
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Tech</span>
