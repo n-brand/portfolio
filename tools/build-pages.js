@@ -212,6 +212,31 @@ const projects = [
         ],
     },
     {
+        slug: 'random', category: 'current',
+        title: 'random',
+        card: 'Sammlung zufälliger kleiner Sachen und Tests: Mini-Tools, Spielereien und Experimente – als App installierbar.',
+        lead: 'Ein Sammelprojekt für kleine Experimente: Die Startseite listet alle Sachen und Tests als Karten und lässt sich als App installieren.',
+        period: 'Oktober 2026 – heute', status: 'Live',
+        live: 'https://n-brand.github.io/random/', code: 'https://github.com/n-brand/random', updated: '2026-10-23',
+        about: [
+            'random ist mein Ort für Ideen, die kein eigenes Projekt brauchen. Jede Sache oder jeder Test bekommt einen eigenen Ordner mit einer Seite und erscheint auf der Übersicht mit Beschreibung, Datum und Tags.',
+            'Der erste Eintrag ist „Superhelden 3D“: Iron Man, Spider-Man, Hulk, Batman und Superman als drehbare 3D-Modelle, dazu ein selbst gebauter Iron-Man-Anzug mit Arc-Reaktor und klappbarer Maske.',
+        ],
+        features: [
+            'Übersicht mit Filter (Sachen/Tests), Suche und Vorschaubildern',
+            'Superhelden 3D mit Helden-Auswahl und drehbaren Modellen',
+            'Iron Man als Detail-Modell oder als Eigenbau umschaltbar',
+            'Übersicht und Superhelden 3D je als eigene App installierbar, offline nutzbar',
+        ],
+        tech: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'PWA'],
+        techNotes: [
+            'Reines HTML/CSS/JS ohne Build-Schritt',
+            'Einträge als Daten-Array in der Übersichtsseite',
+            'Gemeinsamer Service Worker mit Offline-Cache, große 3D-Modelle werden im Hintergrund nachgeladen',
+            'Gehostet auf GitHub Pages',
+        ],
+    },
+    {
         slug: 'escape-room', category: 'school',
         title: 'Escape Room',
         card: 'Prototyp eines Point-and-Click-Spiels: ein Haus mit klickbaren Räumen.',
@@ -432,6 +457,24 @@ const ART = {
         </g>
         <path d="M24 30l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffd43b"/>
         <path d="M214 22l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+    </svg>`,
+    random: `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <g transform="rotate(-12 82 74)">
+            <rect x="46" y="44" width="72" height="72" rx="16" fill="#9c36b5"/>
+            <rect x="46" y="38" width="72" height="72" rx="16" fill="#ffffff"/>
+            <circle cx="64" cy="56" r="6.5" fill="#ae3ec9"/><circle cx="82" cy="74" r="6.5" fill="#ae3ec9"/><circle cx="100" cy="92" r="6.5" fill="#ae3ec9"/>
+            <circle cx="100" cy="56" r="6.5" fill="#ae3ec9"/><circle cx="64" cy="92" r="6.5" fill="#ae3ec9"/>
+        </g>
+        <g transform="rotate(14 170 80)">
+            <rect x="140" y="56" width="58" height="58" rx="13" fill="#e67700"/>
+            <rect x="140" y="51" width="58" height="58" rx="13" fill="#ffd43b"/>
+            <circle cx="155" cy="66" r="5.5" fill="#183153"/><circle cx="183" cy="94" r="5.5" fill="#183153"/>
+            <circle cx="169" cy="80" r="5.5" fill="#183153"/>
+        </g>
+        <circle cx="132" cy="28" r="9" fill="#ff6b6b"/><circle cx="132" cy="28" r="4" fill="#ffe3e3"/>
+        <path d="M26 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffd43b"/>
+        <path d="M210 30l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+        <text x="206" y="128" text-anchor="middle" font-family="Nunito, sans-serif" font-size="20" font-weight="900" fill="#ffffff" opacity=".85">?</text>
     </svg>`,
     strategiespiel: `<svg viewBox="0 0 240 140" aria-hidden="true">
         <g fill="#a5e0f2" opacity=".5">

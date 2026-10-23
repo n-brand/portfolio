@@ -52,7 +52,7 @@ Persönliche Portfolio-Website (statisches HTML/CSS/JS), gehostet über GitHub P
 
 **Nach jeder Änderung an diesem Repo diesen Abschnitt aktualisieren** (was gemacht wurde, was offen ist), damit der Stand jederzeit nachvollziehbar ist.
 
-Stand: 2026-10-21
+Stand: 2026-10-23
 
 Erledigt:
 - Vorlage (KI-generiert) durch echte Inhalte auf Deutsch ersetzt; Profilbild durch „NB“-Kachel ersetzt; FontAwesome-Dateien entfernt (Icons als Inline-SVG), da `assets/` nie im Repo war; Kontaktformular durch GitHub-Link ersetzt.
@@ -97,6 +97,7 @@ Erledigt:
 - Swan-Trainingszeiten aktualisiert (2026-10-21, Angabe von Nicolas): sonntags, im Sommer 18–20 Uhr draußen im Street Workout Park Horgen, im Herbst (früher dunkel) 17–19 Uhr, ab Dezember in einer Halle. Kartentext auf Wunsch von Nicolas nur noch „Website der Swan Calisthenics Community & Verein“; Lead nennt Sommer draußen / Winter Halle (Zeiten wechseln), die genauen Zeiten stehen nur im Text der Detailseite. „Kostenlos“ entfernt, weil für die Halle nicht bestätigt. Badges auf dem Handy wieder mittig auf der Kartenkante (`top: -10px`).
 - **Watch-Shop Live-Link** (2026-10-22, Wunsch von Nicolas): `live: 'https://n-brand.github.io/Watch-Shop/'` im Generator eingetragen, Karte und Detailseite zeigen den Button „Live ansehen“.
 - **„Stand“ pro Projekt** (2026-10-22, Wunsch von Nicolas): Die Detailseite zeigt neben Zeitraum/Status/Tech das Datum, seit dem die Angaben stimmen (Feld `updated` im Projekt, Format `YYYY-MM-DD`, Ausgabe z.B. „21. Oktober 2026“). Datum = letzter Commit im jeweiligen Code-Repo (Atom-Feed `https://github.com/<repo>/commits.atom`, die API war am Limit). Beim Prüfen/Aktualisieren der Texte eines Projekts `updated` auf das neue Repo-Datum setzen. Neue Projekte brauchen das Feld ebenfalls.
+- **random** (2026-10-23, Wunsch von Nicolas) als aktuelles Projekt ergänzt: Sammelprojekt für kleine Sachen und Tests (Ordner `C:\Source\random`, Repo https://github.com/n-brand/random, live https://n-brand.github.io/random/, erster Commit 2026-10-22). Fakten aus README, CLAUDE.md und `ENTRIES` dort (Übersicht als PWA, erster Eintrag „Superhelden 3D“ mit three.js, Iron Man als GLB-Modell oder Eigenbau, eigene PWA). Illustration: zwei Würfel (weiß/violett und gelb/navy), Funkeln, Fragezeichen; Theme Violett #ae3ec9 mit gelben Links. Kommen in random neue Einträge dazu, Texte und `updated` nachziehen.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
 
 Offen:

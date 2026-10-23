@@ -620,6 +620,14 @@ h2 {
     --card-link: #ffd43b;
 }
 
+.theme-random {
+    --card-bg: #ae3ec9;
+    --card-text: #ffffff;
+    --card-muted: #f3d9fa;
+    --card-shade: #862e9c;
+    --card-link: #ffd43b;
+}
+
 .theme-escape-room {
     --card-bg: #f7e6c4;
     --card-text: #3b2412;

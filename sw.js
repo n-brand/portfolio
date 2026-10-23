@@ -19,6 +19,7 @@ const PRECACHE = [
     './projekte/watch-shop.html',
     './projekte/jarvis-mobile.html',
     './projekte/jarvis-anleitung.html',
+    './projekte/random.html',
     './projekte/escape-room.html',
     './projekte/textbased-game.html',
     './projekte/hofladen-webshop.html',
