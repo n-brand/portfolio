@@ -237,6 +237,30 @@ const projects = [
         ],
     },
     {
+        slug: 'minecraft-creations', category: 'current',
+        title: 'Minecraft Creations',
+        card: 'Meine Mods, Texturepacks und Skins für Minecraft zum Herunterladen.',
+        lead: 'Eine Download-Seite für meine eigenen Minecraft-Inhalte: Mods, Texturepacks und Skins, sortiert nach Kategorie, mit Filter und Suche.',
+        period: 'Oktober 2026 – heute', status: 'Live',
+        live: 'https://n-brand.github.io/minecraft-creations/', code: 'https://github.com/n-brand/minecraft-creations', updated: '2026-10-24',
+        about: [
+            'Auf Minecraft Creations sammle ich, was ich für Minecraft baue. Jeder Eintrag hat Version, Edition (Java oder Bedrock), Datum und Dateigrösse, dazu einen Download-Button und bei Bedarf eine Detailansicht.',
+            'Der erste echte Eintrag ist „Mein Pack“, ein Texturepack für Java ab 1.21.5. Es fasst vier Packs zusammen: goldene Dreizacke, niedrigeres Feuer, freie Sicht mit Kürbis-Kopf und 47 Essens-Texturen, die man am Amboss durch Umbenennen freischaltet. Die Credits der Originalpacks stehen in der Detailansicht. Die übrigen Einträge sind noch Platzhalter („Bald verfügbar“).',
+        ],
+        features: [
+            'Kategorien Mods, Texturepacks und Skins, Filter nach Edition und Suche',
+            'Detailansicht mit Beschreibung, Funktionen, Credits und Anleitung',
+            'Pixel-Art-Ersatzbilder, wenn ein Eintrag kein eigenes Vorschaubild hat',
+            'Hell- und Dunkelmodus, auf dem Handy mit Tab-Leiste unten',
+        ],
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        techNotes: [
+            'Statische Seite ohne Build-Schritt',
+            'Alle Downloads als Daten in einer Datei, Karten werden daraus erzeugt',
+            'Gehostet auf GitHub Pages',
+        ],
+    },
+    {
         slug: 'escape-room', category: 'school',
         title: 'Escape Room',
         card: 'Prototyp eines Point-and-Click-Spiels: ein Haus mit klickbaren Räumen.',
@@ -403,12 +427,88 @@ const ZOMBIE_FACE = [
 const mergeFaces = (left, right) => left.map((row, y) => [...row.slice(0, 4), ...right[y].slice(4)]);
 
 const colorGrid = (rows, size, x0, y0) => rows.flatMap((row, y) => row.map((color, x) => (
-    `<rect x="${x0 + x * size}" y="${y0 + y * size}" width="${size + 0.6}" height="${size + 0.6}" fill="${color}"/>`
+    color ? `<rect x="${x0 + x * size}" y="${y0 + y * size}" width="${size + 0.6}" height="${size + 0.6}" fill="${color}"/>` : ''
 ))).join('');
 
 const pixels = (rows, palette, size, x0, y0) => rows.flatMap((row, y) => [...row].map((c, x) => (
     palette[c] ? `<rect x="${x0 + x * size}" y="${y0 + y * size}" width="${size + 0.6}" height="${size + 0.6}" fill="${palette[c]}"/>` : ''
 ))).join('');
+
+const PICKAXE = [
+    '................',
+    '................',
+    '......DDDDD.....',
+    '.....DBMCCMDST..',
+    '......DKKKCCLO..',
+    '..........SMCK..',
+    '.........STOCMK.',
+    '........SLO.KCK.',
+    '.......STO..KCK.',
+    '......SLO...KMK.',
+    '.....STO....KBK.',
+    '....SLO......K..',
+    '...STO..........',
+    '..SLO...........',
+    '..OO............',
+    '................',
+];
+const PICKAXE_PALETTE = { D: '#0d4037', K: '#082521', C: '#28b299', M: '#2ac7ac', B: '#32edcc', S: '#4a3516', T: '#694c20', L: '#8a6628', O: '#291c0b' };
+
+const GRASS_BLOCK = [
+    ['#74b44a', '#76b64c', '#73b349', '#66a63c', '#66a63c', '#6faf45', '#5f9f35', '#6cac42', '#7ebe54', '#76b64c', '#6aaa40', '#67a73d', '#69a93f', '#61a137', '#509026', '#6dad43'],
+    ['#75b54b', '#6cac42', '#8ab95a', '#81b051', '#83b253', '#593d29', '#68a83e', '#62a238', '#5f9f35', '#93c263', '#90bf60', '#73b349', '#61a137', '#6cac42', '#67a73d', '#6bab41'],
+    ['#8dbc5d', '#593d29', '#9ccb6c', '#64a43a', '#69a93f', '#593d29', '#70b046', '#593d29', '#74b44a', '#7fbf55', '#92c162', '#97c667', '#593d29', '#57972d', '#60a036', '#593d29'],
+    ['#593d29', '#6c6c6c', '#593d29', '#593d29', '#71b147', '#593d29', '#593d29', '#593d29', '#5f9f35', '#593d29', '#6dad43', '#593d29', '#79553a', '#593d29', '#593d29', '#79553a'],
+    ['#966c4a', '#79553a', '#966c4a', '#b9855c', '#593d29', '#966c4a', '#79553a', '#79553a', '#593d29', '#593d29', '#593d29', '#6c6c6c', '#79553a', '#966c4a', '#593d29', '#79553a'],
+    ['#79553a', '#593d29', '#966c4a', '#966c4a', '#79553a', '#966c4a', '#593d29', '#593d29', '#593d29', '#79553a', '#79553a', '#593d29', '#79553a', '#79553a', '#79553a', '#b9855c'],
+    ['#b9855c', '#79553a', '#79553a', '#79553a', '#878787', '#79553a', '#79553a', '#b9855c', '#b9855c', '#79553a', '#b9855c', '#b9855c', '#79553a', '#966c4a', '#79553a', '#966c4a'],
+    ['#79553a', '#79553a', '#b9855c', '#b9855c', '#966c4a', '#966c4a', '#79553a', '#79553a', '#966c4a', '#593d29', '#966c4a', '#966c4a', '#79553a', '#79553a', '#966c4a', '#966c4a'],
+    ['#966c4a', '#79553a', '#79553a', '#966c4a', '#79553a', '#966c4a', '#79553a', '#593d29', '#79553a', '#966c4a', '#966c4a', '#79553a', '#79553a', '#79553a', '#593d29', '#79553a'],
+    ['#79553a', '#966c4a', '#593d29', '#79553a', '#79553a', '#593d29', '#593d29', '#79553a', '#79553a', '#79553a', '#79553a', '#79553a', '#b9855c', '#b9855c', '#79553a', '#966c4a'],
+    ['#79553a', '#966c4a', '#79553a', '#b9855c', '#b9855c', '#79553a', '#b9855c', '#966c4a', '#593d29', '#b9855c', '#b9855c', '#593d29', '#966c4a', '#966c4a', '#878787', '#79553a'],
+    ['#966c4a', '#79553a', '#79553a', '#966c4a', '#966c4a', '#b9855c', '#79553a', '#966c4a', '#6c6c6c', '#966c4a', '#966c4a', '#79553a', '#593d29', '#966c4a', '#79553a', '#593d29'],
+    ['#79553a', '#593d29', '#966c4a', '#79553a', '#966c4a', '#966c4a', '#b9855c', '#79553a', '#79553a', '#79553a', '#79553a', '#79553a', '#79553a', '#79553a', '#b9855c', '#b9855c'],
+    ['#79553a', '#966c4a', '#79553a', '#79553a', '#745844', '#79553a', '#966c4a', '#966c4a', '#79553a', '#593d29', '#b9855c', '#593d29', '#79553a', '#b9855c', '#966c4a', '#966c4a'],
+    ['#966c4a', '#79553a', '#593d29', '#b9855c', '#79553a', '#593d29', '#79553a', '#593d29', '#b9855c', '#b9855c', '#79553a', '#966c4a', '#79553a', '#79553a', '#966c4a', '#966c4a'],
+    ['#966c4a', '#79553a', '#b9855c', '#966c4a', '#966c4a', '#79553a', '#878787', '#79553a', '#966c4a', '#966c4a', '#79553a', '#79553a', '#966c4a', '#966c4a', '#79553a', '#593d29'],
+];
+
+const TRIDENT = [
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '#f7bb18', '#fffde0', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '#f7bb18', '#fffde0', '#ffe056', '', '#ffe056', '#ffffff', '', ''],
+    ['', '', '', '', '', '', '', '#f7bb18', '#fffde0', '#ffe056', '', '#ffe056', '#ffffff', '#f7bb18', '', ''],
+    ['', '', '', '', '', '', '', '#c68510', '#ffe056', '', '#ffe056', '#ffffff', '#f7bb18', '', '', ''],
+    ['', '', '', '', '', '', '', '#a15502', '#edaf07', '#ffe056', '#ffffff', '#f7bb18', '', '#ffe056', '#ffffff', ''],
+    ['', '', '', '', '', '', '', '#6b2302', '#d16b06', '#edaf07', '#f7bb18', '', '#ffe056', '#ffffff', '#f7bb18', ''],
+    ['', '', '', '', '', '', '', '#752402', '#be6405', '#c96706', '#edaf07', '#ffe056', '#ffffff', '#f7bb18', '', ''],
+    ['', '', '', '', '', '', '#f28518', '#e9b115', '#752402', '#6b2302', '#a15502', '#be7103', '#eb9b04', '', '', ''],
+    ['', '', '', '', '', '#ea8117', '#e9b115', '#993203', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '#e27c16', '#f2b818', '#993203', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '#dd7a16', '#f2b818', '#993203', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '#d37415', '#e9b115', '#993203', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '#cc7014', '#e9b115', '#993203', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['#c66d13', '#e9b115', '#993203', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['#752802', '#993203', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+];
+const BIG_MAC = [
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '#c89461', '#c89461', '#c89461', '#c89461', '', '', '', '', '', ''],
+    ['', '', '', '', '#c89461', '#c89461', '#f5ece2', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#c89461', '#c89461', '', '', '', ''],
+    ['', '', '', '#c89461', '#e5b380', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#eedecd', '#e1ae7a', '#e1ae7a', '#c89461', '', '', ''],
+    ['', '', '#c89461', '#e9ba8b', '#e9ba8b', '#e5b380', '#eedecd', '#e1ae7a', '#e5b380', '#e5b380', '#e5b380', '#eedecd', '#e9ba8b', '#c89461', '', ''],
+    ['', '', '#c89461', '#e9c49e', '#f5ece2', '#e9ba8b', '#e5b380', '#e5b380', '#e9ba8b', '#f5ece2', '#e9c49e', '#e9c49e', '#e9c49e', '#c89461', '', ''],
+    ['', '', '', '#a97644', '#a97644', '#a97644', '#a97644', '#a3703e', '#a3703e', '#a3703e', '#a3703e', '#93663a', '#93663a', '', '', ''],
+    ['', '', '', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '#99cd91', '', '', ''],
+    ['', '', '#c89461', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e1ae7a', '#c89461', '', ''],
+    ['', '', '#ffd000', '#ffd000', '#ffd000', '#ffd000', '#ffd000', '#ffd000', '#ffd000', '#ffd000', '#eec200', '#eec200', '#eec200', '#eec200', '', ''],
+    ['', '#ffd000', '', '#a97644', '#a97644', '#a97644', '#a97644', '#a3703e', '#a3703e', '#a3703e', '#a3703e', '#93663a', '#93663a', '', '#eec200', ''],
+    ['', '', '', '#93663a', '#93663a', '#93663a', '#93663a', '#93663a', '#a97644', '#a97644', '#a97644', '#a97644', '#93663a', '', '', ''],
+    ['', '', '#c89461', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e9ba8b', '#e1ae7a', '#c89461', '', ''],
+    ['', '', '#c89461', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#e1ae7a', '#c89461', '', ''],
+    ['', '', '', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '#c89461', '', '', ''],
+];
 
 const ART = {
     'swan-calisthenics': `<svg viewBox="0 0 240 140" aria-hidden="true">
@@ -459,22 +559,75 @@ const ART = {
         <path d="M214 22l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
     </svg>`,
     random: `<svg viewBox="0 0 240 140" aria-hidden="true">
-        <g transform="rotate(-12 82 74)">
-            <rect x="46" y="44" width="72" height="72" rx="16" fill="#9c36b5"/>
+        <ellipse cx="92" cy="92" rx="26" ry="3.6" fill="#7a2b90" opacity=".45"/>
+        <ellipse cx="152" cy="88" rx="21" ry="3.2" fill="#7a2b90" opacity=".45"/>
+        <g transform="translate(22.4 -9.2) scale(.8) rotate(-12 82 74)">
+            <rect x="46" y="46" width="72" height="72" rx="16" fill="#8a2fa3"/>
+            <rect x="46" y="42" width="72" height="72" rx="16" fill="#d9c4e6"/>
             <rect x="46" y="38" width="72" height="72" rx="16" fill="#ffffff"/>
-            <circle cx="64" cy="56" r="6.5" fill="#ae3ec9"/><circle cx="82" cy="74" r="6.5" fill="#ae3ec9"/><circle cx="100" cy="92" r="6.5" fill="#ae3ec9"/>
-            <circle cx="100" cy="56" r="6.5" fill="#ae3ec9"/><circle cx="64" cy="92" r="6.5" fill="#ae3ec9"/>
+            <rect x="46" y="38" width="72" height="72" rx="16" fill="none" stroke="#efe2f6" stroke-width="3"/>
+            <path d="M54 100a8 8 0 0 0 8 6h40a8 8 0 0 0 8-8v-4a14 14 0 0 1-14 8z" fill="#f1e6f8"/>
+            <path d="M54 54a8 8 0 0 1 8-8h22" fill="none" stroke="#f6eefb" stroke-width="3.5" stroke-linecap="round"/>
+            <g fill="#ae3ec9">
+                <circle cx="64" cy="56" r="7"/><circle cx="100" cy="56" r="7"/><circle cx="82" cy="74" r="7"/>
+                <circle cx="64" cy="92" r="7"/><circle cx="100" cy="92" r="7"/>
+            </g>
+            <g fill="#8a2fa3">
+                <path d="M57.4 58.6a7 7 0 0 0 11.4 3.8 7 7 0 0 1-11.4-3.8z"/><path d="M93.4 58.6a7 7 0 0 0 11.4 3.8 7 7 0 0 1-11.4-3.8z"/><path d="M75.4 76.6a7 7 0 0 0 11.4 3.8 7 7 0 0 1-11.4-3.8z"/>
+                <path d="M57.4 94.6a7 7 0 0 0 11.4 3.8 7 7 0 0 1-11.4-3.8z"/><path d="M93.4 94.6a7 7 0 0 0 11.4 3.8 7 7 0 0 1-11.4-3.8z"/>
+            </g>
+            <g fill="#d27be6">
+                <circle cx="62" cy="54" r="2"/><circle cx="98" cy="54" r="2"/><circle cx="80" cy="72" r="2"/><circle cx="62" cy="90" r="2"/><circle cx="98" cy="90" r="2"/>
+            </g>
         </g>
-        <g transform="rotate(14 170 80)">
-            <rect x="140" y="56" width="58" height="58" rx="13" fill="#e67700"/>
+        <g transform="translate(14.8 -12) scale(.8) rotate(14 170 80)">
+            <rect x="140" y="58" width="58" height="58" rx="13" fill="#c96a00"/>
+            <rect x="140" y="55" width="58" height="58" rx="13" fill="#f0a500"/>
             <rect x="140" y="51" width="58" height="58" rx="13" fill="#ffd43b"/>
-            <circle cx="155" cy="66" r="5.5" fill="#183153"/><circle cx="183" cy="94" r="5.5" fill="#183153"/>
-            <circle cx="169" cy="80" r="5.5" fill="#183153"/>
+            <rect x="140" y="51" width="58" height="58" rx="13" fill="none" stroke="#ffe27a" stroke-width="3"/>
+            <path d="M147 98a7 7 0 0 0 7 5h32a7 7 0 0 0 7-7v-3a11 11 0 0 1-11 7z" fill="#f7bf1c"/>
+            <path d="M147 63a7 7 0 0 1 7-7h18" fill="none" stroke="#fff0a8" stroke-width="3" stroke-linecap="round"/>
+            <g fill="#183153">
+                <circle cx="155" cy="66" r="6"/><circle cx="169" cy="80" r="6"/><circle cx="183" cy="94" r="6"/>
+            </g>
+            <g fill="#4b6f9e">
+                <circle cx="153.2" cy="64.2" r="1.8"/><circle cx="167.2" cy="78.2" r="1.8"/><circle cx="181.2" cy="92.2" r="1.8"/>
+            </g>
         </g>
-        <circle cx="132" cy="28" r="9" fill="#ff6b6b"/><circle cx="132" cy="28" r="4" fill="#ffe3e3"/>
-        <path d="M26 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffd43b"/>
-        <path d="M210 30l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
-        <text x="206" y="128" text-anchor="middle" font-family="Nunito, sans-serif" font-size="20" font-weight="900" fill="#ffffff" opacity=".85">?</text>
+        <circle cx="124" cy="20" r="8" fill="#ff6b6b"/><circle cx="124" cy="20" r="3.6" fill="#ffe3e3"/>
+        <path d="M30 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffd43b"/>
+        <path d="M208 30l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+        <text x="204" y="84" text-anchor="middle" font-family="Nunito, sans-serif" font-size="16" font-weight="900" fill="#ffffff" opacity=".85">?</text>
+        <text x="120" y="124" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="700" letter-spacing="-1" fill="#ecebe6">random<tspan fill="#ff8a4c">.</tspan></text>
+    </svg>`,
+    'minecraft-creations': `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <g transform="rotate(-8 50 52)">
+            <rect x="22" y="30" width="56" height="56" rx="14" fill="#e0a800"/>
+            <rect x="22" y="24" width="56" height="56" rx="14" fill="#ffd43b"/>
+            ${pixels(PICKAXE, PICKAXE_PALETTE, 3.2, 22.8, 24.8)}
+        </g>
+        <g transform="rotate(8 190 52)">
+            <rect x="162" y="30" width="56" height="56" rx="14" fill="#f09a9a"/>
+            <rect x="162" y="24" width="56" height="56" rx="14" fill="#ffc9c9"/>
+            ${colorGrid(STEVE_FACE, 5, 170, 32)}
+        </g>
+        <rect x="85" y="16" width="70" height="70" rx="18" fill="#c3c6d1"/>
+        <rect x="85" y="10" width="70" height="70" rx="18" fill="#ffffff"/>
+        <clipPath id="mc-block-clip"><rect x="93" y="18" width="54" height="54" rx="10"/></clipPath>
+        <g clip-path="url(#mc-block-clip)">${colorGrid(GRASS_BLOCK, 3.375, 93, 18)}</g>
+        <rect x="78" y="96" width="36" height="36" rx="10" fill="#4a9fe0"/>
+        <rect x="78" y="93" width="36" height="36" rx="10" fill="#74c0fc"/>
+        ${colorGrid(TRIDENT, 1.95, 81.4, 94.4)}
+        <rect x="126" y="96" width="36" height="36" rx="10" fill="#c3c6d1"/>
+        <rect x="126" y="93" width="36" height="36" rx="10" fill="#ffffff"/>
+        ${colorGrid(BIG_MAC, 1.95, 128.4, 93.5)}
+        <g transform="translate(120 45) scale(1.6) translate(-120 -114)">
+            <g transform="translate(0 1.2)" opacity=".45"><path d="M120 105.5v11M114.5 111.5l5.5 5.5 5.5-5.5M110.5 118.5v1.5a2.5 2.5 0 0 0 2.5 2.5h14a2.5 2.5 0 0 0 2.5-2.5v-1.5" fill="none" stroke="#183153" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <path d="M120 105.5v11M114.5 111.5l5.5 5.5 5.5-5.5M110.5 118.5v1.5a2.5 2.5 0 0 0 2.5 2.5h14a2.5 2.5 0 0 0 2.5-2.5v-1.5" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <path transform="translate(42 110) scale(.7) translate(-32 -110)" d="M32 98C33.5 106 36 108.5 44 110C36 111.5 33.5 114 32 122C30.5 114 28 111.5 20 110C28 108.5 30.5 106 32 98Z" fill="#ffd43b" stroke="#ffd43b" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M214 8l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+        <path d="M26 14l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
     </svg>`,
     strategiespiel: `<svg viewBox="0 0 240 140" aria-hidden="true">
         <g fill="#a5e0f2" opacity=".5">

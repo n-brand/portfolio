@@ -628,6 +628,15 @@ h2 {
     --card-link: #ffd43b;
 }
 
+.theme-minecraft-creations {
+    --card-bg: #2f9e44;
+    --card-text: #ffffff;
+    --card-muted: #d3f9d8;
+    --card-shade: #1f7a31;
+    --card-link: #ffd43b;
+    --card-ring: rgba(255, 255, 255, 0.18);
+}
+
 .theme-escape-room {
     --card-bg: #f7e6c4;
     --card-text: #3b2412;
