@@ -98,6 +98,7 @@ Erledigt:
 - **Watch-Shop Live-Link** (2026-10-22, Wunsch von Nicolas): `live: 'https://n-brand.github.io/Watch-Shop/'` im Generator eingetragen, Karte und Detailseite zeigen den Button „Live ansehen“.
 - **„Stand“ pro Projekt** (2026-10-22, Wunsch von Nicolas): Die Detailseite zeigt neben Zeitraum/Status/Tech das Datum, seit dem die Angaben stimmen (Feld `updated` im Projekt, Format `YYYY-MM-DD`, Ausgabe z.B. „21. Oktober 2026“). Datum = letzter Commit im jeweiligen Code-Repo (Atom-Feed `https://github.com/<repo>/commits.atom`, die API war am Limit). Beim Prüfen/Aktualisieren der Texte eines Projekts `updated` auf das neue Repo-Datum setzen. Neue Projekte brauchen das Feld ebenfalls.
 - Ideen & Inspiration von n1code.dev (Seite eines Kollegen) gesammelt.
+- Designtest im Stil des Watch-Shops (2026-10-21: Serifenschrift, eckige Karten mit feinem Rand, Linien-Buttons, Portfolio-Farben) hat Nicolas **nicht gefallen** und wurde wieder gelöscht – Font-Awesome-Stil bleibt.
 
 Offen:
 - **Swan-Klimmzug (optional):** Läuft jetzt per CSS mit Ebenen. Ein echtes zweites Gemini-Bild (Prompt in `docs/bild-prompt.md`) wäre nur noch nötig, wenn die Pose stärker wechseln soll (z.B. Brust deutlich über der Stange). Kleine Schwäche: auf Schulterhöhe ändert sich die Stauchung der Flügel sprunghaft (gestaucht oben, normal unten).
