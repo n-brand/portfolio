@@ -612,6 +612,14 @@ h2 {
     --card-link: #3a2200;
 }
 
+.theme-adventskalender {
+    --card-bg: #e3eefb;
+    --card-text: #183153;
+    --card-muted: #3d5478;
+    --card-shade: #b3c8e3;
+    --card-link: #a8262b;
+}
+
 .theme-jarvis-anleitung {
     --card-bg: #a51d2d;
     --card-text: #ffffff;

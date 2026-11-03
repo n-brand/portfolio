@@ -187,6 +187,33 @@ const projects = [
         ],
     },
     {
+        slug: 'adventskalender', category: 'current',
+        title: 'Adventskalender',
+        card: 'Ein Adventskalender im Browser: 24 Türchen mit Herzensbotschaften, jedes öffnet sich erst an seinem Tag.',
+        lead: 'Ein emotionaler Adventskalender als Web-App: Vom 1. bis 24. Dezember öffnet sich jeden Tag ein Türchen mit einer Herzensbotschaft, die man teilen kann.',
+        period: 'Oktober 2026', status: 'Live',
+        live: 'https://n-brand.github.io/Adventskalender/', code: 'https://github.com/n-brand/Adventskalender', updated: '2026-10-28',
+        about: [
+            'Die 24 Türchen sind durcheinander angeordnet und lassen sich erst ab ihrem Datum öffnen. Beim Öffnen klappt die Tür zur Seite und gibt eine Botschaft frei, die man über das Teilen-Menü des Handys weitergeben kann. Ab dem 25. Dezember zeigt ein Rückblick alle 24 Botschaften.',
+            'Die ganze Seite steckt in einer einzigen HTML-Datei ohne Abhängigkeiten und lässt sich als App aufs Handy installieren.',
+        ],
+        features: [
+            '24 Türchen, die sich jeweils ab ihrem Datum öffnen – vorher ein Hinweis mit Countdown',
+            'Aufklapp-Animation und Botschaft zum Teilen (Teilen-Menü oder Zwischenablage)',
+            'Rückblick mit allen 24 Botschaften ab dem 25. Dezember',
+            'Geöffnete Türchen bleiben ein Jahr lang gespeichert',
+            'Wechsel um Mitternacht ohne Neuladen',
+            'Als App installierbar und offline nutzbar (PWA)',
+        ],
+        tech: ['HTML', 'CSS', 'JavaScript', 'PWA'],
+        techNotes: [
+            'Alles in einer HTML-Datei, keine Abhängigkeiten',
+            'Datumslogik, die jede Minute neu prüft',
+            'Service Worker: Netz zuerst, offline aus dem Speicher',
+            'Testmodus per URL-Parameter für beliebige Daten',
+        ],
+    },
+    {
         slug: 'jarvis-anleitung', category: 'current',
         title: 'JARVIS-Anleitung',
         card: 'Schritt-für-Schritt-Anleitung zum Einrichten von JARVIS, einem Sprachassistenten im Browser auf Basis von Claude Code.',
@@ -512,6 +539,35 @@ const ART = {
         <path d="M190 84v15M183.5 92.5l6.5 6.5 6.5-6.5" fill="none" stroke="#3a2200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M181 103.5h18" stroke="#3a2200" stroke-width="3.5" stroke-linecap="round"/>
         <path d="M200 32l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffffff" opacity=".85"/>
+    </svg>`,
+    adventskalender: `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <rect x="40" y="29" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="40" y="26" width="34" height="36" rx="5" fill="#a8262b"/>
+        <text x="57" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">7</text>
+        <rect x="82" y="29" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="82" y="26" width="34" height="36" rx="5" fill="#2f6b3f"/>
+        <text x="99" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">15</text>
+        <rect x="124" y="29" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="124" y="26" width="34" height="36" rx="5" fill="#a8262b"/>
+        <text x="141" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">2</text>
+        <rect x="166" y="29" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="166" y="26" width="34" height="36" rx="5" fill="#3b5a8a"/>
+        <text x="183" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">21</text>
+        <rect x="40" y="75" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="40" y="72" width="34" height="36" rx="5" fill="#3b5a8a"/>
+        <text x="57" y="96" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">13</text>
+        <rect x="82" y="75" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="82" y="72" width="34" height="36" rx="5" fill="#a8262b"/>
+        <text x="99" y="96" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">24</text>
+        <rect x="124" y="75" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="124" y="72" width="34" height="36" rx="5" fill="#2f6b3f"/>
+        <text x="141" y="96" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#fdf4e3">9</text>
+        <rect x="166" y="75" width="34" height="36" rx="5" fill="#0f1a2e" opacity=".35"/>
+        <rect x="166" y="72" width="34" height="36" rx="5" fill="#1b2a44"/>
+        <path d="M183 99c-6-4-9-7-9-10.5a4.5 4.5 0 0 1 9-1.5 4.5 4.5 0 0 1 9 1.5c0 3.5-3 6.5-9 10.5z" fill="#ff6b6b"/>
+        <path d="M22 22l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z" fill="#ffd43b"/>
+        <path d="M214 92l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffd43b"/>
+        <circle cx="216" cy="30" r="2.5" fill="#ffd43b"/><circle cx="26" cy="112" r="2" fill="#ffd43b"/>
     </svg>`,
     'jarvis-anleitung': `<svg viewBox="0 0 240 140" aria-hidden="true">
         <defs><radialGradient id="glow-jarvis"><stop offset="0" stop-color="#4dd4ff" stop-opacity=".7"/><stop offset="1" stop-color="#4dd4ff" stop-opacity="0"/></radialGradient></defs>
