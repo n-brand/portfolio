@@ -926,11 +926,11 @@ const STATUS_BADGE = { 'Live': 'live', 'In Arbeit': 'wip', 'Prototyp': 'proto', 
 
 const tags = list => list.map(t => `<span class="tag">${esc(t)}</span>`).join('\n');
 
-const links = (p, base) => {
+const links = (p, withCode) => {
     const out = [];
     if (p.live) out.push(`<a href="${p.live}" ${ext} class="project-link primary">Live ansehen</a>`);
-    if (p.code) out.push(`<a href="${p.code}" ${ext} class="project-link">Code</a>`);
-    if (!out.length) out.push('<span class="project-link soon">Bald spielbar</span>');
+    if (p.code && withCode) out.push(`<a href="${p.code}" ${ext} class="project-link">Code</a>`);
+    if (!out.length && !p.live && !p.code) out.push('<span class="project-link soon">Bald spielbar</span>');
     return out.join('\n');
 };
 
@@ -1076,7 +1076,7 @@ ${indent(PLAY_BUTTON, 20)}
                 <h1>${esc(p.title)}</h1>
                 <p class="detail-lead">${esc(p.lead)}</p>
                 <div class="project-links">
-${indent(links(p), 20)}
+${indent(links(p, true), 20)}
                 </div>
             </header>
 
