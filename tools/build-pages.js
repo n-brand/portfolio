@@ -292,6 +292,33 @@ const projects = [
         ],
     },
     {
+        slug: 'modul-320', category: 'school',
+        title: 'Modul 320',
+        card: 'Lernseite zum Modul 320 (Objektorientiert programmieren): Kompetenzraster, Aufgaben, UML-Diagramme und Quiz.',
+        lead: 'Eine Lernseite zum Modul 320 „Objektorientiert programmieren“: Ein Kompetenzraster führt von Niveau 1 bis 4 durch elf Aufgaben, mit UML-Diagrammen, Lernzielen zum Abhaken und Quiz.',
+        period: 'November 2026', status: 'Live',
+        live: 'https://marlenzhh.github.io/Modul_320/index.html', code: 'https://github.com/marlenzhh/Modul_320', updated: '2026-11-12',
+        about: [
+            'Oben steht das Kompetenzraster mit vier Bereichen: Modellieren (UML), Delegation, Vererbung und Interfaces sowie Qualität und Dokumentation, je mit vier Niveaus. Gearbeitet wird von links nach rechts, von Niveau 1 bis 4. Ein Zähler zeigt, wie viele der elf Aufgaben erledigt sind.',
+            'Die Aufgaben folgen einer festen Reihenfolge: Klassendiagramm mit HAT-Beziehungen, Klassen und Kapselung, Vererbung und Interfaces, Sequenzdiagramm, Delegation, Polymorphismus, eigene Exceptions, Datenstrukturen und zum Schluss ein eigenes Projekt mit UML und Dokumentation.',
+        ],
+        features: [
+            'Kompetenzraster mit vier Bereichen und je vier Niveaus',
+            'Elf Aufgaben in empfohlener Reihenfolge mit Fortschrittszähler',
+            'UML-Diagramme direkt auf der Seite, die sich dem Hell- und Dunkelmodus anpassen',
+            'Lernziele zum Abhaken, der Stand bleibt im Browser gespeichert',
+            'Quiz mit Bestwert pro Aufgabe auf der Übersicht',
+            'Offline verfügbar',
+        ],
+        tech: ['HTML', 'CSS', 'JavaScript', 'Mermaid'],
+        techNotes: [
+            'Reines HTML, CSS und JavaScript ohne Framework',
+            'UML-Diagramme mit Mermaid, Farben je nach Design',
+            'Fortschritt, Lernziele und Quiz-Bestwerte im Browser-Speicher',
+            'Gehostet auf GitHub Pages',
+        ],
+    },
+    {
         slug: 'escape-room', category: 'school',
         title: 'Escape Room',
         card: 'Prototyp eines Point-and-Click-Spiels: ein Haus mit klickbaren Räumen.',
@@ -630,6 +657,27 @@ const ART = {
         <path d="M208 30l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
         <text x="204" y="84" text-anchor="middle" font-family="Nunito, sans-serif" font-size="16" font-weight="900" fill="#ffffff" opacity=".85">?</text>
         <text x="120" y="124" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="700" letter-spacing="-1" fill="#ecebe6">random<tspan fill="#ff8a4c">.</tspan></text>
+    </svg>`,
+    'modul-320': `<svg viewBox="0 0 240 140" aria-hidden="true">
+        <path d="M120 55V72M54 72H186M54 72V86M186 72V86" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M120 55L112.5 67H127.5Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="80" y="14" width="80" height="44" rx="9" fill="#b84408"/>
+        <rect x="80" y="10" width="80" height="44" rx="9" fill="#ffffff"/>
+        <path d="M80 19a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v7H80z" fill="#ffd43b"/>
+        <rect x="91" y="33" width="46" height="4" rx="2" fill="#c3c6d1"/><rect x="91" y="42" width="32" height="4" rx="2" fill="#dfe1e6"/>
+        <rect x="14" y="90" width="80" height="40" rx="9" fill="#b84408"/>
+        <rect x="14" y="86" width="80" height="40" rx="9" fill="#ffffff"/>
+        <path d="M14 95a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v5H14z" fill="#ffc9c9"/>
+        <rect x="25" y="108" width="44" height="4" rx="2" fill="#c3c6d1"/><rect x="25" y="116" width="30" height="4" rx="2" fill="#dfe1e6"/>
+        <rect x="146" y="90" width="80" height="40" rx="9" fill="#b84408"/>
+        <rect x="146" y="86" width="80" height="40" rx="9" fill="#ffffff"/>
+        <path d="M146 95a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v5H146z" fill="#74c0fc"/>
+        <rect x="157" y="108" width="44" height="4" rx="2" fill="#c3c6d1"/><rect x="157" y="116" width="30" height="4" rx="2" fill="#dfe1e6"/>
+        <circle cx="200" cy="30" r="12" fill="#a9e34b"/>
+        <path d="M194 30l4.5 4.5 8-9" fill="none" stroke="#183153" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="181" cy="52" r="6.5" fill="none" stroke="#ffffff" stroke-width="2.4" opacity=".7"/>
+        <path d="M40 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+        <circle cx="30" cy="58" r="3" fill="#ffd43b"/>
     </svg>`,
     'minecraft-creations': `<svg viewBox="0 0 240 140" aria-hidden="true">
         <g transform="rotate(-8 50 52)">

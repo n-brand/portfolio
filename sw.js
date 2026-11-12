@@ -22,6 +22,7 @@ const PRECACHE = [
     './projekte/strategiespiel.html',
     './projekte/minecraft-skin-merger.html',
     './projekte/jarvis-anleitung.html',
+    './projekte/modul-320.html',
     './projekte/escape-room.html',
     './projekte/textbased-game.html',
     './projekte/hofladen-webshop.html',

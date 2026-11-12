@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 320 – Nicolas Brand</title>
+    <meta name="description" content="Eine Lernseite zum Modul 320 „Objektorientiert programmieren“: Ein Kompetenzraster führt von Niveau 1 bis 4 durch elf Aufgaben, mit UML-Diagrammen, Lernzielen zum Abhaken und Quiz.">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta name="theme-color" content="#0d1a2d">
+    <link rel="icon" href="../assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/icons/icon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Nicolas B.">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- --- Sidebar --- -->
+    <aside class="sidebar">
+        <button class="theme-toggle" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <div class="profile">
+            <div class="profile-initials" aria-hidden="true">NB</div>
+            <div class="profile-info">
+                <h1 class="profile-name"><a href="../index.html">Nicolas Brand</a></h1>
+                <p class="profile-headline">Webentwicklung · Websites &amp; Web-Tools</p>
+            </div>
+        </div>
+
+        <p class="profile-bio">Ich baue Websites und kleine Web-Tools – von Community-Seiten bis zu Spielen im Browser.</p>
+
+        <!-- --- Navigation --- -->
+        <nav class="nav-menu" aria-label="Hauptnavigation">
+            <a href="../ueber-mich.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+                <span>Über mich</span>
+            </a>
+            <a href="../index.html#projects" class="nav-link active" data-section="projects">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <span>Projekte</span>
+            </a>
+            <a href="../kontakt.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <span>Kontakt</span>
+            </a>
+        </nav>
+
+        <!-- --- Social Links --- -->
+        <div class="social-links">
+            <a href="https://github.com/n-brand" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                <span>github.com/n-brand</span>
+            </a>
+        </div>
+
+        <!-- --- Footer --- -->
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Nicolas Brand</p>
+        </footer>
+    </aside>
+
+    <!-- --- Main Content --- -->
+    <main class="main-content">
+        <article class="detail">
+            <a href="../index.html#projects" class="back-link">← Alle Projekte</a>
+
+            <!-- --- Detail Art --- -->
+            <div class="detail-art theme-modul-320">
+                <span class="card-badge badge-live">Live</span>
+                <svg viewBox="0 0 240 140" aria-hidden="true">
+                    <path d="M120 55V72M54 72H186M54 72V86M186 72V86" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M120 55L112.5 67H127.5Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                    <rect x="80" y="14" width="80" height="44" rx="9" fill="#b84408"/>
+                    <rect x="80" y="10" width="80" height="44" rx="9" fill="#ffffff"/>
+                    <path d="M80 19a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v7H80z" fill="#ffd43b"/>
+                    <rect x="91" y="33" width="46" height="4" rx="2" fill="#c3c6d1"/><rect x="91" y="42" width="32" height="4" rx="2" fill="#dfe1e6"/>
+                    <rect x="14" y="90" width="80" height="40" rx="9" fill="#b84408"/>
+                    <rect x="14" y="86" width="80" height="40" rx="9" fill="#ffffff"/>
+                    <path d="M14 95a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v5H14z" fill="#ffc9c9"/>
+                    <rect x="25" y="108" width="44" height="4" rx="2" fill="#c3c6d1"/><rect x="25" y="116" width="30" height="4" rx="2" fill="#dfe1e6"/>
+                    <rect x="146" y="90" width="80" height="40" rx="9" fill="#b84408"/>
+                    <rect x="146" y="86" width="80" height="40" rx="9" fill="#ffffff"/>
+                    <path d="M146 95a9 9 0 0 1 9-9h62a9 9 0 0 1 9 9v5H146z" fill="#74c0fc"/>
+                    <rect x="157" y="108" width="44" height="4" rx="2" fill="#c3c6d1"/><rect x="157" y="116" width="30" height="4" rx="2" fill="#dfe1e6"/>
+                    <circle cx="200" cy="30" r="12" fill="#a9e34b"/>
+                    <path d="M194 30l4.5 4.5 8-9" fill="none" stroke="#183153" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="181" cy="52" r="6.5" fill="none" stroke="#ffffff" stroke-width="2.4" opacity=".7"/>
+                    <path d="M40 24l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#ffffff" opacity=".8"/>
+                    <circle cx="30" cy="58" r="3" fill="#ffd43b"/>
+                </svg>
+            </div>
+
+            <!-- --- Detail Header --- -->
+            <header class="detail-header">
+                <span class="project-label">Schulprojekt</span>
+                <h1>Modul 320</h1>
+                <p class="detail-lead">Eine Lernseite zum Modul 320 „Objektorientiert programmieren“: Ein Kompetenzraster führt von Niveau 1 bis 4 durch elf Aufgaben, mit UML-Diagrammen, Lernzielen zum Abhaken und Quiz.</p>
+                <div class="project-links">
+                    <a href="https://marlenzhh.github.io/Modul_320/index.html" target="_blank" rel="noopener" class="project-link primary">Live ansehen</a>
+                    <a href="https://github.com/marlenzhh/Modul_320" target="_blank" rel="noopener" class="project-link">Code</a>
+                </div>
+            </header>
+
+            <!-- --- Detail Meta --- -->
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Zeitraum</span>
+                    November 2026
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    Live
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Stand</span>
+                    12. November 2026
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tech</span>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Mermaid</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --- Detail Body --- -->
+            <div class="detail-body">
+                <section>
+                    <h2>Über das Projekt</h2>
+                    <p>Oben steht das Kompetenzraster mit vier Bereichen: Modellieren (UML), Delegation, Vererbung und Interfaces sowie Qualität und Dokumentation, je mit vier Niveaus. Gearbeitet wird von links nach rechts, von Niveau 1 bis 4. Ein Zähler zeigt, wie viele der elf Aufgaben erledigt sind.</p>
+                    <p>Die Aufgaben folgen einer festen Reihenfolge: Klassendiagramm mit HAT-Beziehungen, Klassen und Kapselung, Vererbung und Interfaces, Sequenzdiagramm, Delegation, Polymorphismus, eigene Exceptions, Datenstrukturen und zum Schluss ein eigenes Projekt mit UML und Dokumentation.</p>
+
+                    <h2>Features</h2>
+                    <ul class="feature-list">
+                        <li>Kompetenzraster mit vier Bereichen und je vier Niveaus</li>
+                        <li>Elf Aufgaben in empfohlener Reihenfolge mit Fortschrittszähler</li>
+                        <li>UML-Diagramme direkt auf der Seite, die sich dem Hell- und Dunkelmodus anpassen</li>
+                        <li>Lernziele zum Abhaken, der Stand bleibt im Browser gespeichert</li>
+                        <li>Quiz mit Bestwert pro Aufgabe auf der Übersicht</li>
+                        <li>Offline verfügbar</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Technik</h2>
+                    <ul class="feature-list">
+                        <li>Reines HTML, CSS und JavaScript ohne Framework</li>
+                        <li>UML-Diagramme mit Mermaid, Farben je nach Design</li>
+                        <li>Fortschritt, Lernziele und Quiz-Bestwerte im Browser-Speicher</li>
+                        <li>Gehostet auf GitHub Pages</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- --- Pager --- -->
+            <nav class="detail-pager" aria-label="Weitere Projekte">
+                <a href="jarvis-anleitung.html" class="pager-link prev"><span class="meta-label">← Vorheriges Projekt</span>JARVIS-Anleitung</a>
+                <a href="escape-room.html" class="pager-link next"><span class="meta-label">Nächstes Projekt →</span>Escape Room</a>
+            </nav>
+        </article>
+    </main>
+</div>
+
+<script src="../javascript/main.js"></script>
+</body>
+</html>

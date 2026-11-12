@@ -662,6 +662,14 @@ h2 {
     --card-ring: rgba(255, 255, 255, 0.18);
 }
 
+.theme-modul-320 {
+    --card-bg: #e8590c;
+    --card-text: #ffffff;
+    --card-muted: #ffe8cc;
+    --card-shade: #b84408;
+    --card-link: #ffec99;
+}
+
 .theme-escape-room {
     --card-bg: #f7e6c4;
     --card-text: #3b2412;
